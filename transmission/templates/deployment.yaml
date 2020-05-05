@@ -55,7 +55,7 @@ spec:
         - name: TRANSMISSION_PORT_FORWARDING_ENABLED
           value: "true"
         - name: TRANSMISSION_PEER_PORT
-          value: "14223"
+          value: "{{ .Values.port }}"
         - name: TRANSMISSION_SPEED_LIMIT_UP
           value: "2000"
         - name: TRANSMISSION_SPEED_LIMIT_UP_ENABLED
