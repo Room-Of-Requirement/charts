@@ -1,0 +1,100 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+      - image: haugene/transmission-openvpn:latest
+        imagePullPolicy: IfNotPresent
+        name: transmission
+        resources:
+          requests:
+            cpu: "150m"
+        securityContext:
+          privileged: true
+          capabilities:
+            add:
+              - NET_ADMIN
+        ports:
+        - containerPort: 9091
+          name: http
+        livenessProbe:
+          exec:
+            command:
+            - /etc/scripts/healthcheck.sh
+          initialDelaySeconds: 60
+          periodSeconds: 15
+        env:
+        # https://github.com/transmission/transmission/wiki/Editing-Configuration-Files
+        - name: OPENVPN_PROVIDER
+          value: CUSTOM
+        - name: OPENVPN_USERNAME
+          value: "{{ .Values.mullvad }}"
+        - name: OPENVPN_PASSWORD
+          value: m
+        - name: OPENVPN_OPTS
+          value: "--mssfix 1450 --mute-replay-warnings" 
+        - name: LOCAL_NETWORK
+          value: "10.0.0.0/16"
+        - name: WEBPROXY_ENABLED
+          value: "false"
+        - name: TRANSMISSION_WEB_UI
+          value: kettu
+        - name: TRANSMISSION_PORT_FORWARDING_ENABLED
+          value: "true"
+        - name: TRANSMISSION_PEER_PORT
+          value: "14223"
+        - name: TRANSMISSION_SPEED_LIMIT_UP
+          value: "2000"
+        - name: TRANSMISSION_SPEED_LIMIT_UP_ENABLED
+          value: "true"
+        - name: TRANSMISSION_DOWNLOAD_QUEUE_ENABLED
+          value: "false"
+        - name: TRANSMISSION_QUEUE_STALLED_ENABLED
+          value: "false"
+        - name: TRANSMISSION_SEED_QUEUE_ENABLED
+          value: "false"
+        - name: TRANSMISSION_PREALLOCATION
+          value: "2"
+        - name: TRANSMISSION_PEER_SOCKET_TOS
+          value: "lowcost"
+        - name: TRANSMISSION_ENCRYPTION
+          value: "2"
+        volumeMounts:
+        - mountPath: /data
+          name: torrents
+        - mountPath: /etc/localtime
+          name: localtime
+          readOnly: true
+        - mountPath: /etc/openvpn/custom/
+          name: ovpn
+      restartPolicy: Always
+      volumes:
+      - name: torrents
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-data-pvc
+      - name: localtime
+        hostPath:
+          path: /etc/localtime
+      - name: ovpn
+        configMap:
+          name: {{ .Release.Name }}-ovpn-file
+      {{- if or .Values.node }}
+      nodeName: {{ .Values.node }}
+      {{- end }}
+      {{- if .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+      {{- end }}
