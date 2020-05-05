@@ -17,17 +17,59 @@ spec:
     spec:
       hostNetwork: true
       containers:
-        - name: {{ .Chart.Name }}
-          image: jmmaloney4/roon:latest
-          volumeMounts:
-          - mountPath: /var/roon/
-            name: data
-          - mountPath: /music/
-            name: music
+      - name: {{ .Chart.Name }}
+        image: jmmaloney4/roon:latest
+        volumeMounts:
+        - mountPath: /var/roon/
+          name: config
+        - mountPath: /music/
+          name: music
       volumes:
-      - name: data
-        hostPath:
-          path: {{ .Values.dataPath }}
+      - name: config
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-config-pvc
       - name: music
-        hostPath:
-          path: {{ .Values.musicPath }}
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-music-pvc
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-config-pvc
+  labels:
+    app: {{ .Chart.Name }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: longhorn
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-music-pvc
+  labels:
+    app: {{ .Chart.Name }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 20Gi
+  storageClassName: longhorn
+
+      # initContainers:
+      #   - name: init-music
+      #     image: busybox:latest
+      #     command: ['sh', '-c', 'curl https://p4.bcbits.com/download/album/176c05746e1ab170bde5f8d72ed0e62ee/flac/2755091373?fsig=14ea5a2d120e08f3800d391fce641c46&id=2755091373&ts=1588614893.2989114770&token=1589219692_d8735f8eea5963861a00b6359f340732e2ae156f | unzip -d /music/']
+      #     volumeMounts:
+      #     - mountPath: /music/
+      #       name: music
