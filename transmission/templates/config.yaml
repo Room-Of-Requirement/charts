@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-ovpn-file
   labels:
-    app: {{ .Chart.Name }}
+    app: {{ .Release.Name }}
 data:
   default.ovpn: |
     client
