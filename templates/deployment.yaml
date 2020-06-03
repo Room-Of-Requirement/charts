@@ -44,8 +44,29 @@ spec:
           #   httpGet:
           #     path: /
           #     port: http
+          
+          volumeMounts:
+          {{- if .Values.persistence.config.enabled }}
+          - mountPath: /var/roon/
+            name: config
+          {{- end }}
+          {{- if .Values.persistence.music.enabled }}
+          - mountPath: /music/
+            name: music
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+      {{- if .Values.persistence.config.enabled }}
+      - name: config
+        persistentVolumeClaim:
+          claimName: {{ default (include "roon.pvc.config" .) .Values.persistence.config.existingClaim }} 
+      {{- end }}
+      {{- if .Values.persistence.music.enabled }}
+      - name: music
+        persistentVolumeClaim:
+          claimName: {{ default (include "roon.pvc.music" .) .Values.persistence.music.existingClaim }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

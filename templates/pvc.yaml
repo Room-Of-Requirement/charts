@@ -6,7 +6,7 @@ metadata:
   annotations:
 {{ toYaml .Values.persistence.config.annotations | indent 4 }}
 {{- end }}
-  name: {{ include "roon.fullname" . }}-config
+  name: {{ include "roon.pvc.config" . }}
   namespace: {{ .Release.namespace }}
   labels:
     "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
@@ -35,7 +35,7 @@ metadata:
   annotations:
 {{ toYaml .Values.persistence.music.annotations | indent 4 }}
 {{- end }}
-  name: {{ include "roon.fullname" . }}-music
+  name: {{ include "roon.pvc.music" . }}
   namespace: {{ .Release.namespace }}
   labels:
     "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"

@@ -61,3 +61,9 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+PVC Names
+*/}}
+{{- define "roon.pvc.config" -}}{{ include "roon.fullname" . }}-config{{- end }}
+{{- define "roon.pvc.music" -}}{{ include "roon.fullname" . }}-music{{- end }}
