@@ -11,14 +11,23 @@ image:
   tag: "latest"
 
 persistence:
-  enabled: false
-  storageClass: "-"
-  size: "8Gi"
-  accessModes:
-    - ReadWriteOnce
-  annotations: {} # "helm.sh/resource-policy": keep
-  # Uncomment to use an existing pvc
-  # existingClaim:
+  config:
+    enabled: true
+    storageClass: "rook-ceph-block"
+    size: "8Gi"
+    accessMode: ReadWriteOnce
+    annotations: 
+      "helm.sh/resource-policy": keep
+    # Uncomment to use an existing pvc
+    # existingClaim:
+  music:
+    enabled: false
+    storageClass: "-"
+    size: "8Gi"
+    accessMode: ReadWriteOnce
+    annotations: {} # "helm.sh/resource-policy": keep
+    # Uncomment to use an existing pvc
+    # existingClaim:
 
 imagePullSecrets: []
 nameOverride: ""
