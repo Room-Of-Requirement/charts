@@ -1,8 +1,8 @@
 # Based on https://github.com/mikedickey/RoonServer
-FROM debian:stretch-slim
+FROM ubuntu:focal
 
 RUN apt-get update \
-	&& apt-get install -y ffmpeg libav-tools curl bzip2 cifs-utils libasound2 \
+	&& apt-get install -y ffmpeg curl bzip2 cifs-utils libasound2 \
 	&& apt-get -y clean && apt-get -y autoclean
 
 ENV ROON_DATAROOT=/var/roon/
@@ -11,6 +11,7 @@ ENV ROON_ID_DIR /var/roon/
 # Location of Roon's latest Linux installer
 ENV ROON_INSTALLER roonserver-installer-linuxx64.sh
 ENV ROON_INSTALLER_URL http://download.roonlabs.com/builds/${ROON_INSTALLER}
+# ENV MONO_LOG_LEVEL=debug
 
 # Grab installer and script to run it
 ADD ${ROON_INSTALLER_URL} /tmp
