@@ -29,8 +29,12 @@ spec:
       serviceAccountName: {{ include "roon.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      tolerations:
+      - key: "node.kubernetes.io/disk-pressure"
+        operator: "Exists"
+        effect: "NoSchedule"
       containers:
-        - name: {{ .Chart.Name }}
+        - name: roon
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -55,17 +59,32 @@ spec:
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      initContainers:
+        - name: minio
+          image: minio/mc:latest
+          args: ["-C", "/config/", "mirror", "minio/music/", "/music/"]
+          volumeMounts:
+          - mountPath: /config/config.json
+            name: minio-config
+            subPath: config.json
+          - mountPath: /music/
+            name: music
       volumes:
       {{- if .Values.persistence.config.enabled }}
       - name: config
-        persistentVolumeClaim:
-          claimName: {{ default (include "roon.pvc.config" .) .Values.persistence.config.existingClaim }} 
+        # persistentVolumeClaim:
+        #   claimName: {{ default (include "roon.pvc.config" .) .Values.persistence.config.existingClaim }} 
+        hostPath:
+          path: "/var/roon/"
       {{- end }}
       {{- if .Values.persistence.music.enabled }}
       - name: music
         persistentVolumeClaim:
           claimName: {{ default (include "roon.pvc.music" .) .Values.persistence.music.existingClaim }}
       {{- end }}
+      - name: minio-config
+        configMap:
+          name: minio-client-config
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

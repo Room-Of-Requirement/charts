@@ -21,11 +21,12 @@ persistence:
     # Uncomment to use an existing pvc
     # existingClaim:
   music:
-    enabled: false
-    storageClass: "-"
-    size: "8Gi"
+    enabled: true
+    storageClass: "rook-ceph-block"
+    size: "50Gi"
     accessMode: ReadWriteOnce
-    annotations: {} # "helm.sh/resource-policy": keep
+    annotations:
+      "helm.sh/resource-policy": keep
     # Uncomment to use an existing pvc
     # existingClaim:
 
@@ -64,8 +65,8 @@ resources: # {}
   #   cpu: 100m
   #   memory: 128Mi
   requests:
-    cpu: "1500m"
-    memory: "2Gi"
+    cpu: "2500m"
+    memory: "3Gi"
 
 autoscaling:
   enabled: false
