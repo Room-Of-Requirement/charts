@@ -11,7 +11,7 @@ ENV ROON_ID_DIR /var/roon/
 # Location of Roon's latest Linux installer
 ENV ROON_INSTALLER roonserver-installer-linuxx64.sh
 ENV ROON_INSTALLER_URL http://download.roonlabs.com/builds/${ROON_INSTALLER}
-ENV MONO_LOG_LEVEL=debug
+# ENV MONO_LOG_LEVEL=debug
 
 # Grab installer and script to run it
 ADD ${ROON_INSTALLER_URL} /tmp

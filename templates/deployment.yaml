@@ -59,10 +59,9 @@ spec:
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      initContainers:
         - name: minio
           image: minio/mc:latest
-          args: ["-C", "/config/", "mirror", "minio/music/", "/music/"]
+          args: ["-C", "/config/", "mirror", "--watch", "--overwrite", "minio/music/", "/music/"]
           volumeMounts:
           - mountPath: /config/config.json
             name: minio-config
