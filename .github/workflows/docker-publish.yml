@@ -9,7 +9,6 @@ on:
 
 env:
   IMAGE_NAME: roon
-  VERSION: $(date +"%m-%d-%y")
 
 jobs:
   # Push image to GitHub Packages.
@@ -31,7 +30,7 @@ jobs:
         run: |
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
 
-          docker tag $IMAGE_NAME:$VERSION $IMAGE_ID:$VERSION
+          docker tag $IMAGE_NAME:$(date +"%m-%d-%y") $IMAGE_ID:$(date +"%m-%d-%y")
           docker tag $IMAGE_NAME:latest $IMAGE_ID:latest
-          docker push $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$(date +"%m-%d-%y")
           docker push $IMAGE_ID:latest
