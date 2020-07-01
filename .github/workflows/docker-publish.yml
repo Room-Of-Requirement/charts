@@ -9,7 +9,7 @@ on:
 
 env:
   IMAGE_NAME: roon
-  VERSION: "$(date +"%m-%d-%y")"
+  VERSION: $(date +"%m-%d-%y")
 
 jobs:
   # Push image to GitHub Packages.
