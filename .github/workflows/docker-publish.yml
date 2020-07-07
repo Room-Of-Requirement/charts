@@ -19,12 +19,12 @@ jobs:
       
       - name: Generate date tag
         shell: bash
-        run: date +\"%m-%d-%y\"
+        run: echo ::set-output name=date::$(date +\"%m-%d-%y\")
         id: gen_date
         
       - name: Print slug variables
         run: |
-          echo ${{ steps.gen_date.output }}
+          echo ${{ steps.gen_date.outputs.date }}
           echo $(date +\"%m-%d-%y\")
         
       - name: Build and push Docker images
@@ -33,5 +33,5 @@ jobs:
           username: jmmaloney4
           password: ${{ secrets.DOCKER_HUB_PAT }}
           repository: jmmaloney4/roon
-          tags: ${{ steps.gen_date.output }}, latest
+          tags: ${{ steps.gen_date.outputs.date }}, latest
           path: image/
