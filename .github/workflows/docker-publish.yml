@@ -19,17 +19,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build image
-        run: cd image && docker build . --file Dockerfile --tag $IMAGE_NAME:$(date +"%m-%d-%y") --tag $IMAGE_NAME:latest
-
-      - name: Log into registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
-
-      - name: Push image
-        run: |
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-
-          docker tag $IMAGE_NAME:$(date +"%m-%d-%y") $IMAGE_ID:$(date +"%m-%d-%y")
-          docker tag $IMAGE_NAME:latest $IMAGE_ID:latest
-          docker push $IMAGE_ID:$(date +"%m-%d-%y")
-          docker push $IMAGE_ID:latest
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v1.1.0
+        with:
+          username: jmmaloney4
+          password: ${{ secrets.DOCKER_HUB_PAT }}
+          repository: jmmaloney4/roon
+          tags: $(date +"%m-%d-%y"), latest
+          path: image/
