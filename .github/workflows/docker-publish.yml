@@ -19,7 +19,7 @@ jobs:
       
       - name: Generate date tag
         shell: bash
-        run: echo ::set-output name=date::$(date +\"%m-%d-%y\")
+        run: echo ::set-output name=date::$(date %m-%d-%y)
         id: gen_date
         
       - name: Print slug variables
