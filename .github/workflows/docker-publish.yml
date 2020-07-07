@@ -19,7 +19,7 @@ jobs:
       
       - name: Generate date tag
         shell: bash
-        run: echo ::set-output name=date::$(date %m-%d-%y)
+        run: echo \'::set-output name=date::$(date %m-%d-%y)\'
         id: gen_date
         
       - name: Print slug variables
@@ -33,5 +33,5 @@ jobs:
           username: jmmaloney4
           password: ${{ secrets.DOCKER_HUB_PAT }}
           repository: jmmaloney4/roon
-          tags: 'latest, ${{steps.gen_date.outputs.date}}'
+          tags: latest, ${{github.job}}
           path: image/
