@@ -33,5 +33,5 @@ jobs:
           username: jmmaloney4
           password: ${{ secrets.DOCKER_HUB_PAT }}
           repository: jmmaloney4/roon
-          tags: latest
+          tags: ${{format("{0}", steps.gen_date.outputs.date)}} latest
           path: image/
