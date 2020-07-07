@@ -23,5 +23,5 @@ jobs:
           username: jmmaloney4
           password: ${{ secrets.DOCKER_HUB_PAT }}
           repository: jmmaloney4/roon
-          tags: latest, ${{github.job}}
+          tags: latest, ${{github.run_number}}
           path: image/
