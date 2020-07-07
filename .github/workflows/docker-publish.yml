@@ -22,6 +22,11 @@ jobs:
         run: echo "##[set-output name=date;]$(date +\"%m-%d-%y\")"
         id: gen_date
         
+      - name: Print slug variables
+        run: |
+          echo ${{ steps.gen_date.outputs.date }}
+          echo $(date +\"%m-%d-%y\")
+        
       - name: Build and push Docker images
         uses: docker/build-push-action@v1.1.0
         with:
