@@ -1,0 +1,98 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "roon.fullname" . }}
+  namespace: {{ .Release.namespace }}
+  labels:
+    {{- include "roon.labels" . | nindent 4 }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector:
+    matchLabels:
+      {{- include "roon.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        {{- include "roon.selectorLabels" . | nindent 8 }}
+    spec:
+      hostNetwork: true
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "roon.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      tolerations:
+      - key: "node.kubernetes.io/disk-pressure"
+        operator: "Exists"
+        effect: "NoSchedule"
+      containers:
+        - name: roon
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          # TODO
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          volumeMounts:
+          {{- if .Values.persistence.config.enabled }}
+          - mountPath: /var/roon/
+            name: config
+          {{- end }}
+          {{- if .Values.persistence.music.enabled }}
+          - mountPath: /music/
+            name: music
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+        - name: minio
+          image: minio/mc:latest
+          args: ["-C", "/config/", "mirror", "--watch", "--overwrite", "minio/music/", "/music/"]
+          volumeMounts:
+          - mountPath: /config/config.json
+            name: minio-config
+            subPath: config.json
+          - mountPath: /music/
+            name: music
+      volumes:
+      {{- if .Values.persistence.config.enabled }}
+      - name: config
+        # persistentVolumeClaim:
+        #   claimName: {{ default (include "roon.pvc.config" .) .Values.persistence.config.existingClaim }} 
+        hostPath:
+          path: "/var/roon/"
+      {{- end }}
+      {{- if .Values.persistence.music.enabled }}
+      - name: music
+        persistentVolumeClaim:
+          claimName: {{ default (include "roon.pvc.music" .) .Values.persistence.music.existingClaim }}
+      {{- end }}
+      - name: minio-config
+        configMap:
+          name: minio-client-config
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

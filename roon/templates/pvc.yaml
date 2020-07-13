@@ -1,0 +1,55 @@
+{{- if and .Values.persistence.config.enabled (not .Values.persistence.config.existingClaim) -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+{{- if .Values.persistence.config.annotations }}
+  annotations:
+{{ toYaml .Values.persistence.config.annotations | indent 4 }}
+{{- end }}
+  name: {{ include "roon.pvc.config" . }}
+  namespace: {{ .Release.namespace }}
+  labels:
+    "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
+spec:
+  accessModes:
+    - {{ .Values.persistence.config.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.config.size | quote }}
+{{- if .Values.persistence.config.storageClass }}
+{{- if (eq "-" .Values.persistence.config.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.config.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end }}
+
+---
+
+{{- if and .Values.persistence.music.enabled (not .Values.persistence.music.existingClaim) -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+{{- if .Values.persistence.music.annotations }}
+  annotations:
+{{ toYaml .Values.persistence.music.annotations | indent 4 }}
+{{- end }}
+  name: {{ include "roon.pvc.music" . }}
+  namespace: {{ .Release.namespace }}
+  labels:
+    "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
+spec:
+  accessModes:
+    - {{ .Values.persistence.music.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.music.size | quote }}
+{{- if .Values.persistence.music.storageClass }}
+{{- if (eq "-" .Values.persistence.music.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.music.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end }}
