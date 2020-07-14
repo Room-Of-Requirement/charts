@@ -21,6 +21,7 @@ spec:
         resources:
           requests:
             cpu: "500m"
+            memory: 1024Mi
         securityContext:
           privileged: true
           capabilities:
@@ -51,14 +52,7 @@ spec:
           value: "false"
         - name: TRANSMISSION_WEB_UI
           value: kettu
-        - name: TRANSMISSION_PORT_FORWARDING_ENABLED
-          value: "true"
-        - name: TRANSMISSION_PEER_PORT
-          value: "{{ .Values.port }}"
-        - name: TRANSMISSION_SPEED_LIMIT_UP
-          value: "2000"
-        - name: TRANSMISSION_SPEED_LIMIT_UP_ENABLED
-          value: "true"
+
         - name: TRANSMISSION_DOWNLOAD_QUEUE_ENABLED
           value: "false"
         - name: TRANSMISSION_QUEUE_STALLED_ENABLED
@@ -68,11 +62,38 @@ spec:
         - name: TRANSMISSION_PREALLOCATION
           value: "1"
         - name: TRANSMISSION_PEER_SOCKET_TOS
-          value: "lowcost"
+          value: "{{ .Values.transmission.peer_socket_tos }}"
         - name: TRANSMISSION_ENCRYPTION
           value: "2"
         - name: TRANSMISSION_INCOMPLETE_DIR_ENABLED
           value: "true"
+        - name: TRANSMISSION_DHT_ENABLED
+          value: "{{ .Values.transmission.dht_enabled }}"
+        - name: TRANSMISSION_PEX_ENABLED
+          value: "{{ .Values.transmission.pex_enabled }}"
+        - name: TRANSMISSION_LPD_ENABLED
+          value: "{{ .Values.transmission.lpd_enabled }}"
+        - name: TRANSMISSION_UTP_ENABLED
+          value: "{{ .Values.transmission.utp_enabled }}"
+        - name: TRANSMISSION_PORT_FORWARDING_ENABLED
+          value: "true"
+        - name: TRANSMISSION_PEER_PORT
+          value: "{{ .Values.transmission.peer_port }}"
+        
+        {{- if .Values.transmission.speed_limit_up }}
+        - name: TRANSMISSION_SPEED_LIMIT_UP
+          value: {{ .Values.transmission.speed_limit_up | quote }}
+        - name: TRANSMISSION_SPEED_LIMIT_UP_ENABLED
+          value: "true"
+        {{- end }}
+
+        {{- if .Values.transmission.speed_limit_down }}
+        - name: TRANSMISSION_SPEED_LIMIT_DOWN
+          value: {{ .Values.transmission.speed_limit_down | quote }}
+        - name: TRANSMISSION_SPEED_LIMIT_DOWN_ENABLED
+          value: "true"
+        {{- end }}
+
         volumeMounts:
         - mountPath: /data
           name: torrents
@@ -81,6 +102,18 @@ spec:
           readOnly: true
         - mountPath: /etc/openvpn/custom/
           name: ovpn
+      {{- if .Values.minio.enabled }}
+      - image: minio/mc:latest
+        name: minio
+        args: ["mirror", "--watch", "--overwrite", "--exclude", "*.part", "/data/completed/", "minio/{{ .Values.minio.bucket }}/"]
+        volumeMounts:
+        - mountPath: /data
+          name: torrents
+          readOnly: true
+        - mountPath: /root/.mc/config.json
+          name: mc-config
+          subPath: config.json
+      {{- end}}
       restartPolicy: Always
       volumes:
       - name: torrents
@@ -92,6 +125,11 @@ spec:
       - name: ovpn
         configMap:
           name: {{ .Release.Name }}-ovpn-file
+      {{- if .Values.minio.enabled }}
+      - name: mc-config
+        configMap:
+          name: {{ .Release.Name }}-mc-config
+      {{- end}}
       {{- if or .Values.node }}
       nodeName: {{ .Values.node }}
       {{- end }}

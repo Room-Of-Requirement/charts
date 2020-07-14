@@ -3,8 +3,7 @@
 # Declare variables to be passed into your templates.
 
 service:
-  type: NodePort
-  nodePort: 30007
+  type: LoadBalancer
 
 ## Persist data to a persistent volume
 persistence:
@@ -13,5 +12,17 @@ persistence:
   size: 50Gi
   annotations: 
     "helm.sh/resource-policy": keep
-  storageClass: longhorn
+  storageClass: rook-ceph-block
 
+transmission:
+  dht_enabled: true
+  pex_enabled: true
+  utp_enabled: true
+  lpd_enabled: false
+  peer_socket_tos: "lowcost"
+  peer_port: 51413
+  speed_limit_up: 5000
+  speed_limit_down: 15000
+
+minio:
+  enabled: false

@@ -1,0 +1,23 @@
+{{- if .Values.minio.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-mc-config
+  labels:
+    app: {{ .Release.Name }}
+data:
+  config.json: |
+    {
+      "version": "9",
+      "hosts": {
+        "minio": {
+          "url": "http://192.168.1.69:30004",
+          "accessKey": "{{ .Values.minio.accessKey }}",
+          "secretKey": "{{ .Values.minio.secretKey }}",
+          "api": "s3v4",
+          "lookup": "auto"
+        }
+      }
+    }
+
+{{- end}}
