@@ -47,7 +47,7 @@ spec:
         - name: OPENVPN_OPTS
           value: "--mssfix 1450 --mute-replay-warnings" 
         - name: LOCAL_NETWORK
-          value: "192.168.0.0/16"
+          value: "10.0.0.0/8,192.168.1.0/24"
         - name: WEBPROXY_ENABLED
           value: "false"
         - name: TRANSMISSION_WEB_UI
@@ -101,19 +101,7 @@ spec:
           name: localtime
           readOnly: true
         - mountPath: /etc/openvpn/custom/
-          name: ovpn
-      {{- if .Values.minio.enabled }}
-      - image: minio/mc:latest
-        name: minio
-        args: ["mirror", "--watch", "--overwrite", "--exclude", "*.part", "/data/completed/", "minio/{{ .Values.minio.bucket }}/"]
-        volumeMounts:
-        - mountPath: /data
-          name: torrents
-          readOnly: true
-        - mountPath: /root/.mc/config.json
-          name: mc-config
-          subPath: config.json
-      {{- end}}
+          name: ovpn      
       restartPolicy: Always
       volumes:
       - name: torrents
@@ -125,11 +113,3 @@ spec:
       - name: ovpn
         configMap:
           name: {{ .Release.Name }}-ovpn-file
-      {{- if .Values.minio.enabled }}
-      - name: mc-config
-        configMap:
-          name: {{ .Release.Name }}-mc-config
-      {{- end}}
-      {{- if or .Values.node }}
-      nodeName: {{ .Values.node }}
-      {{- end }}

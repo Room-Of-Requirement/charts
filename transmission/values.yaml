@@ -8,11 +8,11 @@ service:
 ## Persist data to a persistent volume
 persistence:
   enabled: true
-  accessMode: ReadWriteOnce
+  accessMode: ReadWriteMany
   size: 50Gi
   annotations: 
     "helm.sh/resource-policy": keep
-  storageClass: rook-ceph-block
+  storageClass: "rook-cephfs"
 
 transmission:
   dht_enabled: true
@@ -26,3 +26,7 @@ transmission:
 
 minio:
   enabled: false
+  url: ""
+  accessKey: ""
+  secretKey: ""
+  bucket: ""

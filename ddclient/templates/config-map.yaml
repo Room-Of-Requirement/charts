@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+metadata:
+  name: {{ include "ddclient.fullname" . }}-config
+  labels:
+    {{- include "ddclient.labels" . | nindent 4 }}
+data:
+  ddclient.conf: |
+    daemon=600
+    syslog=yes
+    ssl=yes
+    use=web
+    web=dynamicdns.park-your-domain.com/getip
+    protocol=namecheap
+    server=dynamicdns.park-your-domain.com
+    
+    login=roomofrequirement.xyz
+    password=c04e7f4af718415aa454b768ea3702e5
+    @, *

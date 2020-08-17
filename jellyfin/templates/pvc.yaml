@@ -1,0 +1,59 @@
+{{- if and .Values.persistence.config.enabled (not .Values.persistence.config.existingClaim) -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+{{- if .Values.persistence.config.annotations }}
+  annotations:
+{{ toYaml .Values.persistence.config.annotations | indent 4 }}
+{{- end }}
+  name: {{ template "jellyfin.fullname" . }}-media-pvc
+  labels:
+    "app.kubernetes.io/name": '{{ template "jellyfin.name" .}}'
+    "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    "app.kubernetes.io/managed-by": "{{ .Release.Service }}"
+    "app.kubernetes.io/instance": "{{ .Release.Name }}"
+spec:
+  accessModes:
+    - {{ .Values.persistence.config.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.config.size | quote }}
+{{- if .Values.persistence.config.storageClass }}
+{{- if (eq "-" .Values.persistence.config.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.config.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end }}
+
+---
+
+{{- if and .Values.persistence.media.enabled (not .Values.persistence.media.existingClaim) -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+{{- if .Values.persistence.media.annotations }}
+  annotations:
+{{ toYaml .Values.persistence.media.annotations | indent 4 }}
+{{- end }}
+  name: {{ template "jellyfin.fullname" . }}-config-pvc
+  labels:
+    "app.kubernetes.io/name": '{{ template "jellyfin.name" .}}'
+    "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    "app.kubernetes.io/managed-by": "{{ .Release.Service }}"
+    "app.kubernetes.io/instance": "{{ .Release.Name }}"
+spec:
+  accessModes:
+    - {{ .Values.persistence.media.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.media.size | quote }}
+{{- if .Values.persistence.media.storageClass }}
+{{- if (eq "-" .Values.persistence.media.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.media.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end }}

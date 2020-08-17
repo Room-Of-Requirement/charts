@@ -1,34 +1,22 @@
-# Default values for Roon.
+# Default values for ddclient.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+
+daemon: 600
+hosts:
+  - login: example.com
+    password: secret
+    records:
+      - "@"
+      - "*"
 
 replicaCount: 1
 
 image:
-  repository: jmmaloney4/roon
-  # pullPolicy: Always
+  repository: linuxserver/ddclient
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
-
-persistence:
-  config:
-    enabled: true
-    storageClass: "rook-ceph-block"
-    size: "8Gi"
-    accessMode: ReadWriteOnce
-    annotations: 
-      "helm.sh/resource-policy": keep
-    # Uncomment to use an existing pvc
-    # existingClaim:
-  music:
-    enabled: true
-    storageClass: "rook-ceph-block"
-    size: "50Gi"
-    accessMode: ReadWriteOnce
-    annotations:
-      "helm.sh/resource-policy": keep
-    # Uncomment to use an existing pvc
-    # existingClaim:
 
 imagePullSecrets: []
 nameOverride: ""
@@ -56,7 +44,7 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-resources: # {}
+resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -64,22 +52,12 @@ resources: # {}
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
-  requests:
-    cpu: "2500m"
-    memory: "3Gi"
-
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
 
 nodeSelector: {}
 
 tolerations: []
 
 affinity: {}
-
-minio:
-  enabled: false

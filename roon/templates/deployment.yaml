@@ -58,7 +58,8 @@ spec:
             name: music
           {{- end }}
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+{{- toYaml .Values.resources | nindent 12 }}
+{{- if .Values.minio.enabled }}
         - name: minio
           image: minio/mc:latest
           args: ["-C", "/config/", "mirror", "--watch", "--overwrite", "minio/music/", "/music/"]
@@ -68,6 +69,7 @@ spec:
             subPath: config.json
           - mountPath: /music/
             name: music
+{{- end }}
       volumes:
       {{- if .Values.persistence.config.enabled }}
       - name: config
