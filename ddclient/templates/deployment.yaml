@@ -5,51 +5,55 @@ metadata:
   labels:
     {{- include "ddclient.labels" . | nindent 4 }}
 spec:
-{{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-{{- end }}
+  replicas: 1
   selector:
     matchLabels:
-      {{- include "ddclient.selectorLabels" . | nindent 6 }}
+{{- include "ddclient.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-    {{- with .Values.podAnnotations }}
+{{- with .Values.podAnnotations }}
       annotations:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
+{{- toYaml . | nindent 8 }}
+{{- end }}
       labels:
-        {{- include "ddclient.selectorLabels" . | nindent 8 }}
+{{- include "ddclient.selectorLabels" . | nindent 8 }}
+    # Start of the pod spec
     spec:
-      {{- with .Values.imagePullSecrets }}
+{{- with .Values.imagePullSecrets }}
       imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+{{- toYaml . | nindent 8 }}
+{{- end }}
       serviceAccountName: {{ include "ddclient.serviceAccountName" . }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+{{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+{{ $image := .Values.image }}
+# One container per host
+{{- range .Values.hosts }}
+        - name: {{ include "ddclient.login" . }}
+          image: {{ $image }}
+          imagePullPolicy: IfNotPresent
           volumeMounts:
-          - mountPath: /config/
-            name: config
           - mountPath: /config/ddclient.conf
-            name: ddclient-conf
-            subPath: ddclient.conf
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-      {{- with .Values.nodeSelector }}
+            name: config
+            subPath: ddclient-{{ include "ddclient.login" . }}.conf
+{{- end}}
+{{- with .Values.nodeSelector }}
       nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.affinity }}
+{{- toYaml . | nindent 8 }}
+{{- end }}
+
+{{- with .Values.affinity }}
       affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.tolerations }}
+{{- toYaml . | nindent 8 }}
+{{- end }}
+
+{{- with .Values.tolerations }}
       tolerations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+{{- toYaml . | nindent 8 }}
+{{- end }}
+      volumes:
+      - name: config
+        configMap:
+          name: {{ include "ddclient.fullname" . }}-config

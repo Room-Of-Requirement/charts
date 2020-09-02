@@ -6,9 +6,7 @@ metadata:
   labels:
     {{- include "roon.labels" . | nindent 4 }}
 spec:
-{{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-{{- end }}
   selector:
     matchLabels:
       {{- include "roon.selectorLabels" . | nindent 6 }}
@@ -73,10 +71,8 @@ spec:
       volumes:
       {{- if .Values.persistence.config.enabled }}
       - name: config
-        # persistentVolumeClaim:
-        #   claimName: {{ default (include "roon.pvc.config" .) .Values.persistence.config.existingClaim }} 
-        hostPath:
-          path: "/var/roon/"
+        persistentVolumeClaim:
+          claimName: {{ default (include "roon.pvc.config" .) .Values.persistence.config.existingClaim }}
       {{- end }}
       {{- if .Values.persistence.music.enabled }}
       - name: music

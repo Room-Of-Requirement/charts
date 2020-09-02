@@ -1,3 +1,4 @@
+{{ $defaultRecords := .Values._defaultRecords }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -6,7 +7,8 @@ metadata:
   labels:
     {{- include "ddclient.labels" . | nindent 4 }}
 data:
-  ddclient.conf: |
+{{- range .Values.hosts }}
+  ddclient-{{ include "ddclient.login" . }}.conf: |
     daemon=600
     syslog=yes
     ssl=yes
@@ -15,6 +17,7 @@ data:
     protocol=namecheap
     server=dynamicdns.park-your-domain.com
     
-    login=roomofrequirement.xyz
-    password=c04e7f4af718415aa454b768ea3702e5
-    @, *
+    login={{ .login }}
+    password={{ .password }}
+    {{ range (.records | default $defaultRecords) }}{{ . }},{{ end }}
+{{- end}}

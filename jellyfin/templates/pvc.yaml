@@ -6,7 +6,7 @@ metadata:
   annotations:
 {{ toYaml .Values.persistence.config.annotations | indent 4 }}
 {{- end }}
-  name: {{ template "jellyfin.fullname" . }}-media-pvc
+  name: {{ template "jellyfin.fullname" . }}-config-pvc
   labels:
     "app.kubernetes.io/name": '{{ template "jellyfin.name" .}}'
     "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
@@ -37,7 +37,7 @@ metadata:
   annotations:
 {{ toYaml .Values.persistence.media.annotations | indent 4 }}
 {{- end }}
-  name: {{ template "jellyfin.fullname" . }}-config-pvc
+  name: {{ template "jellyfin.fullname" . }}-media-pvc
   labels:
     "app.kubernetes.io/name": '{{ template "jellyfin.name" .}}'
     "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"

@@ -4,6 +4,7 @@
 
 service:
   type: LoadBalancer
+  annotations: {}
 
 ## Persist data to a persistent volume
 persistence:

@@ -7,8 +7,8 @@ metadata:
 data:
   config.json: |
     {
-      "version": "9",
-      "hosts": {
+      "version": "10",
+      "aliases": {
         "minio": {
           "url": "{{ .Values.minio.url }}",
           "accessKey": "{{ .Values.minio.accessKey }}",
