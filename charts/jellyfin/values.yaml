@@ -96,3 +96,9 @@ minio:
   url: ""
   accessKey: ""
   secretKey: ""
+  resources:
+    limits:
+      memory: 2Gi
+    requests:
+      memory: 200Mi
+      cpu: 25m

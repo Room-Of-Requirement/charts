@@ -13,7 +13,7 @@ spec:
   selector:
     app: {{ .Release.Name }}
   ports:
-    - port: 9091
+    - port: 80
       targetPort: http
       protocol: TCP
       {{- if (eq .Values.service.type "NodePort") }}

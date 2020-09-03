@@ -53,6 +53,8 @@ spec:
         - name: TRANSMISSION_WEB_UI
           value: kettu
 
+        - name: TRANSMISSION_PEER_LIMIT_GLOBAL
+          value: "{{ .Values.transmission.peer_limit_global }}"
         - name: TRANSMISSION_DOWNLOAD_QUEUE_ENABLED
           value: "false"
         - name: TRANSMISSION_QUEUE_STALLED_ENABLED
@@ -60,7 +62,7 @@ spec:
         - name: TRANSMISSION_SEED_QUEUE_ENABLED
           value: "false"
         - name: TRANSMISSION_PREALLOCATION
-          value: "1"
+          value: "0"
         - name: TRANSMISSION_PEER_SOCKET_TOS
           value: "{{ .Values.transmission.peer_socket_tos }}"
         - name: TRANSMISSION_ENCRYPTION

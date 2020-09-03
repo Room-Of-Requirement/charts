@@ -55,6 +55,8 @@ spec:
         - mountPath: /root/.mc/config.json
           name: mc-config
           subPath: config.json
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
       volumes:
       - name: mc-config
         configMap:
