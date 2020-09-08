@@ -39,10 +39,13 @@ spec:
             httpGet:
               path: /
               port: http
-          readinessProbe:
+            initialDelaySeconds: 120
+          startupProbe:
             httpGet:
               path: /
               port: http
+            failureThreshold: 3000
+            periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
@@ -73,7 +76,7 @@ spec:
             - mountPath: /media/
               name: media
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml .Values.minio.resources | nindent 12 }}
 {{- end }}
 {{- end }}
       {{- with .Values.nodeSelector }}
