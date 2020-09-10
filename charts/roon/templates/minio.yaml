@@ -1,0 +1,60 @@
+{{- if .Values.minio.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-minio
+  labels:
+    app: {{ .Release.Name }}-minio
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-minio
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-minio
+    spec:
+      initContainers:
+      - image: minio/mc:latest
+        name: version
+        args: ["--version"]
+        volumeMounts:
+        - mountPath: /root/.mc/config.json
+          name: mc-config
+          subPath: config.json
+      - image: minio/mc:latest
+        name: list-hosts
+        args: ["config", "host", "list"]
+        volumeMounts:
+        - mountPath: /root/.mc/config.json
+          name: mc-config
+          subPath: config.json
+      - image: minio/mc:latest
+        name: make-bucket
+        args: ["mb", "-p", "minio/{{ .Values.minio.bucket }}"]
+        volumeMounts:
+        - mountPath: /root/.mc/config.json
+          name: mc-config
+          subPath: config.json
+      containers:
+      - image: minio/mc:latest
+        name: mirror
+        args: ["mirror", "--watch", "--overwrite", "minio/{{ .Values.minio.bucket }}/", "/music/"]
+        volumeMounts:
+        - mountPath: /music
+          name: music
+        - mountPath: /root/.mc/config.json
+          name: mc-config
+          subPath: config.json
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+      volumes:
+      - name: mc-config
+        configMap:
+          name: {{ .Release.Name }}-mc-config
+      - name: music
+        persistentVolumeClaim:
+          claimName: {{ default (include "roon.pvc.music" .) .Values.persistence.music.existingClaim }}
+{{- end}}
