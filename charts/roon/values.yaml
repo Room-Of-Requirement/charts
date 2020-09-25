@@ -77,3 +77,10 @@ minio:
   accessKey: ""
   secretKey: ""
   bucket: ""
+  resources: {}
+    # requests:
+    #   memory: 128Mi
+    #   cpu: 50m
+    # limits:
+    #   cpu: 250m
+    #   memory: 512Mi

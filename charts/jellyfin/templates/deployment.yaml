@@ -5,6 +5,8 @@ metadata:
   labels:
     {{- include "jellyfin.labels" . | nindent 4 }}
 spec:
+  strategy:
+    type: Recreate
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
@@ -53,6 +55,8 @@ spec:
               name: media
             - mountPath: /config/
               name: config
+            - mountPath: /transcodes/
+              name: transcodes
 {{- if .Values.minio.enabled }}
         - name: mc
           image: minio/mc:latest
@@ -101,3 +105,5 @@ spec:
         - name: media
           persistentVolumeClaim:
             claimName: {{ include "jellyfin.fullname" . }}-media-pvc
+        - name: transcodes
+          emptyDir: {}

@@ -7,6 +7,8 @@ metadata:
     {{- include "roon.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       {{- include "roon.selectorLabels" . | nindent 6 }}
@@ -47,9 +49,13 @@ spec:
             readOnly: true
             name: music
           {{- end }}
+          - mountPath: /var/roon/RoonServer/Cache/
+            name: cache
           resources:
 {{- toYaml .Values.resources | nindent 12 }}
       volumes:
+      - name: cache
+        emptyDir: {}
       {{- if .Values.persistence.config.enabled }}
       - name: config
         persistentVolumeClaim:

@@ -49,7 +49,7 @@ spec:
           name: mc-config
           subPath: config.json
         resources:
-          {{- toYaml .Values.resources | nindent 10 }}
+          {{- toYaml .Values.minio.resources | nindent 10 }}
       volumes:
       - name: mc-config
         configMap:
