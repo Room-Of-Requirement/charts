@@ -4,6 +4,7 @@
 
 service:
   type: LoadBalancer
+  # loadBalancerIP: 0.0.0.0
   annotations: {}
 
 ## Persist data to a persistent volume
@@ -28,7 +29,7 @@ transmission:
 
 minio:
   enabled: false
-  schedule: "30 2 * * *"
+  schedule: "0 3 * * *"
   url: ""
   accessKey: ""
   secretKey: ""
