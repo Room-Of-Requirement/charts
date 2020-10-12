@@ -27,7 +27,7 @@ transmission:
   speed_limit_up: 5000
   speed_limit_down: 15000
 
-minio:
+sync:
   enabled: false
   schedule: "0 3 * * *"
   url: ""

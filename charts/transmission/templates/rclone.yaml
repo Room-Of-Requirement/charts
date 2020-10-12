@@ -1,0 +1,40 @@
+{{- if .Values.sync.enabled }}
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-sync
+  labels:
+    app: {{ .Release.Name }}-sync
+spec:
+  schedule: {{ .Values.sync.schedule }}
+  concurrencyPolicy: Replace
+  jobTemplate:
+    spec:
+      template: 
+        metadata:
+          labels:
+            app: {{ .Release.Name }}-sync
+        spec:
+          restartPolicy: OnFailure
+          initContainers:
+          containers:
+          - image: bitnami/rclone:latest
+            name: sync
+            args: ["copy", "/data/completed/", "sync:{{ .Values.sync.bucket }}/"]
+            volumeMounts:
+            - mountPath: /data
+              name: torrents
+              readOnly: true
+            - mountPath: "/.rclone.conf"
+              name: sync-config
+              subPath: ".rclone.conf"
+            resources:
+              {{- toYaml .Values.sync.resources | nindent 14 }}
+          volumes:
+          - name: sync-config
+            configMap:
+              name: {{ .Release.Name }}-sync-config
+          - name: torrents
+            persistentVolumeClaim:
+              claimName: {{ .Release.Name }}-data-pvc
+{{- end}}
