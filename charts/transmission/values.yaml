@@ -29,7 +29,7 @@ transmission:
 
 sync:
   enabled: false
-  schedule: "0 3 * * *"
+  schedule: "0 * * * *"
   url: ""
   accessKey: ""
   secretKey: ""
