@@ -57,32 +57,6 @@ spec:
               name: config
             - mountPath: /transcodes/
               name: transcodes
-{{- if .Values.minio.enabled }}
-        - name: mc
-          image: minio/mc:latest
-          command: ["sh", "-c", "while true; do sleep 86400; done"]
-          volumeMounts:
-            - mountPath: /root/.mc/config.json
-              name: mc-config
-              subPath: config.json
-            - mountPath: /media/
-              name: media
-          resources:
-            {{- toYaml .Values.minio.resources | nindent 12 }}
-{{- if .Values.minio.bucket }}
-        - name: mirror
-          image: minio/mc:latest
-          args: ["mirror", "--watch", "--overwrite", "--remove", "minio/{{ .Values.minio.bucket }}/", "/media/"]
-          volumeMounts:
-            - mountPath: /root/.mc/config.json
-              name: mc-config
-              subPath: config.json
-            - mountPath: /media/
-              name: media
-          resources:
-            {{- toYaml .Values.minio.resources | nindent 12 }}
-{{- end }}
-{{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
