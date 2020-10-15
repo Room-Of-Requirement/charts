@@ -20,7 +20,7 @@ spec:
           containers:
           - image: bitnami/rclone:latest
             name: sync
-            args: ["copy", "/data/completed/", "sync:{{ .Values.sync.bucket }}/"]
+            args: ["copy", "/data/completed/", "s3:{{ .Values.sync.bucket }}/"]
             volumeMounts:
             - mountPath: /data
               name: torrents

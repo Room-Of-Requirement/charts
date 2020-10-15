@@ -91,14 +91,15 @@ persistence:
       # "helm.sh/resuource-policy": keep
     accessMode: ReadWriteOnce
 
-minio:
+sync:
   enabled: false
+  schedule: "45 * * * *"
   url: ""
   accessKey: ""
   secretKey: ""
-  resources:
-    limits:
-      memory: 2Gi
-    requests:
-      memory: 200Mi
-      cpu: 25m
+  resources: {}
+    # limits:
+    #   memory: 2Gi
+    # requests:
+    #   memory: 200Mi
+    #   cpu: 25m

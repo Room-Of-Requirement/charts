@@ -20,7 +20,7 @@ spec:
           containers:
           - image: bitnami/rclone:latest
             name: sync
-            args: ["copy", "--progress", "sync:{{ .Values.sync.bucket }}/", "/media/"]
+            args: ["copy", "--progress", "s3:{{ .Values.sync.bucket }}/", "/media/"]
             volumeMounts:
             - mountPath: /media/
               name: media
@@ -29,6 +29,9 @@ spec:
               subPath: ".rclone.conf"
             resources:
               {{- toYaml .Values.sync.resources | nindent 14 }}
+            securityContext:
+              runAsUser: 0
+              runAsGroup: 0
           volumes:
           - name: sync-config
             configMap:
