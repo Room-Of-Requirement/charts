@@ -13,5 +13,8 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+  {{- with .Values.service.loadBalancerIP }}
+  loadBalancerIP: {{ . }}
+  {{- end}}
   selector:
     {{- include "jellyfin.selectorLabels" . | nindent 4 }}

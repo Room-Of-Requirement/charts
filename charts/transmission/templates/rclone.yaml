@@ -10,7 +10,7 @@ spec:
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
-      template: 
+      template:
         metadata:
           labels:
             app: {{ .Release.Name }}-sync
@@ -20,7 +20,7 @@ spec:
           containers:
           - image: bitnami/rclone:latest
             name: sync
-            args: ["copy", "/data/completed/", "s3:{{ .Values.sync.bucket }}/"]
+            args: ["copy", "-vvv", "--no-gzip-encoding", "--check-first", "--size-only", "--low-level-retries", "20", "--use-mmap", "--s3-chunk-size", "100M", "--transfers", "{{ .Values.sync.transfers }}", "--exclude", "*.part", "/data/completed/", "s3:{{ .Values.sync.bucket }}/"]
             volumeMounts:
             - mountPath: /data
               name: torrents

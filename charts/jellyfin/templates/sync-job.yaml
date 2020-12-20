@@ -20,7 +20,7 @@ spec:
           containers:
           - image: bitnami/rclone:latest
             name: sync
-            args: ["copy", "--progress", "s3:{{ .Values.sync.bucket }}/", "/media/"]
+            args: ["copy", "-vvv", "--no-gzip-encoding", "--check-first", "--size-only", "--low-level-retries", "20", "--transfers", "{{ .Values.sync.transfers }}", "--s3-copy-cutoff", "100M", "--use-mmap", "s3:{{ .Values.sync.bucket }}/", "/media/"]
             volumeMounts:
             - mountPath: /media/
               name: media
@@ -52,6 +52,7 @@ data:
   ".rclone.conf": |
     [s3]
     type = s3
+    provider = Minio
     env_auth = false
     access_key_id = {{ .Values.sync.accessKey }}
     secret_access_key = {{ .Values.sync.secretKey }}
