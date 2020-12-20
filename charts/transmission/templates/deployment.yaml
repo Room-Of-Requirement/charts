@@ -16,7 +16,7 @@ spec:
         app: {{ .Release.Name }}
     spec:
       containers:
-      - image: haugene/transmission-openvpn:latest
+      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         name: transmission
         resources:
           requests:
