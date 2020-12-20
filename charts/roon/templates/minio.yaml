@@ -17,12 +17,6 @@ spec:
         app: {{ .Release.Name }}-minio
     spec:
       initContainers:
-      - image: busybox
-        name: make-directory
-        args: ["mkdir", "-p", "/data/completed/"]
-        volumeMounts:
-        - mountPath: /data
-          name: torrents
       - image: minio/mc:latest
         name: version
         args: ["--version"]
@@ -47,21 +41,20 @@ spec:
       containers:
       - image: minio/mc:latest
         name: mirror
-        args: ["mirror", "--watch", "--overwrite", "--exclude", "*.part", "/data/completed/", "minio/{{ .Values.minio.bucket }}/"]
+        args: ["mirror", "--watch", "--overwrite", "minio/{{ .Values.minio.bucket }}/", "/music/"]
         volumeMounts:
-        - mountPath: /data
-          name: torrents
-          readOnly: true
+        - mountPath: /music
+          name: music
         - mountPath: /root/.mc/config.json
           name: mc-config
           subPath: config.json
         resources:
-          {{- toYaml .Values.resources | nindent 10 }}
+          {{- toYaml .Values.minio.resources | nindent 10 }}
       volumes:
       - name: mc-config
         configMap:
           name: {{ .Release.Name }}-mc-config
-      - name: torrents
+      - name: music
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-data-pvc
+          claimName: {{ default (include "roon.pvc.music" .) .Values.persistence.music.existingClaim }}
 {{- end}}

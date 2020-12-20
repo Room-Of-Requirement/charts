@@ -20,4 +20,6 @@ spec:
       nodePort: {{ .Values.service.nodePort }}
       {{- end}}
       name: http
-      
+{{- with .Values.service.loadBalancerIP }}
+  loadBalancerIP: {{ . }}
+{{- end}}

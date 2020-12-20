@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: jellyfin/jellyfin
+  repository: jellyfin/jellyfin # linuxserver/jellyfin
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -77,7 +77,7 @@ persistence:
   config:
     enabled: false
     # existingClaim: <existing claim>
-    size: 10Gi
+    size: 150Gi
     storageClass: "-"
     annotations: {}
       # "helm.sh/resuource-policy": keep
@@ -91,14 +91,16 @@ persistence:
       # "helm.sh/resuource-policy": keep
     accessMode: ReadWriteOnce
 
-minio:
+sync:
   enabled: false
+  schedule: "0/30 * * * *"
   url: ""
   accessKey: ""
   secretKey: ""
-  resources:
-    limits:
-      memory: 2Gi
-    requests:
-      memory: 200Mi
-      cpu: 25m
+  resources: {}
+    # limits:
+    #   memory: 2Gi
+    # requests:
+    #   memory: 200Mi
+    #   cpu: 25m
+  transfers: 1

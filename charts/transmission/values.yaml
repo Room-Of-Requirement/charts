@@ -4,6 +4,7 @@
 
 service:
   type: LoadBalancer
+  # loadBalancerIP: 0.0.0.0
   annotations: {}
 
 ## Persist data to a persistent volume
@@ -22,19 +23,22 @@ transmission:
   lpd_enabled: false
   peer_socket_tos: "lowcost"
   peer_port: 51413
-  peer_limit_global: 20
+  peer_limit_global: 50
   speed_limit_up: 5000
   speed_limit_down: 15000
 
-minio:
+sync:
   enabled: false
+  schedule: "0/20 * * * *"
   url: ""
   accessKey: ""
   secretKey: ""
   bucket: ""
-  resources:
-    limits:
-      memory: 2Gi
-    requests:
-      memory: 200Mi
-      cpu: 25m
+  resources: {}
+    # requests:
+    #   memory: 128Mi
+    #   cpu: 50m
+    # limits:
+    #   cpu: 250m
+    #   memory: 512Mi
+  transfers: 1

@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "b2.fullname" . }}-mc-config
+  labels:
+    {{- include "b2.labels" . | nindent 4 }}
+data:
+  config.json: |
+    {
+      "version": "10",
+      "aliases": {
+        "minio": {
+          "url": "http://minio.minio.svc.cluster.local/",
+          "accessKey": "admin",
+          "secretKey": "X4Nid8EDsAsDj3G4mivUKcu2Zue4ueRV6usc6nzC",
+          "api": "s3v4",
+          "lookup": "auto"
+        },
+        "b2": {
+          "url": "https://s3.us-west-002.backblazeb2.com",
+          "accessKey": "002c0e53057bd940000000009",
+          "secretKey": "K002pDghCa/00jPMQlGCHzj+eyL1RP4",
+          "api": "s3v4",
+          "lookup": "auto"
+        }
+      }
+    }

@@ -7,6 +7,8 @@ metadata:
     {{- include "roon.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       {{- include "roon.selectorLabels" . | nindent 6 }}
@@ -37,15 +39,6 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          # TODO
-          # livenessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: http
-          # readinessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: http
           volumeMounts:
           {{- if .Values.persistence.config.enabled }}
           - mountPath: /var/roon/
@@ -53,22 +46,16 @@ spec:
           {{- end }}
           {{- if .Values.persistence.music.enabled }}
           - mountPath: /music/
+            readOnly: true
             name: music
           {{- end }}
+          - mountPath: /var/roon/RoonServer/Cache/
+            name: cache
           resources:
 {{- toYaml .Values.resources | nindent 12 }}
-{{- if .Values.minio.enabled }}
-        - name: minio
-          image: minio/mc:latest
-          args: ["-C", "/config/", "mirror", "--watch", "--overwrite", "minio/music/", "/music/"]
-          volumeMounts:
-          - mountPath: /config/config.json
-            name: minio-config
-            subPath: config.json
-          - mountPath: /music/
-            name: music
-{{- end }}
       volumes:
+      - name: cache
+        emptyDir: {}
       {{- if .Values.persistence.config.enabled }}
       - name: config
         persistentVolumeClaim:
