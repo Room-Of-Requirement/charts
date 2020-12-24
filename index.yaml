@@ -11,4 +11,15 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/roon-1.0.1/roon-1.0.1.tgz
     version: 1.0.1
+  transmission:
+  - apiVersion: v2
+    appVersion: "3.3"
+    created: "2020-12-24T21:37:55.306711607Z"
+    description: A Helm chart for Kubernetes
+    digest: e5884ee039a25b054df278cd1b5ce34d9be0ab98f3d222f3db426280fb17cd21
+    name: transmission
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/transmission-1.0.2/transmission-1.0.2.tgz
+    version: 1.0.2
 generated: "2020-12-24T19:39:33.871211047Z"
