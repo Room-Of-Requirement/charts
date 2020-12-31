@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-schedule: "0/3 * * * *"
+schedule: "0 0/12 * * *"
 
 image:
   repository: bitnami/rclone
