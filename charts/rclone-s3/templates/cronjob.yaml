@@ -6,6 +6,7 @@ spec:
   schedule: "{{ .Values.schedule }}"
   jobTemplate:
     spec:
+      concurrencyPolicy: Forbid
       template:
         metadata:
           {{- with .Values.podAnnotations }}
@@ -15,7 +16,6 @@ spec:
           labels:
             {{- include "rclone-s3.selectorLabels" . | nindent 12 }}
         spec:
-          concurrencyPolicy: Forbid
           restartPolicy: Never
           {{- with .Values.imagePullSecrets }}
           imagePullSecrets:
