@@ -71,12 +71,13 @@ tolerations: []
 
 affinity: {}
 
-minio:
+sync:
   enabled: false
   url: ""
   accessKey: ""
   secretKey: ""
   bucket: ""
+  transfers: 1
   resources: {}
     # requests:
     #   memory: 128Mi
