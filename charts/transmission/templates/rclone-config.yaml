@@ -13,5 +13,4 @@ data:
     access_key_id = {{ .Values.sync.accessKey }}
     secret_access_key = {{ .Values.sync.secretKey }}
     endpoint = {{ .Values.sync.url }}
-
 {{- end}}

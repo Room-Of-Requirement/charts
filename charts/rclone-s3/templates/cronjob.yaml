@@ -1,0 +1,66 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "rclone-s3.fullname" . }}
+spec:
+  schedule: "{{ .Values.schedule }}"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          {{- with .Values.podAnnotations }}
+          annotations:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          labels:
+            {{- include "rclone-s3.selectorLabels" . | nindent 12 }}
+        spec:
+          restartPolicy: Never
+          {{- with .Values.imagePullSecrets }}
+          imagePullSecrets:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          containers:
+          {{ range .Values.buckets }}
+          - name: "{{ lower (randAlphaNum 5) }}"
+            image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"
+            imagePullPolicy: "{{ $.Values.image.pullPolicy }}"
+            args: 
+            - "copy"
+            - "-vvv"
+            - "--no-gzip-encoding"
+            - "--check-first"
+            - "--size-only"
+            - "--low-level-retries"
+            - "20"
+            - "--use-mmap"
+            - "--s3-chunk-size"
+            - "100M"
+            {{- range .args }}
+            - "{{ . }}"
+            {{- end }}
+            - "{{ .from }}"
+            - "{{ .to }}"
+            resources:
+              {{- toYaml $.Values.resources | nindent 14 }}
+            volumeMounts:
+            - mountPath: "/.rclone.conf"
+              name: rclone-config
+              subPath: ".rclone.conf"
+          {{- end }}
+          volumes:
+          - name: rclone-config
+            configMap:
+              name: {{ .Release.Name }}-rclone-config
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

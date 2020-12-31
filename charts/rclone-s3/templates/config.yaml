@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-rclone-config
+  labels:
+    app: {{ .Release.Name }}
+data:
+  ".rclone.conf": |
+  {{- range .Values.endpoints }}
+    [{{ .name }}]
+    type = s3
+    env_auth = false
+    access_key_id = {{ .accessKey }}
+    secret_access_key = {{ .secretKey }}
+    endpoint = {{ .url }}
+  {{- end }}
