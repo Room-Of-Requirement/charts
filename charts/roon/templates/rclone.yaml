@@ -24,7 +24,6 @@ spec:
             volumeMounts:
             - mountPath: /music
               name: music
-              readOnly: true
             - mountPath: "/.rclone.conf"
               name: sync-config
               subPath: ".rclone.conf"
