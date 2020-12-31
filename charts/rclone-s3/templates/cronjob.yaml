@@ -15,6 +15,7 @@ spec:
           labels:
             {{- include "rclone-s3.selectorLabels" . | nindent 12 }}
         spec:
+          concurrencyPolicy: Forbid
           restartPolicy: Never
           {{- with .Values.imagePullSecrets }}
           imagePullSecrets:
