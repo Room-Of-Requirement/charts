@@ -3,6 +3,16 @@ entries:
   rclone-s3:
   - apiVersion: v2
     appVersion: 1.53.3
+    created: "2020-12-31T21:03:57.114076803Z"
+    description: A Helm chart for Kubernetes
+    digest: bd51ea2166ec9bb6f2944fff0d8214cf0a670a2cf81b3438e1b8b82787b3576b
+    name: rclone-s3
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/rclone-s3-0.1.5/rclone-s3-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 1.53.3
     created: "2020-12-31T08:22:36.75673306Z"
     description: A Helm chart for Kubernetes
     digest: d8ece6585ff86635eb871496179e42c0259cffc748c052c079c08ae896defab8
