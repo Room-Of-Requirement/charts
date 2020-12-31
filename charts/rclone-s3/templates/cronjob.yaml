@@ -4,9 +4,9 @@ metadata:
   name: {{ include "rclone-s3.fullname" . }}
 spec:
   schedule: "{{ .Values.schedule }}"
+  concurrencyPolicy: Forbid
   jobTemplate:
     spec:
-      concurrencyPolicy: Forbid
       template:
         metadata:
           {{- with .Values.podAnnotations }}
