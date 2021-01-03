@@ -72,6 +72,10 @@ tolerations: []
 affinity: {}
 
 sync:
+  image:
+    repository: bitnami/rclone
+    # pullPolicy: Always
+    tag: "latest"
   schedule: "0 0/6 * * *"
   enabled: false
   url: ""
