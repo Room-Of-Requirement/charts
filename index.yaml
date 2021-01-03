@@ -65,6 +65,17 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/rclone-s3-0.1.1/rclone-s3-0.1.1.tgz
     version: 0.1.1
+  registry-sync:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-01-03T20:36:38.708417826Z"
+    description: A Helm chart for Kubernetes
+    digest: cedf0e60bdcee05ef7675df5635383d2bb9ab66043ae429114e4adf98e1f5c95
+    name: registry-sync
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/registry-sync-0.1.0/registry-sync-0.1.0.tgz
+    version: 0.1.0
   roon:
   - apiVersion: v2
     appVersion: 1.16.0
