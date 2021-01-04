@@ -35,7 +35,7 @@ spec:
             - "--transfers"
             - "{{ .Values.sync.transfers }}"
             - "--exclude"
-            - "*.part", 
+            - "*.part"
             - "s3:{{ .Values.sync.bucket }}"
             - "/music/"
             volumeMounts:
