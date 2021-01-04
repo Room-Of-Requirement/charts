@@ -79,6 +79,16 @@ entries:
   roon:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-01-04T23:02:22.969264434Z"
+    description: A Roon Server Helm Chart.
+    digest: 9cb23981bb5e4f8789cbb322ec79b4cf7fa17f97877802b5c0234f5b8527cecc
+    name: roon
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/roon-1.2.1/roon-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-01-03T20:41:01.898790621Z"
     description: A Roon Server Helm Chart.
     digest: aee3431184b97e6fbda64016b0808ee1daa145ca09a26edd0f79246f637ebc46
