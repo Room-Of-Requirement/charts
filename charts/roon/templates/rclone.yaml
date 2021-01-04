@@ -21,7 +21,23 @@ spec:
           - image: "{{ .Values.sync.image.repository }}:{{ .Values.sync.image.tag | default "latest" }}"
             imagePullPolicy: {{ .Values.sync.image.pullPolicy }}
             name: sync
-            args: ["copy", "-vvv", "--no-gzip-encoding", "--check-first", "--size-only", "--low-level-retries", "20", "--use-mmap", "--s3-chunk-size", "100M", "--transfers", "{{ .Values.sync.transfers }}", "--exclude", "*.part", "s3:{{ .Values.sync.bucket }}/", "/music"]
+            args: 
+            - "copy"
+            - "-vvv"
+            - "--no-gzip-encoding"
+            - "--check-first"
+            - "--size-only"
+            - "--low-level-retries"
+            - "20"
+            - "--use-mmap"
+            - "--s3-chunk-size"
+            - "100M"
+            - "--transfers"
+            - "{{ .Values.sync.transfers }}"
+            - "--exclude"
+            - "*.part", 
+            - "s3:{{ .Values.sync.bucket }}"
+            - "/music/"
             volumeMounts:
             - mountPath: /music
               name: music

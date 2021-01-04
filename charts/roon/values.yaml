@@ -13,7 +13,7 @@ image:
 persistence:
   config:
     enabled: true
-    storageClass: "rook-ceph-block"
+    # storageClass: "rook-ceph-block"
     size: "8Gi"
     accessMode: ReadWriteOnce
     annotations: 
@@ -22,8 +22,8 @@ persistence:
     # existingClaim:
   music:
     enabled: true
-    storageClass: "rook-cephfs"
-    size: "150Gi"
+    # storageClass: "rook-cephfs"
+    size: "20Gi"
     accessMode: ReadWriteMany
     annotations:
       "helm.sh/resource-policy": keep
