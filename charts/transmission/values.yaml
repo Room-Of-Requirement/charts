@@ -45,3 +45,4 @@ sync:
     #   cpu: 250m
     #   memory: 512Mi
   transfers: 1
+  args: {}
