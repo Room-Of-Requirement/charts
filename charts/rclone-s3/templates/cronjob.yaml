@@ -37,7 +37,7 @@ spec:
             - "--use-mmap"
             - "--s3-chunk-size"
             - "100M"
-            {{- range .args }}
+            {{- range .Values.args }}
             - "{{ . }}"
             {{- end }}
             - "{{ .from }}"

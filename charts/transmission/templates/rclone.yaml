@@ -31,7 +31,7 @@ spec:
             - "--use-mmap"
             - "--s3-chunk-size"
             - "100M"
-            {{- range .sync.args }}
+            {{- range .Values.sync.args }}
             - "{{ . }}"
             {{- end }}
             - "/data/completed/"
