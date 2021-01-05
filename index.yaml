@@ -25,6 +25,17 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/docker-registry-1.9.6/docker-registry-1.9.6.tgz
     version: 1.9.6
+  jellyfin:
+  - apiVersion: v2
+    appVersion: 10.6.4
+    created: "2021-01-05T10:34:16.799477432Z"
+    description: A Helm chart for Kubernetes
+    digest: 5255b0d50becb54dc347982944e2251c310ad7da560dc0992065125562979291
+    name: jellyfin
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/jellyfin-1.0.1/jellyfin-1.0.1.tgz
+    version: 1.0.1
   rclone-s3:
   - apiVersion: v2
     appVersion: 1.53.3
