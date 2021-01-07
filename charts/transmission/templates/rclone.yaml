@@ -18,7 +18,7 @@ spec:
           restartPolicy: Never
           initContainers:
           containers:
-          - image: "{{ .Values.sync.image.repository }}:{{ .Values.sync.image.tag | default 'latest' }}"
+          - image: "{{ .Values.sync.image.repository }}:{{ .Values.sync.image.tag | default "latest" }}"
             name: sync
             args: 
             - "copy"
