@@ -182,6 +182,16 @@ entries:
   transmission:
   - apiVersion: v2
     appVersion: "3.3"
+    created: "2021-01-07T20:44:08.76815182Z"
+    description: A Helm chart for Kubernetes
+    digest: e83ba5c54213cb3b6ead58b055f0c43bf5e538f85a7dd3eb1c79a075f5788764
+    name: transmission
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/transmission-1.1.2/transmission-1.1.2.tgz
+    version: 1.1.2
+  - apiVersion: v2
+    appVersion: "3.3"
     created: "2021-01-07T20:39:41.491628161Z"
     description: A Helm chart for Kubernetes
     digest: e2fa556899cc2eadfeff56722c4d62a50dd8eddf3b83e5fbc8650d7a26719cae
