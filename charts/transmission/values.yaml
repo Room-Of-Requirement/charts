@@ -32,6 +32,9 @@ transmission:
 
 sync:
   enabled: false
+  image:
+    repository: bitnami/rclone
+    tag: latest
   schedule: "0/20 * * * *"
   url: ""
   accessKey: ""
