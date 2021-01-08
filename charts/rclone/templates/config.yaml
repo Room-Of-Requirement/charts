@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-rclone-config
+  labels:
+    app: {{ .Release.Name }}
+data:
+  ".rclone.conf": |
+  {{- .Values.config }}

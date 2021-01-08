@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: {{ include "rclone-s3.fullname" . }}
+  name: {{ include "rclone.fullname" . }}
 spec:
   schedule: "{{ .Values.schedule }}"
   concurrencyPolicy: Forbid
@@ -14,7 +14,7 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           labels:
-            {{- include "rclone-s3.selectorLabels" . | nindent 12 }}
+            {{- include "rclone.selectorLabels" . | nindent 12 }}
         spec:
           restartPolicy: Never
           {{- with .Values.imagePullSecrets }}
@@ -27,21 +27,9 @@ spec:
             image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"
             imagePullPolicy: "{{ $.Values.image.pullPolicy }}"
             args: 
-            - "copy"
-            - "-vvv"
-            - "--no-gzip-encoding"
-            - "--check-first"
-            - "--size-only"
-            - "--low-level-retries"
-            - "20"
-            - "--use-mmap"
-            - "--s3-chunk-size"
-            - "100M"
             {{- range .Values.args }}
-            - "{{ . }}"
-            {{- end }}
-            - "{{ .from }}"
-            - "{{ .to }}"
+            - {{ . }}
+            {{- end}}
             resources:
               {{- toYaml $.Values.resources | nindent 14 }}
             volumeMounts:

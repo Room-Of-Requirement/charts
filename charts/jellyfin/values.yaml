@@ -93,6 +93,9 @@ persistence:
 
 sync:
   enabled: false
+  image:
+    repository: bitnami/rclone
+    tag: latest
   schedule: "0/30 * * * *"
   url: ""
   accessKey: ""
