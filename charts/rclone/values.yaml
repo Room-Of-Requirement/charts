@@ -30,3 +30,6 @@ config: |
   # Rclone Config
 
 args: []
+
+volumeMounts: []
+volumes: []

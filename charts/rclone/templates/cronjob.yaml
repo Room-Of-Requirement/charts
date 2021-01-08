@@ -35,10 +35,16 @@ spec:
             - mountPath: "/.rclone.conf"
               name: rclone-config
               subPath: ".rclone.conf"
+            {{- range .Values.volumeMounts }}
+              {{ toYaml . | nindent 14 }}
+            {{- end}}
           volumes:
           - name: rclone-config
             configMap:
               name: {{ .Release.Name }}-rclone-config
+          {{- range .Values.volumes }}
+            {{ toYaml . | nindent 12 }}
+          {{- end}}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
