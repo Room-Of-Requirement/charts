@@ -60,6 +60,16 @@ entries:
   rclone:
   - apiVersion: v2
     appVersion: 1.53.3
+    created: "2021-01-08T05:29:28.043172795Z"
+    description: A Helm chart for Kubernetes
+    digest: 062ed140e9b2d37fede3506a343a0bfc9920a47a812614d6c7c344e02aa96786
+    name: rclone
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/rclone-0.2.2/rclone-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 1.53.3
     created: "2021-01-08T05:00:52.742286828Z"
     description: A Helm chart for Kubernetes
     digest: 9e4707d729fce2615a9b8fd9fdebfb27d248935b4d9dbb189e48dd19c1486015
