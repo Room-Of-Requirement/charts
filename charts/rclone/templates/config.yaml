@@ -6,4 +6,4 @@ metadata:
     app: {{ .Release.Name }}
 data:
   ".rclone.conf": |
-  {{- .Values.config }}
+  {{- .Values.config | nindent 4 }}
