@@ -25,3 +25,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+config: |
+  # Rclone Config
+
+args: []
