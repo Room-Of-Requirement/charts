@@ -39,6 +39,16 @@ entries:
   jellyfin:
   - apiVersion: v2
     appVersion: 10.6.4
+    created: "2021-01-08T04:54:11.775180993Z"
+    description: A Helm chart for Kubernetes
+    digest: e17484ab166f2fe89a0688a62928e517fa4de8d45e49d2f3a8495166726648c2
+    name: jellyfin
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/jellyfin-1.0.2/jellyfin-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 10.6.4
     created: "2021-01-05T10:34:16.799477432Z"
     description: A Helm chart for Kubernetes
     digest: 5255b0d50becb54dc347982944e2251c310ad7da560dc0992065125562979291
@@ -47,6 +57,17 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/jellyfin-1.0.1/jellyfin-1.0.1.tgz
     version: 1.0.1
+  rclone:
+  - apiVersion: v2
+    appVersion: 1.53.3
+    created: "2021-01-08T04:54:12.003591743Z"
+    description: A Helm chart for Kubernetes
+    digest: 61e8f960ee5749b8c739d20148eb709b523063f427028f1c3cc4b14106bc15c1
+    name: rclone
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/rclone-0.2.0/rclone-0.2.0.tgz
+    version: 0.2.0
   rclone-s3:
   - apiVersion: v2
     appVersion: 1.53.3
