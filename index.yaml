@@ -3,6 +3,17 @@ entries:
   ddclient:
   - apiVersion: v2
     appVersion: 3.9.1
+    created: "2021-01-08T01:04:51.827028193Z"
+    deprecated: true
+    description: A Helm chart for Kubernetes
+    digest: 839fbc930c648163b1c4bc8993630159d0e178292081e8d222dca4684ea59c4d
+    name: ddclient
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/ddclient-1.0.3/ddclient-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
+    appVersion: 3.9.1
     created: "2021-01-05T04:17:35.247484186Z"
     description: A Helm chart for Kubernetes
     digest: 8978a56adb9ff9f4ced8085061d91fb1d44295076a1391884f1c782099286624
