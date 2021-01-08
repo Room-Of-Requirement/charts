@@ -22,21 +22,19 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           containers:
-          {{ range .Values.buckets }}
-          - name: "{{ lower (randAlphaNum 5) }}"
-            image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"
-            imagePullPolicy: "{{ $.Values.image.pullPolicy }}"
+          - name: "rclone"
+            image: "{{ .Values.image.repository }}:{{ $Values.image.tag | default .Chart.AppVersion }}"
+            imagePullPolicy: "{{ .Values.image.pullPolicy }}"
             args: 
             {{- range .Values.args }}
             - {{ . }}
             {{- end}}
             resources:
-              {{- toYaml $.Values.resources | nindent 14 }}
+              {{- toYaml .Values.resources | nindent 14 }}
             volumeMounts:
             - mountPath: "/.rclone.conf"
               name: rclone-config
               subPath: ".rclone.conf"
-          {{- end }}
           volumes:
           - name: rclone-config
             configMap:
