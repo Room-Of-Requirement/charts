@@ -6,9 +6,24 @@ image:
   repository: "haugene/transmission-openvpn"
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
+  port: 80
   # loadBalancerIP: 0.0.0.0
   annotations: {}
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+    # cert-manager.io/cluster-issuer: "letsencrypt-staging"
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
 
 ## Persist data to a persistent volume
 persistence:
