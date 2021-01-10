@@ -15,6 +15,10 @@ spec:
       labels:
         app: {{ .Release.Name }}
     spec:
+      securityContext:
+        sysctls:
+        - name: net.ipv6.conf.all.disable_ipv6
+          value: 0
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         name: transmission
@@ -24,9 +28,6 @@ spec:
             memory: 1024Mi
         securityContext:
           privileged: true
-          sysctls:
-            - name: net.ipv6.conf.all.disable_ipv6
-              value: 0
           capabilities:
             add:
               - NET_ADMIN
