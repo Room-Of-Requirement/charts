@@ -39,11 +39,13 @@ spec:
         env:
         # https://github.com/transmission/transmission/wiki/Editing-Configuration-Files
         - name: OPENVPN_PROVIDER
-          value: CUSTOM
+          value: {{ .Values.ovpn.provider | quote }}
+        - name: OPENVPN_CONFIG
+          value: {{ .Values.ovpn.config | quote }}
         - name: OPENVPN_USERNAME
-          value: "{{ .Values.mullvad }}"
+          value: {{ .Values.ovpn.username | quote }}
         - name: OPENVPN_PASSWORD
-          value: m
+          value: {{ .Values.ovpn.password | quote }}
         - name: OPENVPN_OPTS
           value: "--mssfix 1450 --mute-replay-warnings" 
         - name: LOCAL_NETWORK
@@ -51,7 +53,9 @@ spec:
         - name: WEBPROXY_ENABLED
           value: "false"
         - name: TRANSMISSION_WEB_UI
-          value: kettu
+          value: {{ .Values.transmission.webui }}
+        - name: CREATE_TUN_DEVICE
+          value: "true"
 
         - name: TRANSMISSION_PEER_LIMIT_GLOBAL
           value: "{{ .Values.transmission.peer_limit_global }}"
@@ -102,8 +106,11 @@ spec:
         - mountPath: /etc/localtime
           name: localtime
           readOnly: true
-        - mountPath: /etc/openvpn/custom/
-          name: ovpn      
+        {{- if .Values.ovpn.mullvad_fix }}
+        - mountPath: /scripts/openvpn-pre-start.sh
+          name: script
+          subPath: openvpn-pre-start.sh
+        {{- end }}
       restartPolicy: Always
       volumes:
       - name: torrents
@@ -115,3 +122,9 @@ spec:
       - name: ovpn
         configMap:
           name: {{ .Release.Name }}-ovpn-file
+      {{- if .Values.ovpn.mullvad_fix }}
+      - name: script
+        configMap:
+          name: {{ .Release.Name }}-openvpn-pre-start-sh
+          defaultMode: 0777
+      {{- end }}

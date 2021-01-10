@@ -2,8 +2,15 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+ovpn:
+  provider: "MULLVAD"
+  config: "us_all"
+  username: ""
+  password: ""
+
 image:
   repository: "haugene/transmission-openvpn"
+  # tag: "latest"
 
 service:
   type: ClusterIP
@@ -35,6 +42,7 @@ persistence:
   storageClass: "rook-cephfs"
 
 transmission:
+  webui: "kettu"
   dht_enabled: true
   pex_enabled: true
   utp_enabled: true
@@ -42,8 +50,8 @@ transmission:
   peer_socket_tos: "lowcost"
   peer_port: 51413
   peer_limit_global: 50
-  speed_limit_up: 5000
-  speed_limit_down: 15000
+  # speed_limit_up: 5000
+  # speed_limit_down: 15000
 
 sync:
   enabled: false
