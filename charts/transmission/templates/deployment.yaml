@@ -55,7 +55,7 @@ spec:
         - name: TRANSMISSION_WEB_UI
           value: kettu
         - name: CREATE_TUN_DEVICE
-          value: "false"
+          value: "true"
 
         - name: TRANSMISSION_PEER_LIMIT_GLOBAL
           value: "{{ .Values.transmission.peer_limit_global }}"
