@@ -40,6 +40,8 @@ spec:
         # https://github.com/transmission/transmission/wiki/Editing-Configuration-Files
         - name: OPENVPN_PROVIDER
           value: MULLVAD
+        - name: OPENVPN_CONFIG
+          value: us_all
         - name: OPENVPN_USERNAME
           value: "{{ .Values.mullvad }}"
         - name: OPENVPN_PASSWORD
