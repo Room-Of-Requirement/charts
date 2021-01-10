@@ -39,7 +39,7 @@ spec:
         env:
         # https://github.com/transmission/transmission/wiki/Editing-Configuration-Files
         - name: OPENVPN_PROVIDER
-          value: CUSTOM
+          value: MULLVAD
         - name: OPENVPN_USERNAME
           value: "{{ .Values.mullvad }}"
         - name: OPENVPN_PASSWORD
@@ -102,8 +102,8 @@ spec:
         - mountPath: /etc/localtime
           name: localtime
           readOnly: true
-        - mountPath: /etc/openvpn/custom/
-          name: ovpn      
+        # - mountPath: /etc/openvpn/custom/
+        #   name: ovpn      
       restartPolicy: Always
       volumes:
       - name: torrents
