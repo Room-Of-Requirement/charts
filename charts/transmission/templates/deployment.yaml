@@ -18,7 +18,7 @@ spec:
       securityContext:
         sysctls:
         - name: net.ipv6.conf.all.disable_ipv6
-          value: 0
+          value: "0"
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         name: transmission
