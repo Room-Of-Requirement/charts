@@ -8,6 +8,8 @@ ovpn:
   username: ""
   password: ""
   mullvad_fix: false
+  dns1: 10.8.0.1
+  dns2: 1.1.1.1
 
 image:
   repository: "haugene/transmission-openvpn"
@@ -53,23 +55,3 @@ transmission:
   peer_limit_global: 50
   # speed_limit_up: 5000
   # speed_limit_down: 15000
-
-sync:
-  enabled: false
-  image:
-    repository: bitnami/rclone
-    tag: latest
-  schedule: "0/20 * * * *"
-  url: ""
-  accessKey: ""
-  secretKey: ""
-  bucket: ""
-  resources: {}
-    # requests:
-    #   memory: 128Mi
-    #   cpu: 50m
-    # limits:
-    #   cpu: 250m
-    #   memory: 512Mi
-  transfers: 1
-  args: {}
