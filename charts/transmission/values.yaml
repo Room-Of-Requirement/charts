@@ -7,6 +7,7 @@ ovpn:
   config: "us_all"
   username: ""
   password: ""
+  mullvad_fix: false
 
 image:
   repository: "haugene/transmission-openvpn"
