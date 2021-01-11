@@ -15,10 +15,6 @@ spec:
       labels:
         app: {{ .Release.Name }}
     spec:
-      securityContext:
-        sysctls:
-        - name: net.ipv6.conf.all.disable_ipv6
-          value: "0"
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         name: transmission
@@ -110,8 +106,8 @@ spec:
         - mountPath: /etc/localtime
           name: localtime
           readOnly: true
-        # - mountPath: /etc/openvpn/custom/
-        #   name: ovpn      
+        - mountPath: /etc/openvpn/custom/
+          name: script
       restartPolicy: Always
       volumes:
       - name: torrents
@@ -123,3 +119,6 @@ spec:
       - name: ovpn
         configMap:
           name: {{ .Release.Name }}-ovpn-file
+      - name: script
+        configMap:
+          name: {{ .Release.Name }}-openvpn-pre-start-sh
