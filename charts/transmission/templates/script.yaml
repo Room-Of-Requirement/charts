@@ -9,7 +9,7 @@ data:
     #!/bin/bash
     for file in /etc/openvpn/mullvad/*.ovpn; do 
       if [ -f "$file" ]; then 
-        echo 'pull-filter ignore "dhcp-option DNS6"' >> "$file"
+        echo '\npull-filter ignore "dhcp-option DNS6"' >> "$file"
         echo 'pull-filter ignore "tun-ipv6"' >> "$file"
         echo 'pull-filter ignore "ifconfig-ipv6"' >> "$file" 
       fi
