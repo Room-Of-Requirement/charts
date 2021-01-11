@@ -106,9 +106,9 @@ spec:
         - mountPath: /etc/localtime
           name: localtime
           readOnly: true
-        - mountPath: /scripts/""
+        - mountPath: /scripts/openvpn-pre-start.sh
           name: script
-          subPath: "openvpn-pre-start.sh"
+          subPath: openvpn-pre-start.sh
       restartPolicy: Always
       volumes:
       - name: torrents
