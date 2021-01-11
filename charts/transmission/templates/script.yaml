@@ -6,6 +6,7 @@ metadata:
     app: {{ .Release.Name }}
 data:
   openvpn-pre-start.sh: |
+    #!/bin/bash
     for file in /etc/openvpn/mullvad/*.ovpn; do 
       if [ -f "$file" ]; then 
         echo 'pull-filter ignore "dhcp-option DNS6"' >> "$file"
