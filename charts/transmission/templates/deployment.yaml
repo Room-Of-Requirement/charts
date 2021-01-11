@@ -123,3 +123,4 @@ spec:
       - name: script
         configMap:
           name: {{ .Release.Name }}-openvpn-pre-start-sh
+          defaultMode: 0777
