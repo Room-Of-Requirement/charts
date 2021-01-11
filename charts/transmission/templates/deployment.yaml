@@ -60,11 +60,11 @@ spec:
         {{- if .Values.ovpn.dns1 }}
         - name: OVERRIDE_DNS_1
           value: {{ .Values.ovpn.dns1 }}
-        {{-end }}
+        {{- end }}
         {{- if .Values.ovpn.dns2 }}
         - name: OVERRIDE_DNS_2
           value: {{ .Values.ovpn.dns2 }}
-        {{-end }}
+        {{- end }}
 
         - name: TRANSMISSION_PEER_LIMIT_GLOBAL
           value: "{{ .Values.transmission.peer_limit_global }}"
