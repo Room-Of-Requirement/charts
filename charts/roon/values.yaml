@@ -70,23 +70,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-sync:
-  image:
-    repository: bitnami/rclone
-    # pullPolicy: Always
-    tag: "latest"
-  schedule: "0 0/6 * * *"
-  enabled: false
-  url: ""
-  accessKey: ""
-  secretKey: ""
-  bucket: ""
-  transfers: 1
-  resources: {}
-    # requests:
-    #   memory: 128Mi
-    #   cpu: 50m
-    # limits:
-    #   cpu: 250m
-    #   memory: 512Mi
