@@ -22,7 +22,7 @@ spec:
         - mountPath: /data
           name: torrents
         command: ["/bin/bash", "-c"]
-        args: ["rm /data/transmission-home/settings.json /data/transmission-home/settings.json.tmp.*"]
+        args: ["rm -f /data/transmission-home/settings.json /data/transmission-home/settings.json.tmp.*"]
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         name: transmission
