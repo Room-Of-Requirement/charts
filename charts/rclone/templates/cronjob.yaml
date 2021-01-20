@@ -7,6 +7,8 @@ spec:
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
+      successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
+      failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
       template:
         metadata:
           {{- with .Values.podAnnotations }}
