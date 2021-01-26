@@ -32,6 +32,7 @@ affinity: {}
 config: |
   # Rclone Config
 
+subCommand: "copy" # sync, delete, etc
 args: []
 
 volumeMounts: []
