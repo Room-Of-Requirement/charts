@@ -53,3 +53,32 @@ spec:
 {{- end }}
 {{- end }}
 {{- end }}
+
+---
+
+{{- if and .Values.persistence.backup.enabled (not .Values.persistence.backup.existingClaim) -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+{{- if .Values.persistence.backup.annotations }}
+  annotations:
+{{ toYaml .Values.persistence.backup.annotations | indent 4 }}
+{{- end }}
+  name: {{ include "roon.pvc.backup" . }}
+  namespace: {{ .Release.namespace }}
+  labels:
+    "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
+spec:
+  accessModes:
+    - {{ .Values.persistence.backup.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.backup.size | quote }}
+{{- if .Values.persistence.backup.storageClass }}
+{{- if (eq "-" .Values.persistence.backup.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.backup.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end }}
