@@ -29,6 +29,16 @@ persistence:
       "helm.sh/resource-policy": keep
     # Uncomment to use an existing pvc
     # existingClaim:
+  backup:
+    enabled: true
+    # storageClass: "rook-cephfs"
+    size: "20Gi"
+    accessMode: ReadWriteMany
+    annotations:
+      "helm.sh/resource-policy": keep
+    # Uncomment to use an existing pvc
+    # existingClaim:
+  
 
 imagePullSecrets: []
 nameOverride: ""

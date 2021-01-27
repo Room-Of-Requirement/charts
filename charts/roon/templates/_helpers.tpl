@@ -67,3 +67,4 @@ PVC Names
 */}}
 {{- define "roon.pvc.config" -}}{{ include "roon.fullname" . }}-config{{- end }}
 {{- define "roon.pvc.music" -}}{{ include "roon.fullname" . }}-music{{- end }}
+{{- define "roon.pvc.backup" -}}{{ include "roon.fullname" . }}-backup{{- end }}

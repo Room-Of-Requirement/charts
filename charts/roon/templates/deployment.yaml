@@ -49,26 +49,40 @@ spec:
             readOnly: true
             name: music
           {{- end }}
+          {{- if .Values.persistence.backup.enabled }}
+          - mountPath: /backups/
+            name: backup
+          {{- end }}
           - mountPath: /var/roon/RoonServer/Cache/
             name: cache
           resources:
-{{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}
       volumes:
       - name: cache
         emptyDir: {}
+      
       {{- if .Values.persistence.config.enabled }}
       - name: config
         persistentVolumeClaim:
           claimName: {{ default (include "roon.pvc.config" .) .Values.persistence.config.existingClaim }}
       {{- end }}
+
       {{- if .Values.persistence.music.enabled }}
       - name: music
         persistentVolumeClaim:
           claimName: {{ default (include "roon.pvc.music" .) .Values.persistence.music.existingClaim }}
       {{- end }}
+
+      {{- if .Values.persistence.backup.enabled }}
+      - name: backup
+        persistentVolumeClaim:
+          claimName: {{ default (include "roon.pvc.backup" .) .Values.persistence.backup.existingClaim }}
+      {{- end }}
+
       - name: minio-config
         configMap:
           name: minio-client-config
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
