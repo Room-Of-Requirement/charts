@@ -57,6 +57,17 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/jellyfin-1.0.1/jellyfin-1.0.1.tgz
     version: 1.0.1
+  letsencrypt-issuer:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-01-29T00:48:13.975694555Z"
+    description: A Helm chart for Kubernetes
+    digest: 8e43d2b6f652a8ed152b0fe4bb801ee8c03596cfca5928961e9da80c80a211c6
+    name: letsencrypt-issuer
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/letsencrypt-issuer-0.1.0/letsencrypt-issuer-0.1.0.tgz
+    version: 0.1.0
   rclone:
   - apiVersion: v2
     appVersion: 1.53.4
