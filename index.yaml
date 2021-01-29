@@ -60,6 +60,16 @@ entries:
   letsencrypt-issuer:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-01-29T00:59:52.631251448Z"
+    description: A Helm chart for Kubernetes
+    digest: f23b92398df01f6306c2d258a086f0ac09ed03d671477d0d6403167ca6d283cf
+    name: letsencrypt-issuer
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/letsencrypt-issuer-0.1.2/letsencrypt-issuer-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-01-29T00:55:57.417258857Z"
     description: A Helm chart for Kubernetes
     digest: 71f5dccd2e86b87aa240dfb3aa5bd5a90cc0887b9514281b083f0fa2e6a71de0
