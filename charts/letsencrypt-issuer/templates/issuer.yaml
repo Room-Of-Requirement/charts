@@ -8,7 +8,7 @@ spec:
     server: {{ .url }}
     email: {{ $.email }}
     privateKeySecretRef:
-      name: {{ .Release.Name }}-{{ .name }}
+      name: {{ $.Release.Name }}-{{ .name }}
     solvers:
     - http01:
        ingress:
