@@ -1,0 +1,16 @@
+{{- range issuers }}
+apiVersion: cert-manager.io/v1alpha2
+kind: {{ .kind }}
+metadata:
+  name: {{ .name }}
+spec:
+  acme:
+    server: {{ .url }}
+    email: {{ $.email }}
+    privateKeySecretRef:
+      name: {{ .Release.Name }}-{{ .name }}
+    solvers:
+    - http01:
+       ingress:
+         class: nginx
+{{- end }}
