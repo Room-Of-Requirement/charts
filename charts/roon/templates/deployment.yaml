@@ -53,13 +53,17 @@ spec:
           - mountPath: /backups/
             name: backup
           {{- end }}
+          {{- if .Values.persistence.cache.enabled }}
           - mountPath: /var/roon/RoonServer/Cache/
             name: cache
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
+      {{- if .Values.persistence.cache.enabled }}
       - name: cache
         emptyDir: {}
+      {{- end}}
       
       {{- if .Values.persistence.config.enabled }}
       - name: config
