@@ -60,11 +60,6 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
-      {{- if .Values.persistence.cache.enabled }}
-      - name: cache
-        emptyDir: {}
-      {{- end}}
-      
       {{- if .Values.persistence.config.enabled }}
       - name: config
         persistentVolumeClaim:

@@ -39,8 +39,6 @@ persistence:
     # Uncomment to use an existing pvc
     # existingClaim:
   # Create emptyDir: {} for roon Cache
-  cache:
-    enabled: true
 
 
 imagePullSecrets: []
