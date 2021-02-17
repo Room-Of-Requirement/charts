@@ -1,0 +1,19 @@
+apiVersion: v2
+appVersion: 9.1
+description: SageMath helm package
+name: SageMath
+version: 1.0.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+- ${CHARTNAME}
+icon: https://raw.githubusercontent.com/sagemath/website/master/src/pix/icon_only/sagemath-icon-128.png
+sources:
+- https://github.com/sagemath/sage
+- https://github.com/jmmaloney4/charts/charts/sagemath/
+maintainers:
+- name: Jack Maloney
+  email: jmmaloney4@gmail.com
+dependencies:
+- name: common
+  repository: https://k8s-at-home.com/charts/
+  version: 3.0.1

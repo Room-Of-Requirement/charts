@@ -1,0 +1,37 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/charts/tree/master/charts/common/values.yaml
+#
+
+image:
+  repository: docker.io/sagemath/sagemath
+  pullPolicy: IfNotPresent
+
+strategy:
+  type: Recreate
+
+# See more environment variables in the sagemath documentation
+# https://hub.docker.com/r/sagemath/sagemath/
+env: {}
+  # TZ:
+
+service:
+  type: ClusterIP
+  port:
+    port: 80
+    targetPort: 8888
+
+ingress:
+  enabled: false
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+    mountPath: /home/sage/.sage
+  data:
+    enabled: false
+    emptyDir: false
+    mountPath: /data
