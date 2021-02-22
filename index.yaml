@@ -24,6 +24,16 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/SageMath-1.0.0/SageMath-1.0.0.tgz
     version: 1.0.0
+  actions-runners:
+  - apiVersion: v2
+    created: "2021-02-22T01:07:58.659764036Z"
+    description: A Helm chart for Kubernetes
+    digest: b73efe49b19a71ec85e3f41f96f5d1ac3b846d1839b9edd10e71f3d9933c4b21
+    name: actions-runners
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/actions-runners-0.1.2/actions-runners-0.1.2.tgz
+    version: 0.1.2
   ddclient:
   - apiVersion: v2
     appVersion: 3.9.1
