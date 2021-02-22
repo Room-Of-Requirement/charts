@@ -1,22 +1,22 @@
 runners:
-- repository: "jmmaloney4/roon-docker-image"
+- repository: "user/repo"
   minReplicas: 1 
   maxReplicas: 2
-- organization: "Room-Of-Requirement"
+- organization: "example-com"
   minReplicas: 1
   maxReplicas: 8
 
-resources:
-  limits:
-    cpu: "50m"
-    memory: "50Mi"
-  requests:
-    cpu: "50m"
-    memory: "50Mi"
-  dind:
-    limits:
-      cpu: "400m"
-      memory: "250Mi"
-    requests:
-      cpu: "200m"
-      memory: "100Mi"
+resources: {}
+  # limits:
+  #   cpu: "50m"
+  #   memory: "50Mi"
+  # requests:
+  #   cpu: "50m"
+  #   memory: "50Mi"
+  # dind:
+  #   limits:
+  #     cpu: "400m"
+  #     memory: "250Mi"
+  #   requests:
+  #     cpu: "200m"
+  #     memory: "100Mi"
