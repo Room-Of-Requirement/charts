@@ -466,6 +466,16 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/roon-1.0.1/roon-1.0.1.tgz
     version: 1.0.1
+  runners:
+  - apiVersion: v2
+    created: "2021-02-22T00:14:52.42863017Z"
+    description: A Helm chart for Kubernetes
+    digest: 328edc0074394a4abeacb643450fac37cbf0190193ac5fa381a6e3d9c9596fe8
+    name: runners
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/runners-0.1.0/runners-0.1.0.tgz
+    version: 0.1.0
   transmission:
   - apiVersion: v2
     appVersion: "3.3"
