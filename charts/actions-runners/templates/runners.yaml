@@ -1,5 +1,5 @@
 {{- define "runner.name" }}
-  {{- if .repository }}{{- base .repository }}{{- else if .organization }}{{ .organization }}{{- end}}
+  {{- if .repository }}{{- lower (base .repository) }}{{- else if .organization }}{{ lower .organization }}{{- end}}
 {{- end}}
 
 {{- range .Values.runners }}
