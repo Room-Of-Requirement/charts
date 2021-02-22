@@ -1,0 +1,47 @@
+{{- define "runner.name" }}
+  {{- if .repository }}{{- base .repository }}{{- else if .organization }}{{ .organization }}{{- end}}
+{{- end}}
+
+{{- range .Values.runners }}
+
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: {{ template "runner.name" . }}-actions-runner
+spec:
+  template:
+    spec:
+      {{- if .repository }}
+      repository: {{ .repository }}
+      {{- else if .organization }}
+      organization: {{ .organization }}
+      {{- end}}
+      resources:
+        {{- toYaml ( .resources | default $.Values.resources ) | nindent 8 }}
+
+---
+
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: HorizontalRunnerAutoscaler
+metadata:
+  name: {{ template "runner.name" . }}-actions-runner-autoscaler
+spec:
+  scaleTargetRef:
+    name: {{ template "runner.name" . }}-actions-runner
+  minReplicas: {{ .minReplicas }}
+  maxReplicas: {{ .maxReplicas }}
+  metrics:
+  {{- if .repository }}
+  - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
+    repositoryNames:
+    - {{ .repository }}
+  {{- else if .organization }}
+  - type: PercentageRunnersBusy
+    scaleUpThreshold: '0.75'
+    scaleDownThreshold: '0.3'
+    scaleUpFactor: '1.4'
+    scaleDownFactor: '0.7'
+  {{- end}}
+
+{{- end }}
+
