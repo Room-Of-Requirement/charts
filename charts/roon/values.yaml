@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: jmmaloney4/roon
+  repository: ghcr.io/jmmaloney4/roon
   # pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: nightly
 
 persistence:
   config:
@@ -16,7 +16,7 @@ persistence:
     # storageClass: "rook-ceph-block"
     size: "8Gi"
     accessMode: ReadWriteOnce
-    annotations: 
+    annotations:
       "helm.sh/resource-policy": keep
     # Uncomment to use an existing pvc
     # existingClaim:
