@@ -26,6 +26,19 @@ entries:
     version: 1.0.0
   actions-runners:
   - apiVersion: v2
+    created: "2021-02-24T02:13:07.180837905Z"
+    description: A Helm chart for Kubernetes
+    digest: be67774ce1e72a28beaa843b7a8dc76dbe9de98a7bc151014d01e174a546a0f0
+    home: https://github.com/summerwind/actions-runner-controller
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: actions-runners
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/actions-runners-0.1.4/actions-runners-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
     created: "2021-02-22T01:13:58.171012456Z"
     description: A Helm chart for Kubernetes
     digest: 5192ebc10ceb05d86200004e957c7de27ea76236b8b86428a00b5adf2fbc13db
@@ -68,6 +81,22 @@ entries:
   docker-registry:
   - apiVersion: v1
     appVersion: 2.7.1
+    created: "2021-02-24T02:13:07.284559449Z"
+    description: A Helm chart for Docker Registry
+    digest: 90612c8dbd73db4151a3b4d663bf4e5d5d84070e7dafeab96a2a36f86246d0f8
+    home: https://hub.docker.com/_/registry/
+    icon: https://hub.docker.com/public/images/logos/mini-logo.svg
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: docker-registry
+    sources:
+    - https://github.com/docker/distribution-library-image
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/docker-registry-1.9.7/docker-registry-1.9.7.tgz
+    version: 1.9.7
+  - apiVersion: v1
+    appVersion: 2.7.1
     created: "2021-01-02T23:21:07.388228734Z"
     description: A Helm chart for Docker Registry
     digest: 84458e6fed7f4593df3e41474da7015d69bc90cfed3426466a86d5e8bdd8757d
@@ -80,6 +109,20 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/docker-registry-1.9.6/docker-registry-1.9.6.tgz
     version: 1.9.6
   jellyfin:
+  - apiVersion: v2
+    appVersion: 10.6.4
+    created: "2021-02-24T02:13:07.455218909Z"
+    description: A Helm chart for Kubernetes
+    digest: 5e7bb958a128bda534b48e33218985a22db2316e0b9c43cb6ac771c3d731f665
+    home: https://jellyfin.org/
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: jellyfin
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/jellyfin-1.0.3/jellyfin-1.0.3.tgz
+    version: 1.0.3
   - apiVersion: v2
     appVersion: 10.6.4
     created: "2021-01-08T04:54:11.775180993Z"
@@ -101,6 +144,20 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/jellyfin-1.0.1/jellyfin-1.0.1.tgz
     version: 1.0.1
   letsencrypt-issuer:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-02-24T02:13:07.554806328Z"
+    description: A Helm chart for Kubernetes
+    digest: ff65bd19bbf5d9377805fdc3f4eb96a03356608197254e382d8977c8fa909411
+    home: https://cert-manager.io/docs/configuration/
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: letsencrypt-issuer
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/letsencrypt-issuer-0.1.3/letsencrypt-issuer-0.1.3.tgz
+    version: 0.1.3
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2021-01-29T00:59:52.631251448Z"
@@ -132,6 +189,21 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/letsencrypt-issuer-0.1.0/letsencrypt-issuer-0.1.0.tgz
     version: 0.1.0
   rclone:
+  - apiVersion: v2
+    appVersion: 1.54.0
+    created: "2021-02-24T02:13:07.653629842Z"
+    description: A Helm chart for Kubernetes
+    digest: dfba6cf130ed41496092b3984c5b9cfd721419dbff70d59fd93ddcf44b6d958e
+    home: https://rclone.org/
+    icon: https://rclone.org/img/logo_on_light__horizontal_color.svg
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: rclone
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/rclone-1.1.2/rclone-1.1.2.tgz
+    version: 1.1.2
   - apiVersion: v2
     appVersion: 1.54.0
     created: "2021-02-22T00:15:30.722109964Z"
@@ -377,6 +449,22 @@ entries:
   roon:
   - apiVersion: v2
     appVersion: "1.8"
+    created: "2021-02-24T02:13:07.743142598Z"
+    description: Unofficial Roon Server Helm Chart.
+    digest: 02b5342f0249f73829875d2cf90c5ac995abc389140540281daee476341a8a3c
+    home: https://roonlabs.com/
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: roon
+    sources:
+    - https://github.com/jmmaloney4/roon-docker-image
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/roon-1.3.7/roon-1.3.7.tgz
+    version: 1.3.7
+  - apiVersion: v2
+    appVersion: "1.8"
     created: "2021-02-24T01:33:29.514635114Z"
     description: Unofficial Roon Server Helm Chart.
     digest: 2b7539df6534ee06a0b54c2e9ab5a4e9c98df90c94e2a9574dbfffa10f66ba52
@@ -531,6 +619,20 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/runners-0.1.0/runners-0.1.0.tgz
     version: 0.1.0
   transmission:
+  - apiVersion: v2
+    appVersion: "3.3"
+    created: "2021-02-24T02:13:07.835968275Z"
+    description: A Helm chart for Kubernetes
+    digest: fdc981ca5030998da264df96e3f95cd60ab15a61277cee095f10642e8d3af4c5
+    home: https://github.com/haugene/docker-transmission-openvpn
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: transmission
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/transmission-1.3.2/transmission-1.3.2.tgz
+    version: 1.3.2
   - apiVersion: v2
     appVersion: "3.3"
     created: "2021-01-20T07:26:58.602830771Z"
