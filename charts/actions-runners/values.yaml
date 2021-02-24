@@ -1,6 +1,6 @@
 runners:
 - repository: "user/repo"
-  minReplicas: 1 
+  minReplicas: 1
   maxReplicas: 2
 - organization: "example-com"
   minReplicas: 1

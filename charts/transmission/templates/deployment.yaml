@@ -21,10 +21,10 @@ spec:
         volumeMounts:
         - mountPath: /data
           name: torrents
-        args: 
-        - "rm" 
+        args:
+        - "rm"
         - "-f"
-        - "/data/transmission-home/settings.json" 
+        - "/data/transmission-home/settings.json"
         - "/data/transmission-home/settings.json.tmp.*"
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -56,7 +56,7 @@ spec:
         - name: OPENVPN_PASSWORD
           value: {{ .Values.ovpn.password | quote }}
         - name: OPENVPN_OPTS
-          value: "--mssfix 1450 --mute-replay-warnings" 
+          value: "--mssfix 1450 --mute-replay-warnings"
         - name: LOCAL_NETWORK
           value: "10.0.0.0/8,192.168.1.0/24"
         - name: WEBPROXY_ENABLED
@@ -105,7 +105,7 @@ spec:
           value: "{{ .Values.transmission.peer_port }}"
         - name: TRANSMISSION_RPC_URL
           value: "/{{ .Release.Name }}/transmission/"
-        
+
         {{- if .Values.transmission.speed_limit_up }}
         - name: TRANSMISSION_SPEED_LIMIT_UP
           value: {{ .Values.transmission.speed_limit_up | quote }}

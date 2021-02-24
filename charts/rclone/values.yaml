@@ -1,7 +1,7 @@
 schedule: "0 0/12 * * *"
 successfulJobsHistoryLimit: 8
 failedJobsHistoryLimit: 5
-startingDeadlineSeconds: 43200 # 12 hours
+startingDeadlineSeconds: 43200  # 12 hours
 
 image:
   repository: bitnami/rclone
@@ -32,7 +32,7 @@ affinity: {}
 config: |
   # Rclone Config
 
-subCommand: "copy" # sync, delete, etc
+subCommand: "copy"  # sync, delete, etc
 args: []
 
 volumeMounts: []

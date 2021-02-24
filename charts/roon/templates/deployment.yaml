@@ -64,7 +64,7 @@ spec:
       - name: cache
         emptyDir: {}
       {{- end}}
-      
+
       {{- if .Values.persistence.config.enabled }}
       - name: config
         persistentVolumeClaim:

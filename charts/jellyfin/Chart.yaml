@@ -1,6 +1,10 @@
 apiVersion: v2
 name: jellyfin
 description: A Helm chart for Kubernetes
-version: 1.0.2
+version: 1.0.3
 type: application
 appVersion: 10.6.4
+home: https://jellyfin.org/
+maintainers:
+- name: jmmaloney4
+  email: jmmaloney4@gmail.com

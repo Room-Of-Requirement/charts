@@ -40,7 +40,7 @@ persistence:
   enabled: true
   accessMode: ReadWriteMany
   size: 50Gi
-  annotations: 
+  annotations:
     "helm.sh/resource-policy": keep
   storageClass: "rook-cephfs"
 
@@ -57,7 +57,7 @@ transmission:
   # speed_limit_down: 15000
 
 resources:
-  requests: 
+  requests:
     cpu: 200m
     memory: 200Mi
   limits:

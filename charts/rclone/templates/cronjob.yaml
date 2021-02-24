@@ -28,7 +28,7 @@ spec:
           - name: "rclone"
             image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
             imagePullPolicy: "{{ .Values.image.pullPolicy }}"
-            args: 
+            args:
             - {{ .Values.subCommand | quote }}
             {{- range .Values.args }}
             - {{ . | quote }}

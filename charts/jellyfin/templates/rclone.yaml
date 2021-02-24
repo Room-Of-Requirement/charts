@@ -10,7 +10,7 @@ spec:
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
-      template: 
+      template:
         metadata:
           labels:
             app: {{ .Release.Name }}-sync
