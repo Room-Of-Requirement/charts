@@ -11,16 +11,12 @@
   "helmv3": {
     "fileMatch": ["charts/.+/Chart\\.yaml$"]
   },
-    "packageRules": [
-    // Setup datasources
+  "packageRules": [
     {
       "datasources": ["helm"],
       "commitMessageTopic": "Helm chart {{depName}}",
       "separateMinorPatch": true
     },
-    //
-    // Common library dep
-    //
     {
       "commitMessagePrefix": "[{{{parentDir}}}]",
       "branchTopic": "{{{parentDir}}}-{{{depNameSanitized}}}-{{{newMajor}}}{{#if isPatch}}.{{{newMinor}}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
@@ -43,9 +39,6 @@
       "packageNames": ["common"],
       "groupName": ["internal patch dep"]
     },
-    //
-    // Other library deps
-    //
     {
       "commitMessagePrefix": "[{{{parentDir}}}]",
       "branchTopic": "{{{parentDir}}}-{{{depNameSanitized}}}-{{{newMajor}}}{{#if isPatch}}.{{{newMinor}}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
@@ -68,4 +61,5 @@
       "excludePackageNames": ["common"],
       "groupName": ["external patch dep"]
     }
+  ]
 }
