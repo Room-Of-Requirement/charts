@@ -4,7 +4,7 @@ failedJobsHistoryLimit: 5
 startingDeadlineSeconds: 43200  # 12 hours
 
 image:
-  repository: bitnami/rclone
+  repository: quay.io/bitnami/rclone
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "1.54.0"
