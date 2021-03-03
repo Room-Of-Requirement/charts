@@ -1,95 +1,67 @@
-# ⚠️ Repo Archive Notice
+# docker-registry
 
-As of Nov 13, 2020, charts in this repo will no longer be updated.
-For more information, see the Helm Charts [Deprecation and Archive Notice](https://github.com/helm/charts#%EF%B8%8F-deprecation-and-archive-notice), and [Update](https://helm.sh/blog/charts-repo-deprecation/).
+![Version: 1.9.7](https://img.shields.io/badge/Version-1.9.7-informational?style=flat-square) ![AppVersion: 2.7.1](https://img.shields.io/badge/AppVersion-2.7.1-informational?style=flat-square)
 
-# Docker Registry Helm Chart
+A Helm chart for Docker Registry
 
-This directory contains a Kubernetes chart to deploy a private Docker Registry.
+**Homepage:** <https://hub.docker.com/_/registry/>
 
-## DEPRECATION NOTICE
+## Maintainers
 
-This chart is deprecated and no longer supported.
+| Name | Email | Url |
+| ---- | ------ | --- |
+| jmmaloney4 | jmmaloney4@gmail.com |  |
 
-## Prerequisites Details
+## Source Code
 
-* PV support on underlying infrastructure (if persistence is required)
+* <https://github.com/docker/distribution-library-image>
 
-## Chart Details
+## Values
 
-This chart will do the following:
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| affinity | object | `{}` |  |
+| configData.health.storagedriver.enabled | bool | `true` |  |
+| configData.health.storagedriver.interval | string | `"10s"` |  |
+| configData.health.storagedriver.threshold | int | `3` |  |
+| configData.http.addr | string | `":5000"` |  |
+| configData.http.headers.X-Content-Type-Options[0] | string | `"nosniff"` |  |
+| configData.log.fields.service | string | `"registry"` |  |
+| configData.storage.cache.blobdescriptor | string | `"inmemory"` |  |
+| configData.version | float | `0.1` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"registry"` |  |
+| image.tag | string | `"2.7.1"` |  |
+| ingress.annotations | object | `{}` |  |
+| ingress.enabled | bool | `false` |  |
+| ingress.hosts[0] | string | `"chart-example.local"` |  |
+| ingress.labels | object | `{}` |  |
+| ingress.path | string | `"/"` |  |
+| ingress.tls | string | `nil` |  |
+| nodeSelector | object | `{}` |  |
+| persistence.accessMode | string | `"ReadWriteOnce"` |  |
+| persistence.enabled | bool | `false` |  |
+| persistence.size | string | `"10Gi"` |  |
+| podAnnotations | object | `{}` |  |
+| podDisruptionBudget | object | `{}` |  |
+| podLabels | object | `{}` |  |
+| priorityClassName | string | `""` |  |
+| replicaCount | int | `1` |  |
+| resources | object | `{}` |  |
+| secrets.haSharedSecret | string | `""` |  |
+| secrets.htpasswd | string | `""` |  |
+| securityContext.enabled | bool | `true` |  |
+| securityContext.fsGroup | int | `1000` |  |
+| securityContext.runAsUser | int | `1000` |  |
+| service.annotations | object | `{}` |  |
+| service.name | string | `"registry"` |  |
+| service.port | int | `5000` |  |
+| service.type | string | `"ClusterIP"` |  |
+| storage | string | `"filesystem"` |  |
+| tolerations | list | `[]` |  |
+| updateStrategy | string | `nil` |  |
 
-* Implement a Docker registry deployment
-
-## Installing the Chart
-
-To install the chart, use the following:
-
-```console
-$ helm install stable/docker-registry
-```
-
-## Configuration
-
-The following table lists the configurable parameters of the docker-registry chart and
-their default values.
-
-| Parameter                   | Description                                                                                | Default         |
-|:----------------------------|:-------------------------------------------------------------------------------------------|:----------------|
-| `image.pullPolicy`          | Container pull policy                                                                      | `IfNotPresent`  |
-| `image.repository`          | Container image to use                                                                     | `registry`      |
-| `image.tag`                 | Container image tag to deploy                                                              | `2.7.1`         |
-| `imagePullSecrets`          | Specify image pull secrets                                                                 | `nil` (does not add image pull secrets to deployed pods) |
-| `persistence.accessMode`    | Access mode to use for PVC                                                                 | `ReadWriteOnce` |
-| `persistence.enabled`       | Whether to use a PVC for the Docker storage                                                | `false`         |
-| `persistence.deleteEnabled` | Enable the deletion of image blobs and manifests by digest                                 | `nil`           |
-| `persistence.size`          | Amount of space to claim for PVC                                                           | `10Gi`          |
-| `persistence.storageClass`  | Storage Class to use for PVC                                                               | `-`             |
-| `persistence.existingClaim` | Name of an existing PVC to use for config                                                  | `nil`           |
-| `service.port`              | TCP port on which the service is exposed                                                   | `5000`          |
-| `service.type`              | service type                                                                               | `ClusterIP`     |
-| `service.clusterIP`         | if `service.type` is `ClusterIP` and this is non-empty, sets the cluster IP of the service | `nil`           |
-| `service.nodePort`          | if `service.type` is `NodePort` and this is non-empty, sets the node port of the service   | `nil`           |
-| `service.loadBalancerIP     | if `service.type` is `LoadBalancer` and this is non-empty, sets the loadBalancerIP of the service | `nil`          |
-| `service.loadBalancerSourceRanges`| if `service.type` is `LoadBalancer` and this is non-empty, sets the loadBalancerSourceRanges of the service | `nil`           |
-| `replicaCount`              | k8s replicas                                                                               | `1`             |
-| `updateStrategy`            | update strategy for deployment                                                             | `{}`            |
-| `podAnnotations`            | Annotations for pod                                                                        | `{}`            |
-| `podLabels`                 | Labels for pod                                                                             | `{}`            |
-| `podDisruptionBudget`       | Pod disruption budget                                                                      | `{}`            |
-| `resources.limits.cpu`      | Container requested CPU                                                                    | `nil`           |
-| `resources.limits.memory`   | Container requested memory                                                                 | `nil`           |
-| `priorityClassName      `   | priorityClassName                                                                          | `""`            |
-| `storage`                   | Storage system to use                                                                      | `filesystem`    |
-| `tlsSecretName`             | Name of secret for TLS certs                                                               | `nil`           |
-| `secrets.htpasswd`          | Htpasswd authentication                                                                    | `nil`           |
-| `secrets.s3.accessKey`      | Access Key for S3 configuration                                                            | `nil`           |
-| `secrets.s3.secretKey`      | Secret Key for S3 configuration                                                            | `nil`           |
-| `secrets.swift.username`    | Username for Swift configuration                                                           | `nil`           |
-| `secrets.swift.password`    | Password for Swift configuration                                                           | `nil`           |
-| `haSharedSecret`            | Shared secret for Registry                                                                 | `nil`           |
-| `configData`                | Configuration hash for docker                                                              | `nil`           |
-| `s3.region`                 | S3 region                                                                                  | `nil`           |
-| `s3.regionEndpoint`         | S3 region endpoint                                                                         | `nil`           |
-| `s3.bucket`                 | S3 bucket name                                                                             | `nil`           |
-| `s3.encrypt`                | Store images in encrypted format                                                           | `nil`           |
-| `s3.secure`                 | Use HTTPS                                                                                  | `nil`           |
-| `swift.authurl`             | Swift authurl                                                                              | `nil`           |
-| `swift.container`           | Swift container                                                                            | `nil`           |
-| `nodeSelector`              | node labels for pod assignment                                                             | `{}`            |
-| `affinity`                  | affinity settings                                                                          | `{}`            |
-| `tolerations`               | pod tolerations                                                                            | `[]`            |
-| `ingress.enabled`           | If true, Ingress will be created                                                           | `false`         |
-| `ingress.annotations`       | Ingress annotations                                                                        | `{}`            |
-| `ingress.labels`            | Ingress labels                                                                             | `{}`            |
-| `ingress.path`              | Ingress service path                                                                       | `/`             |
-| `ingress.hosts`             | Ingress hostnames                                                                          | `[]`            |
-| `ingress.tls`               | Ingress TLS configuration (YAML)                                                           | `[]`            |
-| `extraVolumeMounts`         | Additional volumeMounts to the registry container                                          | `[]`            |
-| `extraVolumes`              | Additional volumes to the pod                                                              | `[]`            |
-
-Specify each parameter using the `--set key=value[,key=value]` argument to
-`helm install`.
-
-To generate htpasswd file, run this docker command:
-`docker run --entrypoint htpasswd registry:2 -Bbn user password > ./htpasswd`.
+----------------------------------------------
+Autogenerated from chart metadata using [helm-docs v1.5.0](https://github.com/norwoodj/helm-docs/releases/v1.5.0)
