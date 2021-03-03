@@ -11,6 +11,9 @@
   "helmv3": {
     "fileMatch": ["charts/.+/Chart\\.yaml$"]
   },
+  "pre-commit": {
+    "enabled": true
+  }
   "packageRules": [
     {
       "datasources": ["helm"],
