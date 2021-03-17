@@ -20,14 +20,14 @@ repos:
     args:
     - lint
 
-- repo: https://github.com/norwoodj/helm-docs
-  rev: v1.5.0
-  hooks:
-    - id: helm-docs
-      args:
-        # The `./` makes it relative to the chart-search-root set above
-        - --template-files=./_templates.gotmpl
+# - repo: https://github.com/norwoodj/helm-docs
+#   rev: v1.5.0
+#   hooks:
+#     - id: helm-docs
+#       args:
+#         # The `./` makes it relative to the chart-search-root set above
+#         - --template-files=./_templates.gotmpl
 
-        # Repeating the flag adds this to the list, now [./_templates.gotmpl, README.md.gotmpl]
-        # A base filename makes it relative to each chart directory found
-        - --template-files=README.md.gotmpl
+#         # Repeating the flag adds this to the list, now [./_templates.gotmpl, README.md.gotmpl]
+#         # A base filename makes it relative to each chart directory found
+#         - --template-files=README.md.gotmpl
