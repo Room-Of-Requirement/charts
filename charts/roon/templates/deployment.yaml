@@ -67,8 +67,13 @@ spec:
 
       {{- if .Values.persistence.config.enabled }}
       - name: config
+      {{- if .Values.persistence.config.hostPath }}
+        hostPath:
+          path: {{ .Values.persistence.config.hostPath | quote }}
+      {{- else }}
         persistentVolumeClaim:
           claimName: {{ default (include "roon.pvc.config" .) .Values.persistence.config.existingClaim }}
+      {{- end }}
       {{- end }}
 
       {{- if .Values.persistence.music.enabled }}

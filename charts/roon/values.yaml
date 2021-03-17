@@ -11,6 +11,7 @@ image:
 persistence:
   config:
     enabled: true
+    hostPath: null
     # storageClass: "rook-ceph-block"
     size: "8Gi"
     accessMode: ReadWriteOnce
