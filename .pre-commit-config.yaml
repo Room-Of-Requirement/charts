@@ -25,9 +25,6 @@ repos:
   hooks:
     - id: helm-docs
       args:
-        # Make the tool search for charts only under the `example-charts` directory
-        - --chart-search-root=example-charts
-
         # The `./` makes it relative to the chart-search-root set above
         - --template-files=./_templates.gotmpl
 
