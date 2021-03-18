@@ -605,6 +605,22 @@ entries:
   roon:
   - apiVersion: v2
     appVersion: 1.8-764
+    created: "2021-03-18T22:53:30.914862195Z"
+    description: Unofficial Roon Server Helm Chart.
+    digest: 2c287253a238a282fdc5defc1b03d945849098c69f1fafd5ec79091d89dfb00a
+    home: https://roonlabs.com/
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: roon
+    sources:
+    - https://github.com/jmmaloney4/roon-docker-image
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/roon-1.3.11/roon-1.3.11.tgz
+    version: 1.3.11
+  - apiVersion: v2
+    appVersion: 1.8-764
     created: "2021-03-17T23:36:48.677826361Z"
     description: Unofficial Roon Server Helm Chart.
     digest: 33cd11f015163ad4c83201e23de092621ce75aae96fe78fd0b1a71059ba20045
@@ -1259,4 +1275,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/transmission-1.0.2/transmission-1.0.2.tgz
     version: 1.0.2
-generated: "2021-03-17T23:36:48.678395863Z"
+generated: "2021-03-18T22:53:30.915356296Z"
