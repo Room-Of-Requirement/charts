@@ -1,4 +1,4 @@
-{{- if and .Values.persistence.config.enabled (not .Values.persistence.config.existingClaim) -}}
+{{- if and (and .Values.persistence.config.enabled (not .Values.persistence.config.existingClaim)) (not .Values.persistence.config.hostPath) -}}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
