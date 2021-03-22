@@ -1275,4 +1275,19 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/transmission-1.0.2/transmission-1.0.2.tgz
     version: 1.0.2
-generated: "2021-03-18T22:53:30.915356296Z"
+  xmrig:
+  - apiVersion: v2
+    appVersion: 6.10.0
+    created: "2021-03-22T08:47:27.046740827Z"
+    description: A Helm chart for Kubernetes
+    digest: a07e38c6276471cc8601c96f265323869d39289343fc88d1aa467e44112f3cf6
+    home: https://xmrig.com/
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: xmrig
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-03-22T08:47:27.047340245Z"
