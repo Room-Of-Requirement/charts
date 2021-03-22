@@ -1278,6 +1278,20 @@ entries:
   xmrig:
   - apiVersion: v2
     appVersion: 6.10.0
+    created: "2021-03-22T09:15:47.111681565Z"
+    description: A Helm chart for Kubernetes
+    digest: 5a42cdd6cb67ab140d947a636853a385632e2bac924f4660bdb75f3e3ed71549
+    home: https://xmrig.com/
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: xmrig
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.2/xmrig-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 6.10.0
     created: "2021-03-22T09:08:31.219204759Z"
     description: A Helm chart for Kubernetes
     digest: d4a8469f6bbf8f3fea1768a0d4e119aa1309d30f47f3989fce329dd86449d626
@@ -1304,4 +1318,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-03-22T09:08:31.219927662Z"
+generated: "2021-03-22T09:15:47.112639912Z"
