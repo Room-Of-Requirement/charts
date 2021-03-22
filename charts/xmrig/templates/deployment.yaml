@@ -37,6 +37,7 @@ spec:
         volumeMounts:
         - name: config-json
           mountPath: "/config/config.json"
+          subPath: config.json
       volumes:
       - name: config-json
         configMap:
