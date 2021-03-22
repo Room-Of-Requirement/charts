@@ -33,7 +33,7 @@ spec:
         resources:
           {{- toYaml .Values.resources | nindent 12 }}
         volumeMounts:
-        - name: config
+        - name: config-json
           mountPath: "/config/config.json"
       volumes:
       - name: config-json
