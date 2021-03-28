@@ -28,11 +28,15 @@ spec:
           - name: "rclone"
             image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
             imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+            {{- if not .Values.toolbox }}
             args:
             - {{ .Values.subCommand | quote }}
             {{- range .Values.args }}
             - {{ . | quote }}
-            {{- end}}
+            {{- end }}
+            {{- else }}
+            command: ["sh", "-c", "while true; do sleep 86400; done"]
+            {{- end }}
             resources:
               {{- toYaml .Values.resources | nindent 14 }}
             volumeMounts:

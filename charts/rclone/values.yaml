@@ -32,6 +32,7 @@ affinity: {}
 config: |
   # Rclone Config
 
+toolbox: false  # Run container to be `kubectl exec`-ed into
 subCommand: "copy"  # sync, delete, etc
 args: []
 
