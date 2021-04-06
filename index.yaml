@@ -242,6 +242,19 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/provisioner-2.4.0/provisioner-2.4.0.tgz
     version: 2.4.0
+  raw:
+  - apiVersion: v1
+    appVersion: 0.2.3
+    created: "2021-04-06T00:16:26.557758264Z"
+    deprecated: true
+    description: DEPRECATED A place for all the Kubernetes resources which don't already
+      have a home.
+    digest: bc724842b3cc638fc5f63a7354e84cdce0eec71bc2991f6864b449b223c8bf77
+    home: https://github.com/helm/charts/blob/master/incubator/raw
+    name: raw
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/raw-0.2.5/raw-0.2.5.tgz
+    version: 0.2.5
   rclone:
   - apiVersion: v2
     created: "2021-03-28T22:11:43.425802663Z"
@@ -1362,4 +1375,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-03-28T22:11:43.426469771Z"
+generated: "2021-04-06T00:16:26.56694677Z"
