@@ -257,6 +257,20 @@ entries:
     version: 0.2.5
   rclone:
   - apiVersion: v2
+    created: "2021-04-18T19:00:32.195160372Z"
+    description: A Helm chart for Kubernetes
+    digest: b25ad875bcddae9e8e9f645656daea300f2ad19183405f6fb88186afcd28949e
+    home: https://rclone.org/
+    icon: https://rclone.org/img/logo_on_light__horizontal_color.svg
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: rclone
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/rclone-1.2.1/rclone-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
     created: "2021-03-28T22:11:43.425802663Z"
     description: A Helm chart for Kubernetes
     digest: fdbda92acafdbc238a7fea04a41e924d37bccc4d882dfe9009136ffcfa671fd1
@@ -1375,4 +1389,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-04-06T00:16:26.56694677Z"
+generated: "2021-04-18T19:00:32.1957956Z"
