@@ -13,7 +13,7 @@ ovpn:
 
 image:
   repository: "haugene/transmission-openvpn"
-  tag: "3.4"
+  tag: "3.6"
 
 service:
   type: ClusterIP
