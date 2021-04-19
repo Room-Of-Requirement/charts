@@ -1,0 +1,294 @@
+name: "Charts: Lint and test"
+
+on:
+  pull_request:
+    paths:
+    - 'charts/**'
+    - '!charts/**/README.md'
+    - '!charts/**/README.md.gotmpl'
+    - '!charts/**/README_CHANGELOG.md.gotmpl'
+    - '!charts/**/README_CONFIG.md.gotmpl'
+
+jobs:
+  changes-lint:
+    if: "!contains(github.event.head_commit.message, '[ci-skip]')"
+    name: Detect changes for linting
+    runs-on: ubuntu-20.04
+    outputs:
+      matrix: |
+        {
+          "chart": ${{ steps.list-changed.outputs.charts }}
+        }
+      detected: ${{ steps.list-changed.outputs.detected }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Set up chart-testing
+      uses: helm/chart-testing-action@v2.0.1
+
+    - name: Install Dev tools
+      run: |
+        sudo wget https://github.com/mikefarah/yq/releases/download/v4.2.0/yq_linux_amd64 -O /usr/bin/yq
+        sudo chmod +x /usr/bin/yq
+
+    - name: Run chart-testing (list-changed)
+      id: list-changed
+      run: |
+        EXCLUDED=$(yq eval -j '.excluded-charts // []' .github/ct-lint.yaml)
+        CHARTS=$(ct list-changed --config .github/ct-lint.yaml)
+        CHARTS_JSON=$(echo "${CHARTS}" | jq -R -s -c 'split("\n")[:-1]')
+        OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED}, \"all\": ${CHARTS_JSON}}" | jq -c '.all-.excluded')
+        echo ::set-output name=charts::${OUTPUT_JSON}
+        if [[ $(echo ${OUTPUT_JSON} | jq -c '. | length') -gt 0 ]]; then
+          echo "::set-output name=detected::true"
+        fi
+
+  changes-install:
+    if: "!contains(github.event.head_commit.message, '[ci-skip]')"
+    name: Detect changes for install
+    runs-on: ubuntu-20.04
+    outputs:
+      matrix: |
+        {
+          "chart": ${{ steps.list-changed.outputs.charts }}
+        }
+      detected: ${{ steps.list-changed.outputs.detected }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Set up chart-testing
+      uses: helm/chart-testing-action@v2.0.1
+
+    - name: Install Dev tools
+      run: |
+        sudo wget https://github.com/mikefarah/yq/releases/download/v4.2.0/yq_linux_amd64 -O /usr/bin/yq
+        sudo chmod +x /usr/bin/yq
+
+    - name: Run chart-testing (list-changed)
+      id: list-changed
+      run: |
+        EXCLUDED=$(yq eval -j '.excluded-charts // []' .github/ct-install.yaml)
+        CHARTS=$(ct list-changed --config .github/ct-install.yaml)
+        CHARTS_JSON=$(echo "${CHARTS}" | jq -R -s -c 'split("\n")[:-1]')
+        OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED}, \"all\": ${CHARTS_JSON}}" | jq -c '.all-.excluded')
+        echo ::set-output name=charts::${OUTPUT_JSON}
+        if [[ $(echo ${OUTPUT_JSON} | jq -c '. | length') -gt 0 ]]; then
+          echo "::set-output name=detected::true"
+        fi
+
+  check_version:
+    needs:
+    - changes-lint
+    if: |
+      !contains(github.event.head_commit.message, '[ci-skip]') &&
+      needs.changes-lint.outputs.detected == 'true'
+    name: Check chart version numbers
+    strategy:
+      matrix: ${{ fromJson(needs.changes-lint.outputs.matrix) }}
+      fail-fast: true
+      max-parallel: 15
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Get version
+      id: version-get
+      run: |
+        shopt -s extglob
+        OUTPUT=$(helm inspect chart ${{ matrix.chart }} | grep "^version:")
+        VERSION=${OUTPUT#"version:"}
+        echo "::set-output name=version::${VERSION##*( )}"
+        shopt -u extglob
+
+    - name: Parse version
+      id: version-parse
+      uses: apexskier/github-semver-parse@v1
+      with:
+        version: ${{ steps.version-get.outputs.version }}
+
+    - name: Check version
+      id: version-check
+      run: |
+        if [[ ${{ matrix.chart }} =~ ^charts\/(.*)\/.* ]]; then
+          TYPE="${BASH_REMATCH[1]}"
+          case $TYPE in
+            stable)
+              if [[ ${{ steps.version-parse.outputs.major }} -lt 1 ]]; then
+                echo "::error file=${{ matrix.chart }}::Chart version for \"$TYPE\" charts must be >= 1.0.0"
+                exit 1
+              fi
+            ;;
+
+            incubator)
+              if [[ ${{ steps.version-parse.outputs.major }} -gt 0 ]]; then
+                echo "::error file=${{ matrix.chart }}::Chart version for \"$TYPE\" charts must be < 1.0.0"
+                exit 1
+              fi
+            ;;
+
+            *)
+              echo "::error file=${{ matrix.chart }}::Unhandled chart type: $TYPE"
+              exit 1
+          esac
+        fi
+
+  # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
+  check_version_success:
+    needs:
+    - changes-lint
+    - check_version
+    if: ${{ always() }}
+    name: Version check successful
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Check Version matrix status
+      if: ${{ !contains(github.event.head_commit.message, '[ci-skip]') && needs.changes-lint.outputs.detected == 'true' && needs.check_version.result != 'success' }}
+      run: |
+        exit 1
+
+  lint:
+    needs:
+    - changes-lint
+    if: |
+      !contains(github.event.head_commit.message, '[ci-skip]')
+      &&
+      needs.changes-lint.outputs.detected == 'true'
+    name: Lint charts
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Install Helm
+      uses: azure/setup-helm@v1
+      with:
+        version: v3.5.3
+
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+
+    - name: Set up chart-testing
+      uses: helm/chart-testing-action@v2.0.1
+
+    - name: Run chart-testing (lint)
+      id: lint
+      run: ct lint --config .github/ct-lint.yaml
+
+  # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
+  lint_success:
+    needs:
+    - changes-lint
+    - lint
+    if: ${{ always() }}
+    name: Lint successful
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Check lint matrix status
+      if: ${{ !contains(github.event.head_commit.message, '[ci-skip]') && needs.changes-lint.outputs.detected == 'true' && needs.lint.result != 'success' }}
+      run: exit 1
+
+  unittest:
+    needs:
+    - lint_success
+    if: |
+      !contains(github.event.head_commit.message, '[ci-skip]')
+    name: Run unit tests
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Install Dev tools
+      run: sudo apt-get update && sudo apt-get install -y jq libjq-dev
+
+    - name: Install Helm
+      uses: azure/setup-helm@v1
+      with:
+        version: v3.5.3
+
+    - name: Install Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+
+    - name: Install dependencies
+      env:
+        RUBYJQ_USE_SYSTEM_LIBRARIES: 1
+      run: |
+        bundle install
+
+    - name: Run tests
+      run: |
+        bundle exec m -r ./test/
+
+  install:
+    needs:
+    - changes-install
+    - check_version_success
+    - lint_success
+    if: |
+      !contains(github.event.head_commit.message, '[ci-skip]')
+      &&
+      needs.changes-install.outputs.detected == 'true'
+    name: Install charts
+    strategy:
+      matrix: ${{ fromJson(needs.changes-install.outputs.matrix) }}
+      fail-fast: true
+      max-parallel: 15
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Install Helm
+      uses: azure/setup-helm@v1
+      with:
+        version: v3.5.3
+
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+
+    - name: Set up chart-testing
+      uses: helm/chart-testing-action@v2.0.1
+
+    - name: Create k3d cluster
+      uses: nolar/setup-k3d-k3s@v1
+      with:
+        version: v1.19
+
+    - name: Remove node taints
+      run: |
+        kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
+
+    - name: Run chart-testing (install)
+      run: ct install --config .github/ct-install.yaml --charts ${{ matrix.chart }}
+
+  # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
+  install_success:
+    needs:
+    - changes-install
+    - install
+    if: ${{ always() }}
+    name: Install successful
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Check install matrix status
+      if: ${{ !contains(github.event.head_commit.message, '[ci-skip]') && needs.changes-install.outputs.detected == 'true' && needs.install.result != 'success' }}
+      run: exit 1
