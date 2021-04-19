@@ -910,6 +910,19 @@ entries:
     version: 0.1.0
   transmission:
   - apiVersion: v2
+    created: "2021-04-19T22:58:33.498792239Z"
+    description: A Helm chart for Kubernetes
+    digest: 7d65f655d2991bd579d0987a750a03277f4dd55708dbbcd10a531b8e4e3f9666
+    home: https://github.com/haugene/docker-transmission-openvpn
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: transmission
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/transmission-1.4.2/transmission-1.4.2.tgz
+    version: 1.4.2
+  - apiVersion: v2
     appVersion: "3.4"
     created: "2021-03-17T23:18:02.675243638Z"
     description: A Helm chart for Kubernetes
@@ -1402,4 +1415,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-04-18T19:44:19.108692152Z"
+generated: "2021-04-19T22:58:33.499505345Z"
