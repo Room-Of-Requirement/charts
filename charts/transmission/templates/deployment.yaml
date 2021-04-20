@@ -104,7 +104,11 @@ spec:
         - name: TRANSMISSION_PEER_PORT
           value: "{{ .Values.transmission.peer_port }}"
         - name: TRANSMISSION_RPC_URL
-          value: "/{{ .Release.Name }}/transmission/"
+          value: "/{{ .Release.Name }}/"
+        - name: TRANSMISSION_RPC_USERNAME
+          value: admin
+        - name: TRANSMISSION_RPC_PASSWORD
+          value: password
 
         {{- if .Values.transmission.speed_limit_up }}
         - name: TRANSMISSION_SPEED_LIMIT_UP
