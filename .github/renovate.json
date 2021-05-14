@@ -5,6 +5,8 @@
   "rebaseWhen": "behind-base-branch",
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "Renovate Dashboard",
+  "assignees": ["jmmaloney4"],
+  "bumpVersion": true,
   "helm-values": {
     "enabled": true
   },
