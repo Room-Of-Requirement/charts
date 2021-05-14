@@ -6,7 +6,7 @@
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "Renovate Dashboard",
   "assignees": ["jmmaloney4"],
-  "bumpVersion": true,
+  "bumpVersion": "patch",
   "helm-values": {
     "enabled": true
   },
