@@ -2,7 +2,7 @@ apiVersion: v2
 name: roon
 description: Unofficial Roon Server Helm Chart.
 type: application
-version: 2.0.0
+version: 2.0.1
 home: https://roonlabs.com/
 sources:
 - https://github.com/jmmaloney4/roon-docker-image
