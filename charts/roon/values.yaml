@@ -10,7 +10,7 @@ image:
 
 persistence:
   config:
-    enabled: true
+    enabled: false
     hostPath: null
     # storageClass: "rook-ceph-block"
     size: "8Gi"
@@ -20,7 +20,7 @@ persistence:
     # Uncomment to use an existing pvc
     # existingClaim:
   music:
-    enabled: true
+    enabled: false
     # storageClass: "rook-cephfs"
     size: "20Gi"
     accessMode: ReadWriteMany
@@ -29,7 +29,7 @@ persistence:
     # Uncomment to use an existing pvc
     # existingClaim:
   backup:
-    enabled: true
+    enabled: false
     # storageClass: "rook-cephfs"
     size: "20Gi"
     accessMode: ReadWriteMany
@@ -39,7 +39,7 @@ persistence:
     # existingClaim:
   # Create emptyDir: {} for roon Cache
   cache:
-    enabled: true
+    enabled: false
 
 
 imagePullSecrets: []
