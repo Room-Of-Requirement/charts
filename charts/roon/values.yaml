@@ -6,7 +6,7 @@ image:
   repository: ghcr.io/jmmaloney4/roon
   # pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  # tag: nightly
+  tag: 1.8-790
 
 persistence:
   config:
