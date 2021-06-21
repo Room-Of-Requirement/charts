@@ -5,11 +5,14 @@
 # https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
 #
 
+# Required for RAAT server to work
+hostNetwork: true
+
 image:
   # -- image repository
-  repository: roon/roon
+  repository: ghcr.io/jmmaloney4/roon
   # -- image tag
-  tag: 1.0.0
+  tag: 1.8-795
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -23,9 +26,7 @@ env:
 # @default -- See values.yaml
 service:
   main:
-    ports:
-      http:
-        port: 1880
+    enabled: false
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.
@@ -35,7 +36,23 @@ ingress:
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
-persistence: {}
-  # data:
-  #   enabled: false
-  #   mountPath: /data
+persistence:
+  config:
+    enabled: true
+    mountPath: /var/roon/
+    size: 5Gi
+    storageClass: "-"
+  music:
+    enabled: false
+    size: 300Gi
+    storageClass: "-"
+  backups:
+    enabled: false
+    size: 20Gi
+    storageClass: "-"
+  ## Might cause a small speedup, not entirely clear. Depends on what you might have backing your config pvc. 
+  ## Test and see if you like it.
+  cache:
+    enabled: false
+    mountPath: /var/roon/RoonServer/Cache/
+    type: emptyDir # Try hostPath too. Want something fast.
