@@ -1,11 +1,19 @@
 apiVersion: v2
+appVersion: 1.0.0
+description: roon helm package
 name: roon
-description: Unofficial Roon Server Helm Chart.
-type: application
-version: 2.0.1
-home: https://roonlabs.com/
+version: 1.2.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+- roon
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/roon
+icon: https://roon.org/icon
 sources:
-- https://github.com/jmmaloney4/roon-docker-image
+- https://github.com/roon/roon-docker
 maintainers:
-- name: jmmaloney4
-  email: jmmaloney4@gmail.com
+- name: roon
+  email: roon@roon.com
+dependencies:
+- name: common
+  repository: https://library-charts.k8s-at-home.com
+  version: 3.2.0

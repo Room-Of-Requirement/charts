@@ -1,84 +1,41 @@
-# Default values for Roon.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
 
 image:
-  repository: ghcr.io/jmmaloney4/roon
-  # pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: latest
+  # -- image repository
+  repository: roon/roon
+  # -- image tag
+  tag: 1.0.0
+  # -- image pull policy
+  pullPolicy: IfNotPresent
 
-persistence:
-  config:
-    enabled: false
-    hostPath: null
-    # storageClass: "rook-ceph-block"
-    size: "8Gi"
-    accessMode: ReadWriteOnce
-    annotations:
-      "helm.sh/resource-policy": keep
-    # Uncomment to use an existing pvc
-    # existingClaim:
-  music:
-    enabled: false
-    # storageClass: "rook-cephfs"
-    size: "20Gi"
-    accessMode: ReadWriteMany
-    annotations:
-      "helm.sh/resource-policy": keep
-    # Uncomment to use an existing pvc
-    # existingClaim:
-  backup:
-    enabled: false
-    # storageClass: "rook-cephfs"
-    size: "20Gi"
-    accessMode: ReadWriteMany
-    annotations:
-      "helm.sh/resource-policy": keep
-    # Uncomment to use an existing pvc
-    # existingClaim:
-  # Create emptyDir: {} for roon Cache
-  cache:
+# -- environment variables. See more environment variables in the [roon documentation](https://roon.org/docs).
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      http:
+        port: 1880
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
     enabled: false
 
-
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: false
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
-
-podAnnotations: {}
-
-podSecurityContext: {}
-  # fsGroup: 2000
-
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
-
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence: {}
+  # data:
+  #   enabled: false
+  #   mountPath: /data
