@@ -1,6 +1,6 @@
 name: Lint and Test Charts
 
-on: 
+on:
 - pull_request
 - push
 

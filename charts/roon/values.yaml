@@ -50,7 +50,7 @@ persistence:
     enabled: false
     size: 20Gi
     storageClass: "-"
-  ## Might cause a small speedup, not entirely clear. Depends on what you might have backing your config pvc. 
+  ## Might cause a small speedup, not entirely clear. Depends on what you might have backing your config pvc.
   ## Test and see if you like it.
   cache:
     enabled: false
