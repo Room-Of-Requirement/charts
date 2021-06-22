@@ -700,6 +700,28 @@ entries:
     version: 0.1.0
   roon:
   - apiVersion: v2
+    created: "2021-06-22T00:23:13.471388746Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 3.2.0
+    description: Roon Server Helm Chart
+    digest: 9ba6b0e71141a15a3b009e6243f1f7a589435030cf03f6165c96d7a85c10652e
+    home: https://github.com/jmmaloney4/charts/tree/main/charts/roon
+    icon: https://roonlabs.com/wp-content/uploads/roon_footer_logo.png
+    keywords:
+    - roon
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: Jack Maloney
+    name: roon
+    sources:
+    - https://github.com/jmmaloney4/roon-docker-image
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/roon-3.0.1/roon-3.0.1.tgz
+    version: 3.0.1
+  - apiVersion: v2
     created: "2021-06-21T23:09:43.423433205Z"
     dependencies:
     - name: common
@@ -1589,4 +1611,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-06-21T23:09:43.424508294Z"
+generated: "2021-06-22T00:23:13.472262391Z"
