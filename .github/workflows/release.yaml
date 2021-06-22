@@ -21,8 +21,11 @@ jobs:
 
       - name: Install Helm
         uses: azure/setup-helm@v1
-#         with:
-#           version: v3.4.0
+        
+      - name: Add Helm reopos
+        run: |
+          helm repo add k8s-at-home-library https://library-charts.k8s-at-home.com
+          helm repo update
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.2.1
