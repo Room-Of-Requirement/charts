@@ -10,17 +10,17 @@ repos:
   - id: check-merge-conflict
   - id: check-case-conflict
 
-- repo: local
-  hooks:
-  - id: ct-lint
-    name: "Chart Test: Lint"
-    language: docker_image
-    pass_filenames: false
-    types: ['file']
-    files: '^charts/.*(\.ya?ml|\.tpl|\.helmignore|NOTES.txt)'
-    entry: -u 0 quay.io/helmpack/chart-testing:latest ct
-    args:
-    - lint
+# - repo: local
+#   hooks:
+#   - id: ct-lint
+#     name: "Chart Test: Lint"
+#     language: docker_image
+#     pass_filenames: false
+#     types: ['file']
+#     files: '^charts/.*(\.ya?ml|\.tpl|\.helmignore|NOTES.txt)'
+#     entry: -u 0 quay.io/helmpack/chart-testing:latest ct
+#     args:
+#     - lint
 
 # - repo: https://github.com/norwoodj/helm-docs
 #   rev: v1.5.0

@@ -42,17 +42,17 @@ persistence:
     mountPath: /var/roon/
     size: 5Gi
     storageClass: "-"
-  music:
-    enabled: false
-    size: 300Gi
-    storageClass: "-"
-  backups:
-    enabled: false
-    size: 20Gi
-    storageClass: "-"
+  # music:
+  #   enabled: false
+  #   size: 300Gi
+  #   storageClass: "-"
+  # backups:
+  #   enabled: false
+  #   size: 20Gi
+  #   storageClass: "-"
   ## Might cause a small speedup, not entirely clear. Depends on what you might have backing your config pvc.
   ## Test and see if you like it.
-  cache:
-    enabled: false
-    mountPath: /var/roon/RoonServer/Cache/
-    type: emptyDir # Try hostPath too. Want something fast.
+  # cache:
+  #   enabled: false
+  #   mountPath: /var/roon/RoonServer/Cache/
+  #   type: emptyDir # Try hostPath too. Want something fast.
