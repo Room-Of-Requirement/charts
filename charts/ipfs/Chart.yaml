@@ -1,0 +1,19 @@
+apiVersion: v2
+appVersion: v0.9.0
+description: ipfs helm chart
+name: ipfs
+version: 0.1.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+- ipfs
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/ipfs
+icon: https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png
+sources:
+- https://github.com/ipfs/ipfs-docker
+maintainers:
+- name: jmmaloney4
+  email: git@jmmaloney4.xyz
+dependencies:
+- name: common
+  repository: https://library-charts.k8s-at-home.com
+  version: 3.2.0
