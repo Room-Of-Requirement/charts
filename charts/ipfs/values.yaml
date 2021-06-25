@@ -50,8 +50,9 @@ ingress:
 # @default -- See values.yaml
 persistence: {}
   # data:
-  #   enabled: false
+  #   enabled: true
   #   mountPath: /data
+  #   size: 10Gi
+  #
 
-configFile: |
-  # ~/.ipfs/config
+config:
