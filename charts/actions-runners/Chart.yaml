@@ -7,3 +7,4 @@ home: https://github.com/summerwind/actions-runner-controller
 maintainers:
 - name: jmmaloney4
   email: jmmaloney4@gmail.com
+deprecated: true
