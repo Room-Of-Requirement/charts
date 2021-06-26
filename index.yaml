@@ -135,6 +135,30 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/docker-registry-1.9.6/docker-registry-1.9.6.tgz
     version: 1.9.6
+  ipfs:
+  - apiVersion: v2
+    appVersion: v0.9.0
+    created: "2021-06-26T18:02:51.947589085Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 3.2.0
+    description: ipfs helm chart
+    digest: e6e6c759d8490e4cd6e31e14bc9499295299c02b50cc7cf945f93a5540922e2b
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/ipfs
+    icon: https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png
+    keywords:
+    - ipfs
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: ipfs
+    sources:
+    - https://github.com/ipfs/ipfs-docker
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/ipfs-0.2.0/ipfs-0.2.0.tgz
+    version: 0.2.0
   jellyfin:
   - apiVersion: v2
     appVersion: 10.6.4
@@ -1638,4 +1662,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-06-26T17:43:59.881659067Z"
+generated: "2021-06-26T18:02:51.948205896Z"
