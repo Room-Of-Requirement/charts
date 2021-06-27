@@ -138,6 +138,29 @@ entries:
   ipfs:
   - apiVersion: v2
     appVersion: v0.9.0
+    created: "2021-06-27T00:26:23.826439964Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 3.2.0
+    description: ipfs helm chart
+    digest: 4b727d86cfaedd40d41c94d768042ef2fd3e029357ffdc6f01ccec9b6107e659
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/ipfs
+    icon: https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png
+    keywords:
+    - ipfs
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: ipfs
+    sources:
+    - https://github.com/ipfs/ipfs-docker
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/ipfs-0.2.1/ipfs-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: v0.9.0
     created: "2021-06-26T18:02:51.947589085Z"
     dependencies:
     - name: common
@@ -1662,4 +1685,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-06-26T18:02:51.948205896Z"
+generated: "2021-06-27T00:26:23.827168104Z"
