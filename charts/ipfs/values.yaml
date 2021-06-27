@@ -24,18 +24,27 @@ env:
 service:
   # gateway
   main:
+    enabled: true
+    primary: true
     ports:
       http:
+        primary: true
         port: 8080
         protocol: HTTP
   swarm:
+    enabled: true
+    primary: false
     ports:
       swarm:
+        primary: false
         port: 4001
         protocol: tcp
   api:
+    enabled: true
+    primary: false
     ports:
       api:
+        primary: false
         port: 5001
         protocol: HTTP
 
