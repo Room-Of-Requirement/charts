@@ -83,6 +83,29 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/actions-runners-0.1.2/actions-runners-0.1.2.tgz
     version: 0.1.2
+  beets:
+  - apiVersion: v2
+    created: "2021-06-30T19:52:53.244380622Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 3.2.0
+    description: beets helm chart
+    digest: 177245f281ef55bc2435fc0b4ad25078261b2a758ad0ea07c0725cf94d14d81e
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/beets
+    icon: https://beets.org/icon
+    keywords:
+    - beets
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: beets
+    sources:
+    - https://github.com/beetbox/beets
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/beets-0.1.1/beets-0.1.1.tgz
+    version: 0.1.1
   ddclient:
   - apiVersion: v2
     appVersion: 3.9.1
@@ -1708,4 +1731,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-06-27T01:29:55.747940964Z"
+generated: "2021-06-30T19:52:53.245361211Z"
