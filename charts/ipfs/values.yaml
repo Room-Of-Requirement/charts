@@ -28,23 +28,23 @@ service:
     primary: true
     ports:
       http:
-        primary: true
+        enabled: true
         port: 8080
         protocol: HTTP
   swarm:
     enabled: true
-    primary: false
     ports:
       swarm:
-        primary: false
+        enabled: true
+        primary: true
         port: 4001
         protocol: tcp
   api:
     enabled: true
-    primary: false
     ports:
       api:
-        primary: false
+        enabled: true
+        primary: true
         port: 5001
         protocol: HTTP
 
@@ -52,6 +52,8 @@ ingress:
   # -- Enable and configure ingress settings for the chart under this key.
   # @default -- See values.yaml
   main:
+    enabled: false
+  webui:
     enabled: false
 
 # -- Configure persistence settings for the chart under this key.
