@@ -55,6 +55,11 @@ ingress:
     enabled: false
   webui:
     enabled: false
+    serviceName: api
+    hosts:
+    - host: ipfs.example.com
+      paths:
+      - path: "/webui"
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
