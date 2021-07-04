@@ -37,3 +37,63 @@ persistence: {}
   # data:
   #   enabled: false
   #   mountPath: /data
+
+config:
+  # Beets Config
+  plugins: fetchart embedart scrub info web ipfs missing duplicates export inline
+  directory: /music
+  library: /music/library.db
+  art_filename: albumart
+  threaded: yes
+  original_date: no
+  per_disc_numbering: no
+
+  scrub:
+    auto: yes
+
+  paths:
+    default: $albumartist/$album [$year, $media, $format, $channels, $bitdepth-$samplerate] ($mb_albumid)/Disk $disc of $disctotal/$track $title ($length)
+    singleton: $albumartist/$album [$year, $media, $format, $channels, $bitdepth-$samplerate] ($mb_albumid)/$track $title ($length)
+    comp: Compilations/$album [$year, $media, $format, $channels, $bitdepth-$samplerate] ($mb_albumid)/Disk $disc of $disctotal/$track $title ($length)
+
+  asciify_paths: yes
+  replace:
+    '^\.': _
+    '[\x00-\x1f]': _
+    '[<>:"\?\*\|]': _
+    '[\xE8-\xEB]': e
+    '[\xEC-\xEF]': i
+    '[\xE2-\xE6]': a
+    '[\xF2-\xF6]': o
+    '[\xF8]': o
+    '\.$': _
+    '\s+$': ''
+    '[\\/]': _
+    '^\s+': ''
+    '^-': _
+
+  web:
+    host: 0.0.0.0
+    port: 8337
+    reverse_proxy: yes
+
+  import:
+    write: yes
+    copy: yes
+    move: no
+    resume: ask
+    incremental: yes
+    quiet_fallback: skip
+    incremental: yes
+    timid: yes
+    log: /config/beet.log
+    languages: en es fr
+    detail: yes
+    autotag: yes
+    original_date: no
+
+  fetchart:
+    auto: yes
+
+  embedart:
+    auto: yes
