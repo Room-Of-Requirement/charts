@@ -9,7 +9,7 @@ image:
   # -- image repository
   repository: ghcr.io/linuxserver/beets
   # -- image tag
-  tag: 1.4.9-ls99@sha256:baf26dfa4a70eddb016236d806192f03a01dddcdfa4340f9e50b0bbc52755fc3
+  tag: 1.4.9-ls94@sha256:baf26dfa4a70eddb016236d806192f03a01dddcdfa4340f9e50b0bbc52755fc3
   # -- image pull policy
   pullPolicy: IfNotPresent
 
