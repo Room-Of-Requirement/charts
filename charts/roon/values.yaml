@@ -38,7 +38,7 @@ ingress:
 # @default -- See values.yaml
 persistence:
   config:
-    enabled: true
+    enabled: false
     mountPath: /var/roon/
     size: 5Gi
     storageClass: "-"
