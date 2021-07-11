@@ -1,13 +1,11 @@
 name: Lint and Test Charts
 
 on:
-- pull_request
-- push:
-    branches:    
-    - '*'         # matches every branch that doesn't contain a '/'
-    - '*/*'       # matches every branch containing a single '/'
-    - '**'        # matches every branch
-    - '!main'     # excludes main
+  pull_request:
+  push:
+    branches-ignore:
+    - main
+
 jobs:
   lint-test:
     runs-on: ubuntu-latest
