@@ -15,5 +15,19 @@
   },
   "pre-commit": {
     "enabled": true
-  }
+  },
+  packageRules: [
+    {
+      "updateTypes": ["minor"],
+      "bumpVersion": "minor",
+      "labels": ["dependency/minor"],
+      automerge: true
+    },
+    {
+      "updateTypes": ["patch"],
+      "bumpVersion": "patch",
+      "labels": ["dependency/patch"],
+      automerge: true
+    }
+  ]
 }
