@@ -197,6 +197,23 @@ entries:
   docker-registry:
   - apiVersion: v1
     appVersion: 2.7.1
+    created: "2021-07-11T17:30:43.197168339Z"
+    deprecated: true
+    description: A Helm chart for Docker Registry
+    digest: 001840a79494980f9935a71b186da73679080fdbd6dda3f4ea1da5e904ef9987
+    home: https://hub.docker.com/_/registry/
+    icon: https://hub.docker.com/public/images/logos/mini-logo.svg
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: docker-registry
+    sources:
+    - https://github.com/docker/distribution-library-image
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/docker-registry-1.9.8/docker-registry-1.9.8.tgz
+    version: 1.9.8
+  - apiVersion: v1
+    appVersion: 2.7.1
     created: "2021-02-24T02:13:07.284559449Z"
     description: A Helm chart for Docker Registry
     digest: 90612c8dbd73db4151a3b4d663bf4e5d5d84070e7dafeab96a2a36f86246d0f8
@@ -415,6 +432,20 @@ entries:
     version: 1.0.1
   letsencrypt-issuer:
   - apiVersion: v2
+    created: "2021-07-11T17:30:43.326542065Z"
+    deprecated: true
+    description: A Helm chart for Kubernetes
+    digest: 37c254608031291deb11d0e89a9ac562ab590a75958548675bedb6437f3f57a8
+    home: https://cert-manager.io/docs/configuration/
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: letsencrypt-issuer
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/letsencrypt-issuer-0.1.5/letsencrypt-issuer-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
     created: "2021-03-17T23:18:02.261800694Z"
     description: A Helm chart for Kubernetes
     digest: 1b2739a475f34013191903241bc14e6b479c89f9f1233142856d8e1c3432d5b2
@@ -498,6 +529,20 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/provisioner-2.4.0/provisioner-2.4.0.tgz
     version: 2.4.0
   raw:
+  - apiVersion: v1
+    created: "2021-07-11T17:30:43.459241348Z"
+    deprecated: true
+    description: A place for all the Kubernetes resources which don't already have
+      a home.
+    digest: df6705a4d23f045ddc311152ae391c756d71c36ed42261ace4808f1a8d075825
+    home: https://github.com/helm/charts/blob/master/incubator/raw
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: raw
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/raw-0.3.1/raw-0.3.1.tgz
+    version: 0.3.1
   - apiVersion: v1
     created: "2021-04-18T19:44:19.107183739Z"
     description: A place for all the Kubernetes resources which don't already have
@@ -1310,6 +1355,20 @@ entries:
     version: 0.1.0
   transmission:
   - apiVersion: v2
+    created: "2021-07-11T17:30:43.585569522Z"
+    deprecated: true
+    description: A Helm chart for Kubernetes
+    digest: 4bb411a89da171e3fd8296e44ac11eacf42ce8a8124125ac5bd07ce7cebc701b
+    home: https://github.com/haugene/docker-transmission-openvpn
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: transmission
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/transmission-1.4.8/transmission-1.4.8.tgz
+    version: 1.4.8
+  - apiVersion: v2
     created: "2021-04-20T18:54:32.461323928Z"
     description: A Helm chart for Kubernetes
     digest: debda014a9235f36224e3efea14e53850693015e407992183b6ed88dc52ee368
@@ -1826,6 +1885,21 @@ entries:
   xmrig:
   - apiVersion: v2
     appVersion: 6.10.0
+    created: "2021-07-11T17:30:43.714994249Z"
+    deprecated: true
+    description: A Helm chart for Kubernetes
+    digest: 28158d4e9fd60a97ddde6cef117da5f8304ff8956c73a49fbbac48308d67a0c7
+    home: https://xmrig.com/
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: xmrig
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.4/xmrig-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 6.10.0
     created: "2021-03-22T09:19:36.455995186Z"
     description: A Helm chart for Kubernetes
     digest: 82b4812fb906c322ac0e57facec2f8c9bff9334ddfeaa34dc564cf14613f57c4
@@ -1880,4 +1954,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-11T17:13:20.712340412Z"
+generated: "2021-07-11T17:30:43.71676108Z"
