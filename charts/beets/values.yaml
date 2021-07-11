@@ -84,7 +84,6 @@ config:
     resume: ask
     incremental: yes
     quiet_fallback: skip
-    incremental: yes
     timid: yes
     log: /config/beet.log
     languages: en es fr
