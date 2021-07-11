@@ -85,6 +85,28 @@ entries:
     version: 0.1.2
   beets:
   - apiVersion: v2
+    created: "2021-07-11T17:13:20.711708816Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 3.2.0
+    description: beets helm chart
+    digest: 1f5514958a8c05b1c0ac529a11a35193300ea69da67055437688f091f3e97f7d
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/beets
+    icon: https://beets.org/icon
+    keywords:
+    - beets
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: beets
+    sources:
+    - https://github.com/beetbox/beets
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/beets-0.2.1/beets-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
     created: "2021-07-04T08:58:05.157661491Z"
     dependencies:
     - name: common
@@ -1858,4 +1880,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-04T08:58:05.158452407Z"
+generated: "2021-07-11T17:13:20.712340412Z"
