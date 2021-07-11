@@ -244,6 +244,29 @@ entries:
   ipfs:
   - apiVersion: v2
     appVersion: v0.9.0
+    created: "2021-07-11T17:48:33.06846453Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 3.2.0
+    description: ipfs helm chart
+    digest: a2e72e6ce0d676474ed86e40af26e97b5a39739b38ae1c361ea6b3f2bc2e3a25
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/ipfs
+    icon: https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png
+    keywords:
+    - ipfs
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: ipfs
+    sources:
+    - https://github.com/ipfs/ipfs-docker
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/ipfs-0.2.6/ipfs-0.2.6.tgz
+    version: 0.2.6
+  - apiVersion: v2
+    appVersion: v0.9.0
     created: "2021-07-01T02:05:26.199446631Z"
     dependencies:
     - name: common
@@ -1013,6 +1036,28 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/registry-sync-0.1.0/registry-sync-0.1.0.tgz
     version: 0.1.0
   roon:
+  - apiVersion: v2
+    created: "2021-07-11T17:48:33.176981828Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 3.2.0
+    description: Roon Server Helm Chart
+    digest: 35b04d978830b92a392ee6c5e57e984c04b3cde9a89ee8699f681e8147c7a350
+    home: https://github.com/jmmaloney4/charts/tree/main/charts/roon
+    icon: https://roonlabs.com/wp-content/uploads/roon_footer_logo.png
+    keywords:
+    - roon
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: roon
+    sources:
+    - https://github.com/jmmaloney4/roon-docker-image
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/roon-3.0.2/roon-3.0.2.tgz
+    version: 3.0.2
   - apiVersion: v2
     created: "2021-06-22T00:23:13.471388746Z"
     dependencies:
@@ -1954,4 +1999,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-11T17:30:43.71676108Z"
+generated: "2021-07-11T17:48:33.177674839Z"
