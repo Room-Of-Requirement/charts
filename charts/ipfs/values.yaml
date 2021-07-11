@@ -38,7 +38,7 @@ service:
         enabled: true
         primary: true
         port: 4001
-        protocol: tcp
+        protocol: TCP
   api:
     enabled: true
     ports:
