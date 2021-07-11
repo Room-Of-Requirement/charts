@@ -12,7 +12,7 @@ image:
   # -- image repository
   repository: ghcr.io/jmmaloney4/roon
   # -- image tag
-  tag: 1.8-795
+  tag: 1.8-806@sha256:29927df8ac0e5582de9f65da4ba302a2ddaa2918dc57f433e8983ff22cf6511f
   # -- image pull policy
   pullPolicy: IfNotPresent
 
