@@ -85,6 +85,28 @@ entries:
     version: 0.1.2
   beets:
   - apiVersion: v2
+    created: "2021-07-11T18:02:53.698209642Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 3.3.0
+    description: beets helm chart
+    digest: ab768d243c214a0b1976f9e7526ae8e7c10a6d8be76f0d0460db0cc1e62b5ec0
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/beets
+    icon: https://beets.org/icon
+    keywords:
+    - beets
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: beets
+    sources:
+    - https://github.com/beetbox/beets
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/beets-0.3.0/beets-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     created: "2021-07-11T17:13:20.711708816Z"
     dependencies:
     - name: common
@@ -242,6 +264,29 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/docker-registry-1.9.6/docker-registry-1.9.6.tgz
     version: 1.9.6
   ipfs:
+  - apiVersion: v2
+    appVersion: v0.9.0
+    created: "2021-07-11T18:02:53.870134631Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 3.3.0
+    description: ipfs helm chart
+    digest: a4c7a611baba390272b421c8477efae07710c6ca4f3517326fe5c99b65f19c16
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/ipfs
+    icon: https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png
+    keywords:
+    - ipfs
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: ipfs
+    sources:
+    - https://github.com/ipfs/ipfs-docker
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/ipfs-0.3.0/ipfs-0.3.0.tgz
+    version: 0.3.0
   - apiVersion: v2
     appVersion: v0.9.0
     created: "2021-07-11T17:48:33.06846453Z"
@@ -1036,6 +1081,28 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/registry-sync-0.1.0/registry-sync-0.1.0.tgz
     version: 0.1.0
   roon:
+  - apiVersion: v2
+    created: "2021-07-11T18:02:54.052152025Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 3.3.0
+    description: Roon Server Helm Chart
+    digest: 7e0c51e2389dae3509f1012b224d82c1ac52cf9a4d4b8220e3a23d817ce3115b
+    home: https://github.com/jmmaloney4/charts/tree/main/charts/roon
+    icon: https://roonlabs.com/wp-content/uploads/roon_footer_logo.png
+    keywords:
+    - roon
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: roon
+    sources:
+    - https://github.com/jmmaloney4/roon-docker-image
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/roon-3.1.0/roon-3.1.0.tgz
+    version: 3.1.0
   - apiVersion: v2
     created: "2021-07-11T17:48:33.176981828Z"
     dependencies:
@@ -1999,4 +2066,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-11T17:48:33.177674839Z"
+generated: "2021-07-11T18:02:54.054093326Z"
