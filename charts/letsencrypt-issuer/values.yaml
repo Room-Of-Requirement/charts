@@ -1,8 +1,0 @@
-email: "john-doe@example.com"
-issuers:
-- name: letsencrypt-staging
-  url: https://acme-staging-v02.api.letsencrypt.org/directory
-  kind: ClusterIssuer
-- name: letsencrypt-prod
-  url: https://acme-v02.api.letsencrypt.org/directory
-  kind: ClusterIssuer
