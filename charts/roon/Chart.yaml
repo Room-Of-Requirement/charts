@@ -10,7 +10,7 @@ icon: https://roonlabs.com/wp-content/uploads/roon_footer_logo.png
 sources:
 - https://github.com/jmmaloney4/roon-docker-image
 maintainers:
-- name: Jack Maloney
+- name: jmmaloney4
   email: git@jmmaloney4.xyz
 dependencies:
 - name: common
