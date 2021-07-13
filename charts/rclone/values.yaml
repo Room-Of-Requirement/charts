@@ -35,6 +35,8 @@ config: |
 toolbox: false  # Run container to be `kubectl exec`-ed into
 subCommand: "copy"  # sync, delete, etc
 args: []
+from: ""
+to: ""
 
 volumeMounts: []
 volumes: []
