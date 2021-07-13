@@ -34,11 +34,11 @@ spec:
             {{- range .Values.args }}
             - {{ . | quote }}
             {{- end }}
-            {{- if .Values.to }}
-            - {{ .Values.to }}
-            {{- end }}
             {{- if .Values.from }}
             - {{ .Values.from }}
+            {{- end }}
+            {{- if .Values.to }}
+            - {{ .Values.to }}
             {{- end }}
             {{- else }}
             command: ["sh", "-c", "while true; do sleep 86400; done"]
