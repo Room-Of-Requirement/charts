@@ -265,6 +265,28 @@ entries:
     version: 1.9.6
   ipfs:
   - apiVersion: v2
+    created: "2021-07-22T00:09:24.030382298Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 3.3.0
+    description: ipfs helm chart
+    digest: 777edef25878b66bc4897de7e6d5c50b7730c6866a38f7e78d0c7abd6fd4218e
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/ipfs
+    icon: https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png
+    keywords:
+    - ipfs
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: ipfs
+    sources:
+    - https://github.com/ipfs/ipfs-docker
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/ipfs-0.3.1/ipfs-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
     appVersion: v0.9.0
     created: "2021-07-11T18:02:53.870134631Z"
     dependencies:
@@ -637,6 +659,20 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/raw-0.2.5/raw-0.2.5.tgz
     version: 0.2.5
   rclone:
+  - apiVersion: v2
+    created: "2021-07-22T00:09:24.135536262Z"
+    description: A Helm chart for Kubernetes
+    digest: 64a05cfa6fbceef114ce7080fb2b58e89389ad1b9d8aad49ef0beff78c52e715
+    home: https://rclone.org/
+    icon: https://rclone.org/img/logo_on_light__horizontal_color.svg
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: rclone
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/rclone-2.2.3/rclone-2.2.3.tgz
+    version: 2.2.3
   - apiVersion: v2
     created: "2021-07-13T22:15:34.514343094Z"
     description: A Helm chart for Kubernetes
@@ -2130,4 +2166,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-13T22:15:34.515216195Z"
+generated: "2021-07-22T00:09:24.137889995Z"
