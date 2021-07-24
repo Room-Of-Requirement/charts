@@ -6,7 +6,6 @@
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "Renovate Dashboard",
   "assignees": ["jmmaloney4"],
-  "bumpVersion": "patch",
   "helm-values": {
     "enabled": true
   },
@@ -18,13 +17,31 @@
   },
   packageRules: [
     {
-      "updateTypes": ["minor"],
+      "matchDatasources": ["helm"],
+      "commitMessageTopic": "Helm chart {{depName}}",
+      "separateMinorPatch": true
+    },
+    {
+      matchDatasources: ["docker"],
+      enabled: true,
+      commitMessageTopic: "container image {{depName}}",
+      commitMessageExtra: "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
+      matchUpdateTypes: ["major", "minor", "patch", "digest"],
+    },
+    {
+      "matchUpdateTypes": ["digest"],
+      "bumpVersion": "patch",
+      "labels": ["dependency/digest"],
+      automerge: true
+    },
+    {
+      "matchUpdateTypes": ["minor"],
       "bumpVersion": "minor",
       "labels": ["dependency/minor"],
       automerge: true
     },
     {
-      "updateTypes": ["patch"],
+      "matchUpdateTypes": ["patch"],
       "bumpVersion": "patch",
       "labels": ["dependency/patch"],
       automerge: true
