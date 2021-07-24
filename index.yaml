@@ -263,6 +263,22 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/docker-registry-1.9.6/docker-registry-1.9.6.tgz
     version: 1.9.6
+  forecastle:
+  - apiVersion: v1
+    created: "2021-07-24T19:34:22.369870772Z"
+    description: forecastle chart that runs on kubernetes
+    digest: 6eb65e750c6dbd63e01c897170286a917772e349f699ee7f909372ece306c2f4
+    home: https://github.com/stakater/Forecastle
+    keywords:
+    - forecastle
+    - kubernetes
+    maintainers:
+    - email: stakater@aurorasolutions.io
+      name: Stakater
+    name: forecastle
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/forecastle-1.0.0/forecastle-1.0.0.tgz
+    version: 1.0.0
   ipfs:
   - apiVersion: v2
     created: "2021-07-22T00:09:24.030382298Z"
@@ -2166,4 +2182,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-22T00:09:24.137889995Z"
+generated: "2021-07-24T19:34:22.370579803Z"
