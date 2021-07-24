@@ -17,24 +17,31 @@
   },
   packageRules: [
     {
-      "datasources": ["helm"],
+      "matchDatasources": ["helm"],
       "commitMessageTopic": "Helm chart {{depName}}",
       "separateMinorPatch": true
     },
     {
-      "updateTypes": ["digest"],
+      matchDatasources: ["docker"],
+      enabled: true,
+      commitMessageTopic: "container image {{depName}}",
+      commitMessageExtra: "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
+      matchUpdateTypes: ["major", "minor", "patch"],
+    },
+    {
+      "matchUpdateTypes": ["digest"],
       "bumpVersion": "patch",
       "labels": ["dependency/digest"],
       automerge: true
     },
     {
-      "updateTypes": ["minor"],
+      "matchUpdateTypes": ["minor"],
       "bumpVersion": "minor",
       "labels": ["dependency/minor"],
       automerge: true
     },
     {
-      "updateTypes": ["patch"],
+      "matchUpdateTypes": ["patch"],
       "bumpVersion": "patch",
       "labels": ["dependency/patch"],
       automerge: true
