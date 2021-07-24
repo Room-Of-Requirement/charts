@@ -6,7 +6,6 @@
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "Renovate Dashboard",
   "assignees": ["jmmaloney4"],
-  "bumpVersion": "patch",
   "helm-values": {
     "enabled": true
   },
@@ -17,6 +16,11 @@
     "enabled": true
   },
   packageRules: [
+    {
+      "datasources": ["helm"],
+      "commitMessageTopic": "Helm chart {{depName}}",
+      "separateMinorPatch": true
+    },
     {
       "updateTypes": ["digest"],
       "bumpVersion": "patch",
