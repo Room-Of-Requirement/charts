@@ -18,6 +18,12 @@
   },
   packageRules: [
     {
+      "updateTypes": ["digest"],
+      "bumpVersion": "patch",
+      "labels": ["dependency/digest"],
+      automerge: true
+    },
+    {
       "updateTypes": ["minor"],
       "bumpVersion": "minor",
       "labels": ["dependency/minor"],
