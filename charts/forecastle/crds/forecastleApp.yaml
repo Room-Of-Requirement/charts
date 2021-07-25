@@ -11,7 +11,6 @@ spec:
     listKind: ForecastleAppList
     plural: forecastleapps
     singular: forecastleapp
-  preserveUnknownFields: true
   scope: Namespaced
   versions:
   - name: v1alpha1
