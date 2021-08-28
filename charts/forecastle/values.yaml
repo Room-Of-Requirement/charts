@@ -6,7 +6,7 @@ forecastle:
   namespace: default
   image:
     repository: docker.io/stakater/forecastle
-    tag: v1.0.65@sha256:9cdc8482fb21cfe97f620fca0ce7938f531feded5311609b904fe43eae78cfba
+    tag: v1.0.66@sha256:f7201fb60740e642aa84ef7ea8f5eeac5bceb342a43debc4aab874eebbe6f79c
   deployment:
     replicas: 1
     revisionHistoryLimit: 2
