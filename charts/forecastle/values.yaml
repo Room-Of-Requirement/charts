@@ -13,8 +13,7 @@ forecastle:
     annotations: {}
   config:
     namespaceSelector:
-      matchNames:
-      - stakater
+      any: true
     headerBackground:
     headerForeground:
     title:
