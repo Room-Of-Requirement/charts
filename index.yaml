@@ -287,6 +287,21 @@ entries:
     version: 1.9.6
   forecastle:
   - apiVersion: v1
+    created: "2021-08-30T19:10:01.779542856Z"
+    description: forecastle chart that runs on kubernetes
+    digest: 38491bf6590d32ab1898a38e1a1d19a178719618418fba89c870989d5d41a2b1
+    home: https://github.com/stakater/Forecastle
+    keywords:
+    - forecastle
+    - kubernetes
+    maintainers:
+    - email: stakater@aurorasolutions.io
+      name: Stakater
+    name: forecastle
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/forecastle-1.1.7/forecastle-1.1.7.tgz
+    version: 1.1.7
+  - apiVersion: v1
     created: "2021-08-30T17:52:23.746232506Z"
     description: forecastle chart that runs on kubernetes
     digest: 1af60a1d3757c74057cd30929b7b38b4789b7bc9f41b4ddb320d631bd78985d9
@@ -2383,4 +2398,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-08-30T17:52:23.747136728Z"
+generated: "2021-08-30T19:10:01.78047997Z"
