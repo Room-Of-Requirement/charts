@@ -29,8 +29,10 @@ spec:
         {{- range .paths }}
           - path: {{ . }}
             backend:
-              serviceName: {{ template "forecastle.name" $ }}
-              servicePort: http
+              service:
+                name: {{ template "forecastle.name" $ }}
+                port:
+                  name: http
         {{- end }}
   {{- end }}
 {{- end }}
