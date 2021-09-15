@@ -10,7 +10,7 @@ module.exports = {
     timezone: "America/Chicago",
     extends: ["config:base"],
     rebaseWhen: "behind-base-branch",
-    dependencyDashboard: true,
+    dependencyDashboard: false,
     dependencyDashboardTitle: "Renovate Dashboard",
     assignees: ["jmmaloney4"],
     prConcurrentLimit: 0,
