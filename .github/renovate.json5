@@ -1,4 +1,11 @@
 {
+  username: "renovate-release",
+  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
+  "onboarding": false,
+  "platform": "github",
+  "repositories": [
+    "jmmaloney4/charts"
+  ],
   "enabled": true,
   "timezone": "America/Chicago",
   "extends": ["config:base"],
