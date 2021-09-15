@@ -862,6 +862,27 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/letsencrypt-issuer-0.1.0/letsencrypt-issuer-0.1.0.tgz
     version: 0.1.0
+  minio:
+  - apiVersion: v1
+    appVersion: master
+    created: "2021-09-15T19:58:23.929669782Z"
+    description: High Performance, Kubernetes Native Object Storage
+    digest: f46a1e877a91da3c230902bb8a71c18b4ce49c7d84be55616d40168adf2dcdd8
+    home: https://min.io
+    icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+    keywords:
+    - storage
+    - object-storage
+    - S3
+    maintainers:
+    - email: dev@minio.io
+      name: MinIO, Inc
+    name: minio
+    sources:
+    - https://github.com/minio/minio
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/minio-8.0.10/minio-8.0.10.tgz
+    version: 8.0.10
   provisioner:
   - apiVersion: v1
     appVersion: 2.4.0
@@ -2480,4 +2501,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-09-15T19:50:55.976208123Z"
+generated: "2021-09-15T19:58:23.931816096Z"
