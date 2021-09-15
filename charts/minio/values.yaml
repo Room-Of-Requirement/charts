@@ -14,7 +14,7 @@ clusterDomain: cluster.local
 ##
 image:
   repository: docker.io/minio/minio
-  tag: RELEASE.2021-02-14T04-01-33Z@sha256:aebb96c6e6d11aee7f9c62b7d61cb976c2acf189504c63d198171f6f51652030
+  tag: RELEASE.2021-02-14T04-01-33Z@sha256:bd11edda91f30cd94060c80e6d496ca406d46d2de356f59904f721cdfd0b1d63
   pullPolicy: IfNotPresent
 
 ## Set default image, imageTag, and imagePullPolicy for the `mc` (the minio
