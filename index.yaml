@@ -864,6 +864,25 @@ entries:
     version: 0.1.0
   minio:
   - apiVersion: v1
+    created: "2021-09-15T20:52:52.176815739Z"
+    description: High Performance, Kubernetes Native Object Storage
+    digest: d0952a9ffca0caa01b83701319a7c8803074729abdeffd31bff586366b4aa8d0
+    home: https://min.io
+    icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+    keywords:
+    - storage
+    - object-storage
+    - S3
+    maintainers:
+    - email: dev@minio.io
+      name: MinIO, Inc
+    name: minio
+    sources:
+    - https://github.com/minio/minio
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/minio-8.0.11/minio-8.0.11.tgz
+    version: 8.0.11
+  - apiVersion: v1
     appVersion: master
     created: "2021-09-15T19:58:23.929669782Z"
     description: High Performance, Kubernetes Native Object Storage
@@ -2501,4 +2520,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-09-15T19:58:23.931816096Z"
+generated: "2021-09-15T20:52:52.179119798Z"
