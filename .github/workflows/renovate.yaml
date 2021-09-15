@@ -1,0 +1,20 @@
+name: Renovate
+
+on:
+  schedule:
+  - cron: '0/5 * * * *'
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0
+
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v26.4.2
+        with:
+          configurationFile: .github/renovate.json5
+          token: ${{ secrets.RENOVATE_TOKEN }}
