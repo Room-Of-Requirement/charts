@@ -30,7 +30,7 @@ mcImage:
 ##
 helmKubectlJqImage:
   repository: docker.io/bskim45/helm-kubectl-jq
-  tag: 3.1.0@sha256:aebb96c6e6d11aee7f9c62b7d61cb976c2acf189504c63d198171f6f51652030
+  tag: 3.3.4@sha256:92e77350581178786b571175e7840db203c4e8b271b0777ddd31e523f1e464e3
   pullPolicy: IfNotPresent
 
 ## minio server mode, i.e. standalone or distributed.
