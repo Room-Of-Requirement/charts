@@ -2,8 +2,7 @@ forecastle:
   labels:
     group: com.stakater.platform
     provider: stakater
-    version: "v1.0.65"
-  namespace: default
+    version: "v1.0.68"
   image:
     repository: docker.io/stakater/forecastle
     tag: v1.0.68@sha256:aebb96c6e6d11aee7f9c62b7d61cb976c2acf189504c63d198171f6f51652030
