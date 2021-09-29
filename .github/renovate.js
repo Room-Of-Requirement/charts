@@ -6,5 +6,5 @@ module.exports = {
   repositories: [
     "jmmaloney4/charts"
   ],
-  allowedPostUpgradeCommands: ["sed"]
+  allowedPostUpgradeCommands: ["sed", "awk"]
 }
