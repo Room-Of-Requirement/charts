@@ -3,7 +3,7 @@
   "timezone": "America/Chicago",
   "extends": ["config:base"],
   "rebaseWhen": "behind-base-branch",
-  "dependencyDashboard": true,
+  "dependencyDashboard": false,
   "dependencyDashboardTitle": "Renovate Dashboard",
   "assignees": ["jmmaloney4"],
   prConcurrentLimit: 0,
@@ -53,5 +53,12 @@
       matchPackageNames: ["docker.io/minio/minio", "docker.io/minio/mc"],
       versioning: "regex:^RELEASE\.(?<major>[0-9][0-9][0-9][0-9])-(?<minor>[0-9][0-9])-(?<patch>[0-9][0-9])T.*Z$"
     }
-  ]
+  ],
+  "postUpgradeTasks": {
+    "commands": [
+      "sed -i \"s/^version:.*/version: $(grep '^version:' Chart.yaml | awk '{print $2}' | awk -F '[.\"]' '{$NF = $NF + 1;} 1' | sed 's/ /./g')/\" Chart.yaml",
+    ],
+    "fileFilters": ["Chart.yaml"],
+    "executionMode": "branch"
+  },
 }
