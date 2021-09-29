@@ -5,5 +5,6 @@ module.exports = {
   platform: "github",
   repositories: [
     "jmmaloney4/charts"
-  ]
+  ],
+  allowedPostUpgradeCommands: ["sed"]
 }
