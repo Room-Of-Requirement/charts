@@ -55,6 +55,7 @@
     },
     {
       matchPackageNames: ["renovatebot/github-action"],
+      matchUpdateTypes: ["major", "minor", "patch"],
       automerge: true
     }
   ],
