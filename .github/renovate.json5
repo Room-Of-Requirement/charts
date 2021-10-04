@@ -52,6 +52,10 @@
       matchDatasources: ["docker"],
       matchPackageNames: ["docker.io/minio/minio", "docker.io/minio/mc"],
       versioning: "regex:^RELEASE\.(?<major>[0-9][0-9][0-9][0-9])-(?<minor>[0-9][0-9])-(?<patch>[0-9][0-9])T.*Z$"
+    },
+    {
+      matchPackageNames: ["renovatebot/github-action"],
+      automerge: true
     }
   ],
   "postUpgradeTasks": {
