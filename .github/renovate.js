@@ -7,5 +7,5 @@ module.exports = {
     "jmmaloney4/charts"
   ],
   allowPostUpgradeCommandTemplating: true,
-  allowedPostUpgradeCommands: ['^(sed|awk).*', './s.sh']
+  allowedPostUpgradeCommands: ['^./.github/update-version.sh$']
 }

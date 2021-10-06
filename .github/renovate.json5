@@ -61,7 +61,7 @@
   ],
   "postUpgradeTasks": {
     "commands": [
-    	"./s.sh"
+    	"./.github/update-version.sh"
     ],
     "fileFilters": ["**/Chart.yaml"],
     "executionMode": "branch"
