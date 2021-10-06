@@ -62,7 +62,7 @@
   ],
   "postUpgradeTasks": {
     "commands": [
-    	"./s.sh {{{depName}}}"
+    	"./s.sh"
     ],
     "fileFilters": ["**/Chart.yaml"],
     "executionMode": "branch"
