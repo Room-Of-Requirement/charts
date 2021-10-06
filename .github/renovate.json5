@@ -64,7 +64,7 @@
     "commands": [
     	"./s.sh"
     ],
-    "fileFilters": ["Chart.yaml"],
+    "fileFilters": ["**/Chart.yaml"],
     "executionMode": "branch"
   },
 }
