@@ -22,7 +22,7 @@ image:
 ##
 mcImage:
   repository: docker.io/minio/mc
-  tag: RELEASE.2021-09-02T09-21-27Z@sha256:bda090c539e4bde803eb92fe501fc989ab9f6312771fa5cfe783b5bcdd16f937
+  tag: RELEASE.2021-09-23T05-44-03Z@sha256:43620ad5c25f2a4e3b0e449ca1d65ab6759e3a0ff3b07d757112a59be432812c
   pullPolicy: IfNotPresent
 
 ## Set default image, imageTag, and imagePullPolicy for the `jq` (the JSON
