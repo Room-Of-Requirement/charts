@@ -29,6 +29,8 @@ tolerations: []
 
 affinity: {}
 
+initContainers: []
+
 config: |
   # Rclone Config
 
