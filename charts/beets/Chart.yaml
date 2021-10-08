@@ -1,7 +1,7 @@
 apiVersion: v2
 description: beets helm chart
 name: beets
-version: 0.4.4
+version: 0.4.5
 kubeVersion: ">=1.16.0-0"
 keywords:
 - beets

@@ -51,7 +51,7 @@ persistence:
 
 config:
   # Beets Config
-  plugins: fetchart embedart scrub info web ipfs missing duplicates export inline
+  plugins: fetchart embedart scrub info web missing duplicates export inline
   directory: /music
   library: /music/library.db
   art_filename: albumart
