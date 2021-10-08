@@ -37,6 +37,7 @@ persistence:
   config:
     enabled: true
     type: custom
+    mountPath: config/config.yaml
     subPath: config.yaml
     volumeSpec:
       configMap:
