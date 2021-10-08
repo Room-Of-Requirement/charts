@@ -37,6 +37,7 @@ persistence:
   config:
     enabled: true
     type: custom
+    subPath: config.yaml
     volumeSpec:
       configMap:
         name: beets-config
