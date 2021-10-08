@@ -33,7 +33,16 @@ ingress:
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
-persistence: {}
+persistence:
+  config:
+    enabled: true
+    type: custom
+    volumeSpec:
+      configMap:
+        name: beets-config
+        items:
+        - key: "config.yaml"
+          path: "config.yaml"
   # data:
   #   enabled: false
   #   mountPath: /data
