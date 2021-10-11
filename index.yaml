@@ -1031,6 +1031,29 @@ entries:
   oauth2-proxy:
   - apiVersion: v1
     appVersion: 7.1.3
+    created: "2021-10-11T22:20:35.362503231Z"
+    deprecated: true
+    description: A reverse proxy that provides authentication with Google, Github
+      or other providers
+    digest: 61b896e35409db3c0cdf52743cd728d3de2e043e41f411abbbad298e084c76ce
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/oauth2-proxy
+    icon: https://avatars.githubusercontent.com/u/62798169?s=200&v=4
+    keywords:
+    - kubernetes
+    - oauth
+    - oauth2
+    - authentication
+    - google
+    - github
+    kubeVersion: '>=1.9.0-0'
+    name: oauth2-proxy
+    sources:
+    - https://github.com/oauth2-proxy/oauth2-proxy
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/oauth2-proxy-5.0.8/oauth2-proxy-5.0.8.tgz
+    version: 5.0.8
+  - apiVersion: v1
+    appVersion: 7.1.3
     created: "2021-10-11T21:58:01.049183052Z"
     deprecated: true
     description: A reverse proxy that provides authentication with Google, Github
@@ -2698,4 +2721,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-10-11T21:58:01.050044664Z"
+generated: "2021-10-11T22:20:35.363468732Z"
