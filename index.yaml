@@ -85,6 +85,28 @@ entries:
     version: 0.1.2
   beets:
   - apiVersion: v2
+    created: "2021-11-16T14:09:25.041016232Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.1.0
+    description: beets helm chart
+    digest: 34c009457d5e4f49e09d8a63235f65bc282c74514ccc4bc2986c1fd25bdcd3c0
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/beets
+    icon: https://beets.org/icon
+    keywords:
+    - beets
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: beets
+    sources:
+    - https://github.com/beetbox/beets
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/beets-0.5.1/beets-0.5.1.tgz
+    version: 0.5.1
+  - apiVersion: v2
     created: "2021-10-08T19:48:51.296885468Z"
     dependencies:
     - name: common
@@ -707,6 +729,28 @@ entries:
     version: 1.0.0
   ipfs:
   - apiVersion: v2
+    created: "2021-11-16T14:09:25.19347462Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.1.0
+    description: ipfs helm chart
+    digest: 40df751e63dcafc8b8d2458b610dca7d36239ccc75546447149c3d705c834986
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/ipfs
+    icon: https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png
+    keywords:
+    - ipfs
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: ipfs
+    sources:
+    - https://github.com/ipfs/ipfs-docker
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/ipfs-0.5.1/ipfs-0.5.1.tgz
+    version: 0.5.1
+  - apiVersion: v2
     created: "2021-10-12T23:37:29.02681148Z"
     dependencies:
     - name: common
@@ -1181,6 +1225,29 @@ entries:
   oauth2-proxy:
   - apiVersion: v1
     appVersion: 7.1.3
+    created: "2021-11-16T14:09:25.31605291Z"
+    deprecated: true
+    description: A reverse proxy that provides authentication with Google, Github
+      or other providers
+    digest: efa9fe2eee07e8c1cd8773bc83bfa80780b8a743e8b80485c20e605623d4447c
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/oauth2-proxy
+    icon: https://avatars.githubusercontent.com/u/62798169?s=200&v=4
+    keywords:
+    - kubernetes
+    - oauth
+    - oauth2
+    - authentication
+    - google
+    - github
+    kubeVersion: '>=1.9.0-0'
+    name: oauth2-proxy
+    sources:
+    - https://github.com/oauth2-proxy/oauth2-proxy
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/oauth2-proxy-5.0.10/oauth2-proxy-5.0.10.tgz
+    version: 5.0.10
+  - apiVersion: v1
+    appVersion: 7.1.3
     created: "2021-10-11T22:20:35.362503231Z"
     deprecated: true
     description: A reverse proxy that provides authentication with Google, Github
@@ -1292,6 +1359,20 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/raw-0.2.5/raw-0.2.5.tgz
     version: 0.2.5
   rclone:
+  - apiVersion: v2
+    created: "2021-11-16T14:09:25.475291597Z"
+    description: A Helm chart for Kubernetes
+    digest: 10202baa9c35406bce5120e35a65ca7d1bb19074792ebe680765df921a48334e
+    home: https://rclone.org/
+    icon: https://rclone.org/img/logo_on_light__horizontal_color.svg
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: rclone
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/rclone-2.3.1/rclone-2.3.1.tgz
+    version: 2.3.1
   - apiVersion: v2
     created: "2021-10-06T23:41:18.772849352Z"
     description: A Helm chart for Kubernetes
@@ -1820,6 +1901,28 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/registry-sync-0.1.0/registry-sync-0.1.0.tgz
     version: 0.1.0
   roon:
+  - apiVersion: v2
+    created: "2021-11-16T14:09:25.654061983Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.1.0
+    description: Roon Server Helm Chart
+    digest: f84d996100f3ac572f9058fdae293ca4990311f4143379b4d53d7dbe71007dc6
+    home: https://github.com/jmmaloney4/charts/tree/main/charts/roon
+    icon: https://roonlabs.com/wp-content/uploads/roon_footer_logo.png
+    keywords:
+    - roon
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: roon
+    sources:
+    - https://github.com/jmmaloney4/roon-docker-image
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/roon-4.1.1/roon-4.1.1.tgz
+    version: 4.1.1
   - apiVersion: v2
     created: "2021-09-15T15:08:10.457778637Z"
     dependencies:
@@ -2871,4 +2974,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2021-10-13T15:43:47.998047439Z"
+generated: "2021-11-16T14:09:25.655296083Z"
