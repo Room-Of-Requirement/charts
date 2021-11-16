@@ -1,18 +1,18 @@
 apiVersion: v2
 description: beets helm chart
 name: beets
-version: 0.4.5
+version: 0.5.1
 kubeVersion: ">=1.16.0-0"
 keywords:
-- beets
+  - beets
 home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/beets
 icon: https://beets.org/icon
 sources:
-- https://github.com/beetbox/beets
+  - https://github.com/beetbox/beets
 maintainers:
-- name: jmmaloney4
-  email: git@jmmaloney4.xyz
+  - name: jmmaloney4
+    email: git@jmmaloney4.xyz
 dependencies:
-- name: common
-  repository: https://library-charts.k8s-at-home.com
-  version: 4.0.1
+  - name: common
+    repository: https://library-charts.k8s-at-home.com
+    version: 4.1.0

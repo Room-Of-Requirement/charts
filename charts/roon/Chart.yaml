@@ -1,18 +1,18 @@
 apiVersion: v2
 description: Roon Server Helm Chart
 name: roon
-version: 4.0.1
+version: 4.1.1
 kubeVersion: ">=1.16.0-0"
 keywords:
-- roon
+  - roon
 home: https://github.com/jmmaloney4/charts/tree/main/charts/roon
 icon: https://roonlabs.com/wp-content/uploads/roon_footer_logo.png
 sources:
-- https://github.com/jmmaloney4/roon-docker-image
+  - https://github.com/jmmaloney4/roon-docker-image
 maintainers:
-- name: jmmaloney4
-  email: git@jmmaloney4.xyz
+  - name: jmmaloney4
+    email: git@jmmaloney4.xyz
 dependencies:
-- name: common
-  repository: https://library-charts.k8s-at-home.com
-  version: 4.0.1
+  - name: common
+    repository: https://library-charts.k8s-at-home.com
+    version: 4.1.0
