@@ -442,22 +442,6 @@ entries:
   forecastle:
   - apiVersion: v1
     appVersion: v1.0.68
-    created: "2022-01-30T21:50:13.122386073Z"
-    description: forecastle chart that runs on kubernetes
-    digest: b56107e1ffdd01e9c4022d9b34259be51c2605aed07f26e11972d79bcf694c31
-    home: https://github.com/stakater/Forecastle
-    keywords:
-    - forecastle
-    - kubernetes
-    maintainers:
-    - email: stakater@aurorasolutions.io
-      name: Stakater
-    name: forecastle
-    urls:
-    - https://github.com/jmmaloney4/charts/releases/download/forecastle-1.1.20/forecastle-1.1.20.tgz
-    version: 1.1.20
-  - apiVersion: v1
-    appVersion: v1.0.68
     created: "2021-12-14T00:53:44.743904733Z"
     description: forecastle chart that runs on kubernetes
     digest: 84ab5c5395868b359214b5e6629fe915cf1b2f89929afd3989a52ae7589b1943
@@ -1337,6 +1321,29 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/minio-8.0.10/minio-8.0.10.tgz
     version: 8.0.10
   oauth2-proxy:
+  - apiVersion: v1
+    appVersion: 7.1.3
+    created: "2022-01-30T21:50:36.655814572Z"
+    deprecated: true
+    description: A reverse proxy that provides authentication with Google, Github
+      or other providers
+    digest: 736f25b7fe6f0ca1a8fda169a2ea99c99e22913fb98d84cef7d76b13f2430791
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/oauth2-proxy
+    icon: https://avatars.githubusercontent.com/u/62798169?s=200&v=4
+    keywords:
+    - kubernetes
+    - oauth
+    - oauth2
+    - authentication
+    - google
+    - github
+    kubeVersion: '>=1.22.0-0'
+    name: oauth2-proxy
+    sources:
+    - https://github.com/oauth2-proxy/oauth2-proxy
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/oauth2-proxy-6.0.2/oauth2-proxy-6.0.2.tgz
+    version: 6.0.2
   - apiVersion: v1
     appVersion: 7.1.3
     created: "2022-01-30T21:42:47.954800784Z"
@@ -3156,4 +3163,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-30T21:50:13.123612781Z"
+generated: "2022-01-30T21:50:36.65679308Z"
