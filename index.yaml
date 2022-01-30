@@ -85,6 +85,28 @@ entries:
     version: 0.1.2
   beets:
   - apiVersion: v2
+    created: "2022-01-30T21:50:47.191770606Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.3.0
+    description: beets helm chart
+    digest: 60e71951d90c7ef843a1469142fec759715ef9119a28d4c0bf586f06245bfe21
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/beets
+    icon: https://beets.org/icon
+    keywords:
+    - beets
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: beets
+    sources:
+    - https://github.com/beetbox/beets
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/beets-0.7.1/beets-0.7.1.tgz
+    version: 0.7.1
+  - apiVersion: v2
     created: "2021-11-22T09:51:38.378892422Z"
     dependencies:
     - name: common
@@ -783,6 +805,28 @@ entries:
     version: 1.0.0
   ipfs:
   - apiVersion: v2
+    created: "2022-01-30T21:50:47.297665113Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.3.0
+    description: ipfs helm chart
+    digest: 2e6e5ce6690e2d4989393e6f2c92d5fca331671dc2061dcf2a4ca8a8eafe8b89
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/ipfs
+    icon: https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png
+    keywords:
+    - ipfs
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: ipfs
+    sources:
+    - https://github.com/ipfs/ipfs-docker
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/ipfs-0.7.1/ipfs-0.7.1.tgz
+    version: 0.7.1
+  - apiVersion: v2
     created: "2021-12-08T21:59:13.03081684Z"
     dependencies:
     - name: common
@@ -1321,29 +1365,6 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/minio-8.0.10/minio-8.0.10.tgz
     version: 8.0.10
   oauth2-proxy:
-  - apiVersion: v1
-    appVersion: 7.1.3
-    created: "2022-01-30T21:50:36.655814572Z"
-    deprecated: true
-    description: A reverse proxy that provides authentication with Google, Github
-      or other providers
-    digest: 736f25b7fe6f0ca1a8fda169a2ea99c99e22913fb98d84cef7d76b13f2430791
-    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/oauth2-proxy
-    icon: https://avatars.githubusercontent.com/u/62798169?s=200&v=4
-    keywords:
-    - kubernetes
-    - oauth
-    - oauth2
-    - authentication
-    - google
-    - github
-    kubeVersion: '>=1.22.0-0'
-    name: oauth2-proxy
-    sources:
-    - https://github.com/oauth2-proxy/oauth2-proxy
-    urls:
-    - https://github.com/jmmaloney4/charts/releases/download/oauth2-proxy-6.0.2/oauth2-proxy-6.0.2.tgz
-    version: 6.0.2
   - apiVersion: v1
     appVersion: 7.1.3
     created: "2022-01-30T21:42:47.954800784Z"
@@ -2068,6 +2089,28 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/registry-sync-0.1.0/registry-sync-0.1.0.tgz
     version: 0.1.0
   roon:
+  - apiVersion: v2
+    created: "2022-01-30T21:50:47.418759223Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.3.0
+    description: Roon Server Helm Chart
+    digest: 8c6f1c243ac40d1dbc5c1dc06e2641f9fd895347efd29b36b7c37ee400a289a9
+    home: https://github.com/jmmaloney4/charts/tree/main/charts/roon
+    icon: https://roonlabs.com/wp-content/uploads/roon_footer_logo.png
+    keywords:
+    - roon
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: roon
+    sources:
+    - https://github.com/jmmaloney4/roon-docker-image
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/roon-4.3.1/roon-4.3.1.tgz
+    version: 4.3.1
   - apiVersion: v2
     created: "2021-11-22T09:51:38.781656207Z"
     dependencies:
@@ -3163,4 +3206,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/xmrig-0.1.0/xmrig-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-30T21:50:36.65679308Z"
+generated: "2022-01-30T21:50:47.419958239Z"
