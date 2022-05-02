@@ -1,7 +1,7 @@
 apiVersion: v2
 description: beets helm chart
 name: beets
-version: 0.8.1
+version: 0.8.3
 kubeVersion: ">=1.16.0-0"
 keywords:
   - beets
@@ -15,4 +15,4 @@ maintainers:
 dependencies:
   - name: common
     repository: https://library-charts.k8s-at-home.com
-    version: 4.4.0
+    version: 4.4.1
