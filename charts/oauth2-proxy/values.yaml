@@ -32,7 +32,7 @@ image:
   # -- Image repository
   repository: quay.io/oauth2-proxy/oauth2-proxy
   # -- Image tag
-  tag: v7.2.1@sha256:febeebebe762ed672672dd0915013feee7338632ee622a865b43ee2812399c4e
+  tag: v7.3.0@sha256:8c21390be87dbbee337c5b867254906b900bb52adb405b3a67134e17b7705973
   # -- Image pull policy
   pullPolicy: "IfNotPresent"
 
