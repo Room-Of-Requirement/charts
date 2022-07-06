@@ -1232,6 +1232,28 @@ entries:
     version: 1.0.0
   ipfs:
   - apiVersion: v2
+    created: "2022-07-06T14:47:39.933290976Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.4.2
+    description: ipfs helm chart
+    digest: 2551d4efbd2e78193cab958adf6c18d0cccb9b61fbb8a6b21ff800940f14269c
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/ipfs
+    icon: https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png
+    keywords:
+    - ipfs
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: ipfs
+    sources:
+    - https://github.com/ipfs/ipfs-docker
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/ipfs-0.8.7/ipfs-0.8.7.tgz
+    version: 0.8.7
+  - apiVersion: v2
     created: "2022-06-09T14:32:23.089669466Z"
     dependencies:
     - name: common
@@ -3877,4 +3899,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/transmission-1.0.2/transmission-1.0.2.tgz
     version: 1.0.2
-generated: "2022-07-01T05:53:08.261351591Z"
+generated: "2022-07-06T14:47:39.934559391Z"
