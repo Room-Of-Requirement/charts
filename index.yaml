@@ -86,6 +86,20 @@ entries:
   basic:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-08-02T08:54:16.871471971Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.1
+    description: A Helm chart for Kubernetes
+    digest: eceafe89a369cd9a8f4282a707a446c336b5fa95aefe9b6951e136e1d8e6b8a2
+    name: basic
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/basic-0.3.3/basic-0.3.3.tgz
+    version: 0.3.3
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-07-26T13:03:02.588743842Z"
     dependencies:
     - name: common
@@ -155,6 +169,28 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/basic-0.1.0/basic-0.1.0.tgz
     version: 0.1.0
   beets:
+  - apiVersion: v2
+    created: "2022-08-02T08:54:16.996123196Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.1
+    description: beets helm chart
+    digest: 11bbbcbcef753210fd4e6a04e43e855b89dc344e84288742515457403eb0506f
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/beets
+    icon: https://beets.org/icon
+    keywords:
+    - beets
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: beets
+    sources:
+    - https://github.com/beetbox/beets
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/beets-0.9.3/beets-0.9.3.tgz
+    version: 0.9.3
   - apiVersion: v2
     created: "2022-07-26T13:03:02.774157509Z"
     dependencies:
@@ -1363,6 +1399,28 @@ entries:
     - https://github.com/jmmaloney4/charts/releases/download/forecastle-1.0.0/forecastle-1.0.0.tgz
     version: 1.0.0
   ipfs:
+  - apiVersion: v2
+    created: "2022-08-02T08:54:17.137811663Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.1
+    description: ipfs helm chart
+    digest: 6eee2ac78fa29b05664745e120942990e83be2a7a55bf735ad49671b68037087
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/ipfs
+    icon: https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png
+    keywords:
+    - ipfs
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: ipfs
+    sources:
+    - https://github.com/ipfs/ipfs-docker
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/ipfs-0.9.3/ipfs-0.9.3.tgz
+    version: 0.9.3
   - apiVersion: v2
     created: "2022-07-26T13:03:02.922480561Z"
     dependencies:
@@ -2979,6 +3037,28 @@ entries:
     version: 0.1.0
   roon:
   - apiVersion: v2
+    created: "2022-08-02T08:54:17.262653478Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.1
+    description: Roon Server Helm Chart
+    digest: b2b30c04aaed58b1140e1359c1f7c17edf9004aa93ee595d4657b6e6e01b478f
+    home: https://github.com/jmmaloney4/charts/tree/main/charts/roon
+    icon: https://roonlabs.com/wp-content/uploads/roon_footer_logo.png
+    keywords:
+    - roon
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: git@jmmaloney4.xyz
+      name: jmmaloney4
+    name: roon
+    sources:
+    - https://github.com/jmmaloney4/roon-docker-image
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/roon-4.5.3/roon-4.5.3.tgz
+    version: 4.5.3
+  - apiVersion: v2
     created: "2022-07-26T13:03:03.155624018Z"
     dependencies:
     - name: common
@@ -4111,4 +4191,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/transmission-1.0.2/transmission-1.0.2.tgz
     version: 1.0.2
-generated: "2022-07-26T13:43:24.428455944Z"
+generated: "2022-08-02T08:54:17.264236633Z"
