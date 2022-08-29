@@ -62,6 +62,10 @@ spec:
             - name: creds
               mountPath: /etc/cloudflared/creds
               readOnly: true
+            - name: origin-cert
+              mountPath: /etc/cloudflared/cert.pem
+              readOnly: true
+              subPath cert.pem
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
@@ -74,6 +78,9 @@ spec:
             items:
               - key: config.yaml
                 path: config.yaml
+        - name: origin-cert
+          secret:
+            secretName: {{ .Values.originCertSecret }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
