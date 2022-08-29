@@ -647,6 +647,16 @@ entries:
   cloudflare-tunnel:
   - apiVersion: v2
     appVersion: 2022.1.3
+    created: "2022-08-29T03:45:21.239584271Z"
+    description: Creation of a cloudflared deployment - a reverse tunnel for an environment
+    digest: 83062752b3efe430f0595e3aee1607084f47b321083076cf1eb58c2eaadb9494
+    name: cloudflare-tunnel
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/cloudflare-tunnel-0.1.2/cloudflare-tunnel-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 2022.1.3
     created: "2022-08-29T02:13:43.90934986Z"
     description: Creation of a cloudflared deployment - a reverse tunnel for an environment
     digest: bb16778ebc3740abff6f5259d373fa31ad219fc12d8570114808616b02fcd6c3
@@ -4375,4 +4385,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/transmission-1.0.2/transmission-1.0.2.tgz
     version: 1.0.2
-generated: "2022-08-29T02:13:44.032372409Z"
+generated: "2022-08-29T03:45:21.2410542Z"
