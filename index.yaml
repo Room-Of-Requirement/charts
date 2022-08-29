@@ -623,6 +623,28 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/beets-0.1.1/beets-0.1.1.tgz
     version: 0.1.1
+  cloudflare-tunnel:
+  - apiVersion: v2
+    appVersion: 2022.1.3
+    created: "2022-08-29T00:19:35.638977196Z"
+    description: Creation of a cloudflared deployment - a reverse tunnel for an environment
+    digest: 264b43576f5aebe4aec8cf1eb39696b452103116e39e273b268d35ca61b314de
+    icon: https://developers.cloudflare.com/cloudflare-one/favicon-32x32.png
+    name: cloudflare-tunnel
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/cloudflare-tunnel-0.1.0/cloudflare-tunnel-0.1.0.tgz
+    version: 0.1.0
+  dashy:
+  - apiVersion: v2
+    created: "2022-08-29T00:19:35.749986062Z"
+    description: A Helm chart for Kubernetes
+    digest: 3982a438d00b09f527762917f622422807c4ad031dbda217a17d99822a34c0f6
+    name: dashy
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/dashy-0.1.0/dashy-0.1.0.tgz
+    version: 0.1.0
   ddclient:
   - apiVersion: v2
     appVersion: 3.9.1
@@ -4301,4 +4323,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/transmission-1.0.2/transmission-1.0.2.tgz
     version: 1.0.2
-generated: "2022-08-10T07:49:11.290979563Z"
+generated: "2022-08-29T00:19:35.751545487Z"
