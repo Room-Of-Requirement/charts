@@ -65,7 +65,7 @@ spec:
             - name: origin-cert
               mountPath: /etc/cloudflared/cert.pem
               readOnly: true
-              subPath cert.pem
+              subPath: cert.pem
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
