@@ -1,12 +1,12 @@
 apiVersion: v2
 description: beets helm chart
 name: beets
-version: 0.9.5
+version: 0.9.6
 kubeVersion: ">=1.16.0-0"
 keywords:
   - beets
 home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/beets
-icon: https://beets.org/icon
+# icon: https://beets.org/icon
 sources:
   - https://github.com/beetbox/beets
 maintainers:
