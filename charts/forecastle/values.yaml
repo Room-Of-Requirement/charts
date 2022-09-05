@@ -5,7 +5,7 @@ forecastle:
     version: "v1.0.68"
   image:
     repository: docker.io/stakater/forecastle
-    tag: v1.0.97@sha256:e8b2f02a6e1fe8f9dfe2a11185754f87b153990c364048905ec1b085a45d92a1
+    tag: v1.0.98@sha256:f955b0d6ed6d5e27a0c4b4d19e20661becc5262aebc1f725d4e5b1d920931cbb
   deployment:
     replicas: 1
     revisionHistoryLimit: 2
