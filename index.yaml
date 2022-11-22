@@ -768,6 +768,22 @@ entries:
   forecastle:
   - apiVersion: v1
     appVersion: v1.0.68
+    created: "2022-11-22T01:19:26.992588833Z"
+    description: forecastle chart that runs on kubernetes
+    digest: c93eefeecd1ce737fadd98d2aca9a859622c5605450b01401fccd2883a78bf70
+    home: https://github.com/stakater/Forecastle
+    keywords:
+    - forecastle
+    - kubernetes
+    maintainers:
+    - email: stakater@aurorasolutions.io
+      name: Stakater
+    name: forecastle
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/forecastle-1.1.55/forecastle-1.1.55.tgz
+    version: 1.1.55
+  - apiVersion: v1
+    appVersion: v1.0.68
     created: "2022-10-17T19:23:00.912043989Z"
     description: forecastle chart that runs on kubernetes
     digest: 21ab5785bb05cad73eed632eed49006cb1f16625a5f7fb2b3f2ce50e860532ce
@@ -4632,4 +4648,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/transmission-1.0.2/transmission-1.0.2.tgz
     version: 1.0.2
-generated: "2022-11-17T17:03:24.307877603Z"
+generated: "2022-11-22T01:19:26.993494233Z"
