@@ -7,7 +7,7 @@ image:
   repository: docker.io/rclone/rclone
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 1.62.0@sha256:80d207d2c971cd747687d5f44086fe162e652ae84552db9631e48bb7708d1cf5
+  tag: 1.62.1@sha256:ab8ea797a848c3052f502c23e86b14fd6702ee05929fae89aa205a4f33beb12d
 
 imagePullSecrets: []
 nameOverride: ""
