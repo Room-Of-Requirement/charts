@@ -1,7 +1,7 @@
 apiVersion: v2
 description: ipfs helm chart
 name: ipfs
-version: 0.9.19
+version: 0.9.20
 kubeVersion: ">=1.16.0-0"
 keywords:
   - ipfs
