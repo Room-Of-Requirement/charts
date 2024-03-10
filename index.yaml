@@ -4224,6 +4224,20 @@ entries:
     version: 0.2.5
   rclone:
   - apiVersion: v2
+    created: "2024-03-10T13:09:51.733946416Z"
+    description: A Helm chart for Kubernetes
+    digest: 5e25255aa0ba9e17f9379590ae60158558319da3b3ea77398252a123976dc012
+    home: https://rclone.org/
+    icon: https://rclone.org/img/logo_on_light__horizontal_color.svg
+    maintainers:
+    - email: jmmaloney4@gmail.com
+      name: jmmaloney4
+    name: rclone
+    type: application
+    urls:
+    - https://github.com/jmmaloney4/charts/releases/download/rclone-2.3.21/rclone-2.3.21.tgz
+    version: 2.3.21
+  - apiVersion: v2
     created: "2024-01-24T17:20:10.564415775Z"
     description: A Helm chart for Kubernetes
     digest: 17b50f18ed816528ba61f510a165239be60639bf894bc3fe592d5e63ba6b6b8d
@@ -6229,4 +6243,4 @@ entries:
     urls:
     - https://github.com/jmmaloney4/charts/releases/download/transmission-1.0.2/transmission-1.0.2.tgz
     version: 1.0.2
-generated: "2024-03-04T10:57:41.561888195Z"
+generated: "2024-03-10T13:09:51.735117214Z"
