@@ -23,7 +23,7 @@ jobs:
           helm repo add k8s-at-home-library https://library-charts.k8s-at-home.com
           helm repo update
 
-      - uses: actions/setup-python@v4.8.0
+      - uses: actions/setup-python@v5.0.0
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.6.1
