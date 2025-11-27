@@ -9,7 +9,7 @@ image:
   # -- image repository
   repository: docker.io/ipfs/go-ipfs
   # -- image tag
-  tag: v0.38.2@sha256:8bc99f94ea109f27ac408354e92b74f4f6f804fe0b4576f424520a20475dc88e
+  tag: v0.39.0@sha256:8d65d89642cb3bace85529a11550df1ee5208f5115680ae86d1944699bd6c48f
   # -- image pull policy
   pullPolicy: IfNotPresent
 
